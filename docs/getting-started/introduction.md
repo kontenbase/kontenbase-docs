@@ -3,9 +3,7 @@ sidebar_position: 1
 slug: /
 ---
 
-# Getting Started
-
-## Introduction
+# Introduction
 
 Kontenbase allows you to easily create backend API, auth, and storage in less than 1 minute without coding.
 
