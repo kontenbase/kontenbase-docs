@@ -1,6 +1,6 @@
 {
-  "name": "pocketbackend-docs",
-  "version": "0.0.1",
+  "name": "kontenbase-docs",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
