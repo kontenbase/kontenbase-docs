@@ -1,26 +1,12 @@
 # Blog
 
-Hi, welcome to the Kontenbase alpha release or preview.
-
-My name's Haidar, Developer Relations Lead of Kontenbase.
-
-Kontenbase is a no-code backend API platform, or Backend as a Service (BaaS), that allows you to create a backend so fast.
-
-If your work is more into the frontend, you can create a backend API without the need to create your backend from scratch.
-
-If you are interested to get an early access, then you can enter your name and email here to be invited.
-
-If you want to give some feedback, you can also do that by clicking this feedback button. You will then can submit the feedback to GitHub Issues.
-
-In this tutorial, let's create a Blog project with Kontenbase.
+Let's create a Blog project with Kontenbase.
 
 ## Expected results
 
 Here are the expected results:
 
 ![Kontenbase Blog Result 1](./blog/kontenbase-blog-result.png)
-
-![Kontenbase Blog Result 2](./blog/kontenbase-blog-result.png)
 
 ## Services or REST API Endpoints
 
