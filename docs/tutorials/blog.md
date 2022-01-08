@@ -12,7 +12,9 @@ Here are the expected results:
 
 There will be some services with their REST API endpoints or functionalities:
 
-Authentication, Users, Articles, and Authors
+Authentication, Users, Articles, and Authors.
+
+We name the services in plural because that's what is usually recommended for naming the endpoints in REST API.
 
 - Authentication
   - Register new user
@@ -20,7 +22,7 @@ Authentication, Users, Articles, and Authors
   - Logout a user
 - Users
   - `GET` Find all users
-    - `GET` Find one or more users with filter
+    - `GET` Find one or more users with a filter
   - `POST` Create one user
   - `PATCH` Update one user
   - `DELETE` Remove one user
@@ -28,14 +30,14 @@ Authentication, Users, Articles, and Authors
     - `DELETE` Remove one user by id
 - Articles
   - `GET` Find all articles
-    - `GET` Find one or more articles with filter
+    - `GET` Find one or more articles with a filter
   - `POST` Create one article
   - `PATCH` Update one article
   - `DELETE` Remove one article
   - `DELETE` Remove all articles
 - Authors
   - `GET` Find all authors
-    - `GET` Find one or more authors with filter
+    - `GET` Find one or more authors with a filter
   - `POST` Create one author
   - `PATCH` Update one author
   - `DELETE` Remove one author
@@ -51,12 +53,12 @@ Authentication, Users, Articles, and Authors
   - `password`: encrypted string
 - Articles
   - `_id`: UUID
-  - `title`: string | single line text
+  - `title`: string | single-line text
   - `description`: string | long text
   - `authors`: array of author id | link to records
 - Authors
   - `_id`: UUID
-  - `name`: string | single line text
+  - `name`: string | single-line text
   - `avatar`: array of attachment object | attachments
   - `articles`: array of article id | link to records
 
@@ -66,8 +68,7 @@ Authentication, Users, Articles, and Authors
 
 ## Create or login to the account
 
-First of all, create a new account or log in to your existing account.
-Currently, we only support Google Account or Gmail at the moment.
+First of all, create a new account or log in to your existing account. Currently, we only support Google Account or Gmail at the moment.
 
 ## Create a project or workspace
 
@@ -75,52 +76,71 @@ Then create a project or workspace, we can name it "Blog".
 
 ## Public Articles
 
-Create a new service called "Articles", and the type is "Public" for now.
-It will generate the default REST API endpoints such as `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`.
+This is the dashboard.
+
+Which shows we don't have any service yet.
+
+Let's create a new service called "Articles", and the type is "Public" for now.
+
+It will generate the default REST API with available requests such as `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`.
 
 ## Customize Article fields
 
-Now let's customize the `Articles` fields so we can have `title` as a string of single line text and `content` as a string of long text.
-
-Done, in less than 1 minute we can have a simple API service.
+Now let's customize the `Articles` fields so we can have `title` as a string of single-line text and `content` as a string of long text.
 
 ## Create some articles
 
 Alright, time to create some articles by using the `POST` request.
 
 - Title: Hello world!
-  - Content: This is the 1st blog post content about hello.
+- Content: This is the 1st blog post content about hello.
 
 Send the request, and receive the response of the created article.
+
 Let's create another one:
 
-- Title: Good bye world!
-  - Content: This is the 2nd blog post content about good bye.
+- Title: Goodbye world!
+- Content: This is the 2nd blog post content about goodbye.
 
-For the content itself you are free to use any format either a plain text, Markdown, or HTML. Because the decision to render that is up to you in the frontend.
+For the content itself, you are free to use any format either plain text, Markdown, or HTML. Because the decision to render that is up to you in the frontend.
 
 ## Find or get the articles
 
 After creating the article, then we can find them with the `GET` request.
-Send the request, and receive the response of the articles.
+
+Notice that right now we are only "Authenticated as Public".
+
+Send the request, and receive the response to the articles.
 
 We can also copy the full URL and put it in the browser or your favorite REST API Client to see.
 
-Filter is also available, so we can find the article's which the title contains "world".
+## Filter articles
 
-Sort and Pagination are also can be used if you want to.
+The filter is available so we can find one or more articles with conditions. For example, which artciels have the title or content containing particular text.
+
+## Sort articles
+
+We can also sort by ascending or descending, depending on how you want it.
+
+## Pagination
+
+Pagination are also can be used if you want to if you have a lot of data.
 
 ## Update or patch an article
 
-We can also update one of the articles with the `PATCH` request.
+Next, we can also update one of the articles with the `PATCH` request.
+
+Get the `id` of the article we want to update, change the fields, and it will be updated.
 
 ## Remove or delete an article
 
-Finally, let's delete one of them with the `DELETE` request.
+Let's try to delete one of them with the `DELETE` request.
+
+Get the `id` of the article we want to delete, enter it, and it will be deleted.
 
 ## Closing
 
-And that's it. We made a "Blog" project backend API with Kontenbase. :tada:
+And that's it. We made a very simple "Blog" project backend API with Kontenbase. 🎉
 
 ---
 
@@ -128,18 +148,63 @@ And that's it. We made a "Blog" project backend API with Kontenbase. :tada:
 
 ## Create new Authors service
 
-Suppose we want to have `Authors` now.
+Next up, suppose we want to have `Authors` now.
+
+Create a new service called `Authors`, but make it `Private` now.
+
+## Customize Authors fields
+
+We can set it up so each author can have `name`, `avatar`, and `articles`.
+
+## Author has avatar as attachments/files
+
+The `avatar` would be an image file, so we can use the attachment field.
+
+This kind of field would be an array of attachment objects.
+
+## Author has many Articles
+
+Since we want an `author` to has many `articles`.
+
+So the `articles` field in the `Authors` service is a link to record to the `Articles` service.
+
+We can also decide if we want to "allow linking to multiple records", which in this case is yes or true.
+
+## Article has one or many Authors
+
+Because the prior link of `Author` has many `Articles`, therefore the `Articles` services automatically had the `authors` field too.
+
+By default the name is `Authors 1` so we can change it to just `authors`.
+
+## Create some authors
+
+Now let's create some authors.
 
 ### Authors
 
 - Elon Musk
-  - Avatar:
+  - Avatar: https://ik.imagekit.io/kontenbaseteam/avatars/elonmusk.jpg
+
+![](https://static.slab.com/prod/uploads/4drkkdm3/posts/images/s_syd1wZThNGd1Xu7q0VltVP.jpg)
+
 - Oprah Winfrey
-  - Avatar:
+  - Avatar: https://ik.imagekit.io/kontenbaseteam/avatars/oprahwinfrey.jpg
+
+![](https://static.slab.com/prod/uploads/4drkkdm3/posts/images/y4TuPeVlu9HOBBd5O1ClDiqv.jpg)
+
 - Bill Gates
-  - Avatar:
+  - Avatar: https://ik.imagekit.io/kontenbaseteam/avatars/billgates.jpg
+
+![](https://static.slab.com/prod/uploads/4drkkdm3/posts/images/FiQsaOueSCiRh5B32UPQbMjP.jpg)
+
 - Susan Wojcicki
-  - Avatar:
+  - Avatar: https://ik.imagekit.io/kontenbaseteam/avatars/susanwojcicki.jpg
+
+![](https://static.slab.com/prod/uploads/4drkkdm3/posts/images/nZtrwPsS2FCf-8m6eVyO372n.jpg)
+
+## Create articles with authors
+
+Since we already setup the `Articles` service and `Authors` service, linked them with each other, now we can create `articles` with one or some `authors`.
 
 ### Articles
 
@@ -157,3 +222,7 @@ Let's create some more articles with the authors.
 - Millennials and YouTubers
   - The article content
   - by Susan Wojcicki
+
+## Closing
+
+Finally, now we have the "Blog" project backend API more complete with Articles and Authors. 🎉
