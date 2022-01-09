@@ -10,7 +10,6 @@ import LoginApi from '!!raw-loader!./snippets/login-api.md';
 
 Log in an existing user. Kontenbase give you some option to choose login strategy.
 
-## Login with Email
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">
@@ -24,7 +23,19 @@ Log in an existing user. Kontenbase give you some option to choose login strateg
   </TabItem>
 </Tabs>
 
-## Login with Magic Link
+
+## Examples
+
+### Login with Email
+
+```javascript
+const { user, error } = await kontenbase.auth.login({
+  email: 'user@mail.com',
+  password: 'password'
+})
+```
+
+### Login with Magic Link
 
 ```javascript
 const { user, error } = await kontenbase.auth.login({
@@ -32,14 +43,14 @@ const { user, error } = await kontenbase.auth.login({
 })
 ```
 
-## Login with Third Party Provider
+### Login with Third Party Provider
 ```javascript
 const { user, error } = await kontenbase.auth.login({
   provider: 'google'
 })
 ```
 
-## Login with Phone 
+### Login with Phone 
 ```javascript
 const { user, error } = await kontenbase.auth.login({
   phone: '+62817891011',
@@ -47,7 +58,7 @@ const { user, error } = await kontenbase.auth.login({
 })
 ```
 
-## Login then Redirect
+### Login then Redirect
 ```javascript
 const { user, error } = await kontenbase.auth.login({
   provider: 'google'

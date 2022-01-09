@@ -51,6 +51,22 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Service',
+      items: [
+        'service/find',
+        {
+          type: 'category',
+          label: 'Modifiers',
+          items: [
+            'service/modifiers/limit',
+            'service/modifiers/sort',
+          ],
+        },
+        'service/create',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Tutorial',
       items: [
         'tutorials/blog',
