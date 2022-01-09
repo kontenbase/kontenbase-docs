@@ -51,6 +51,17 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Users',
+      items: [
+        'users/find',
+        'users/find-by-id',
+        'users/create',
+        'users/update-by-id',
+        'users/delete-by-id',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Service',
       items: [
         'service/find',
@@ -81,7 +92,29 @@ const sidebars = {
             'service/filters/gte',
           ],
         },
+        'service/find-by-id',
         'service/create',
+        'service/update',
+        'service/update-by-id',
+        'service/delete',
+        'service/delete-by-id',
+        'service/link',
+        'service/unlink',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Realtime',
+      items: [
+        'realtime/subscribe',
+        'realtime/unsubscribe',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Storage',
+      items: [
+        'storage/upload',
       ],
     },
     {

@@ -28,12 +28,12 @@ Sends an invite link to an email address.
 ## Examples
 
 ### Find All Data
-```
+```javascript
 const { data, error } = await kontenbase.service('posts').find()
 ```
 
 ### Find Specific Fields
-```
+```javascript
 const { data, error } = await kontenbase.service('posts')
     .find()
     .select(`
@@ -44,7 +44,7 @@ const { data, error } = await kontenbase.service('posts')
 ```
 
 ### Find with Relation
-```
+```javascript
 const { data, error } = await kontenbase.service('posts')
     .find()
     .select(`
@@ -59,6 +59,6 @@ const { data, error } = await kontenbase.service('posts')
 ```
 
 ### Find with Count
-```
+```javascript
 const { data, error, count } = await kontenbase.service('posts').find()
 ```
