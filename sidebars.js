@@ -30,7 +30,11 @@ const sidebars = {
       label: 'Auth',
       items: [
         'auth/register',
-        'auth/login'
+        'auth/login',
+        'auth/logout',
+        'auth/user',
+        'auth/update',
+        'auth/reset-password',
       ],
     },
     {

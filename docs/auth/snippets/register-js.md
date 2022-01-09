@@ -1,6 +1,6 @@
 const { data } = await kontenbase.auth.register({
-    firstName: 'John',
-    lastName: 'Doe',
-    email: 'user@gmail.com',
+    firstName: 'Ega',
+    lastName: 'Radiegtya',
+    email: 'user@mail.com',
     password: 'password',
 })

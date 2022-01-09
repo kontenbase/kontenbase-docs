@@ -1,25 +1,23 @@
 ---
-title: login()
+title: update()
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
-import LoginJs from '!!raw-loader!./snippets/login-js.md';
-import LoginApi from '!!raw-loader!./snippets/login-api.md';
+import UpdateJs from '!!raw-loader!./snippets/update-js.md';
+import UpdateApi from '!!raw-loader!./snippets/update-api.md';
 
-Log in an existing user.
+Update user data, if there is a logged in user.
 <Tabs>
-  <TabItem value="javascript" label="Javascript" default>
+  <TabItem value="javascript" label="Javascript" default>    
     <CodeBlock className="language-jsx">
-      {LoginJs}
+      {UpdateJs}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">
     <CodeBlock className="language-jsx" title="[POST]">
-      {LoginApi}
+      {UpdateApi}
     </CodeBlock>
   </TabItem>
 </Tabs>
-
-
