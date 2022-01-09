@@ -37,7 +37,14 @@ const sidebars = {
         'auth/logout',
         'auth/user',
         'auth/update',
-        'auth/reset-password',
+        'auth/reset-password',        
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Auth (Server Only)',
+      items: [
+        'auth-server/generate-link',
       ],
     },
     {

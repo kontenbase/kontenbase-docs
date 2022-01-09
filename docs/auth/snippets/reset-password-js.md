@@ -1,1 +1,1 @@
-const { user, error } = await kontenbase.auth.resetPassword('user@mail.com')
+const { data, error } = await kontenbase.auth.resetPassword('user@mail.com')
