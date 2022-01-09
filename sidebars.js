@@ -22,7 +22,10 @@ const sidebars = {
       type: 'category',
       label: 'Getting Started',
       items: [
-        'getting-started/introduction'
+        'getting-started/introduction',
+        'getting-started/installation',
+        'getting-started/quick-start',
+        'getting-started/data-types'
       ],
     },
     {
