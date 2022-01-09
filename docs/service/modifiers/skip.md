@@ -1,23 +1,23 @@
 ---
-title: sort()
+title: skip()
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
-import SortJs from '!!raw-loader!./snippets/sort-js.md';
-import SortApi from '!!raw-loader!./snippets/sort-api.md';
+import SkipJs from '!!raw-loader!./snippets/skip-js.md';
+import SkipApi from '!!raw-loader!./snippets/skip-api.md';
 
-Orders the result with the specified column.
+Skip the starting index of the data.
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">
-      {SortJs}
+      {SkipJs}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">
     <CodeBlock className="language-jsx" title="[GET]">
-      {SortApi}
+      {SkipApi}
     </CodeBlock>
   </TabItem>
 </Tabs>

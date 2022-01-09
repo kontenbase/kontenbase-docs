@@ -16,7 +16,7 @@ Limits the result with the specified count.
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">
-    <CodeBlock className="language-jsx" title="[POST]">
+    <CodeBlock className="language-jsx" title="[GET]">
       {LimitApi}
     </CodeBlock>
   </TabItem>

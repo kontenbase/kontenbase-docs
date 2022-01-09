@@ -60,6 +60,15 @@ const sidebars = {
           items: [
             'service/modifiers/limit',
             'service/modifiers/sort',
+            'service/modifiers/skip',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Filters',
+          items: [
+            'service/filters/using-filters',
+            'service/filters/eq',
           ],
         },
         'service/create',
