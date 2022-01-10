@@ -1,3 +1,2 @@
 const { data, error } = await kontenbase.service('posts')
-    .find()
-    .sort({createdAt: -1})
+    .find({sort: {createdAt: -1}})

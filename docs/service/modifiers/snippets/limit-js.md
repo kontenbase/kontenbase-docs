@@ -1,3 +1,2 @@
 const { data, error } = await kontenbase.service('posts')
-    .find()
-    .limit(1)
+    .find({limit: 1})

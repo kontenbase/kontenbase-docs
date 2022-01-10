@@ -6,5 +6,7 @@ Finds all rows whose value on the stated column doesn't match the specified valu
 
 ```javascript
 const { data, error } = await kontenbase.service('posts')
-    .find({ title: {$ne: 'My Post Title'}})
+    .find({
+        where: { title: {$ne: 'My Post Title'}}
+    })
 ```

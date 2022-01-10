@@ -6,5 +6,7 @@ Finds all rows whose value in the stated column matches the supplied pattern (ca
 
 ```javascript
 const { data, error } = await kontenbase.service('posts')
-    .find({ title: {$contains: 'My Post Title'}})
+    .find({
+        where: { title: {$contains: 'My Post Title'}}
+    })
 ```

@@ -1,5 +1,5 @@
 ---
-title: $or
+title: or
 ---
 
 Finds all rows satisfying at least one of the filters.
@@ -7,7 +7,7 @@ Finds all rows satisfying at least one of the filters.
 ```javascript
 const { data, error } = await kontenbase.service('posts')
     .find({
-        $or: [
+        or: [
             {tags: 'sport'},
             {tags: 'game'}
         ]

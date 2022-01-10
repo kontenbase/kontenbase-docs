@@ -6,5 +6,7 @@ Finds all rows whose value on the stated column is less than or equal to the spe
 
 ```javascript
 const { data, error } = await kontenbase.service('posts')
-    .find({ like: {$lte: 100}})
+    .find({
+        where: { share: {$lte: 100}}
+    })
 ```

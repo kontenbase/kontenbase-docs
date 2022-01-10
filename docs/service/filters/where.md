@@ -1,23 +1,23 @@
 ---
-title: Using Filters
+title: where
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
-import UsingFiltersJs from '!!raw-loader!./snippets/using-filters-js.md';
-import UsingFiltersApi from '!!raw-loader!./snippets/using-filters-api.md';
+import WhereJs from '!!raw-loader!./snippets/where-js.md';
+import WhereApi from '!!raw-loader!./snippets/where-api.md';
 
 Filters can be used on select(), update(), and delete() queries.
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">
-      {UsingFiltersJs}
+      {WhereJs}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">
     <CodeBlock className="language-jsx" title="[GET]">
-      {UsingFiltersApi}
+      {WhereApi}
     </CodeBlock>
   </TabItem>
 </Tabs>

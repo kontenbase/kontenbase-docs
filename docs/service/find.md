@@ -35,30 +35,11 @@ const { data, error } = await kontenbase.service('posts').find()
 ### Find Specific Fields
 ```javascript
 const { data, error } = await kontenbase.service('posts')
-    .find()
-    .select(`
-        title,
-        description,
-        image
-    `) 
+    .find({select: ['title', 'description', 'image']})
 ```
 
-### Find with Relation
+### Find with Relation (Lookup)
 ```javascript
 const { data, error } = await kontenbase.service('posts')
-    .find()
-    .select(`
-        title,
-        createdBy {
-            firstName
-        },
-        comments {
-            text
-        }
-    `) 
-```
-
-### Find with Count
-```javascript
-const { data, error, count } = await kontenbase.service('posts').find()
+  .find({ lookup: ['categories', 'createdBy'] })
 ```

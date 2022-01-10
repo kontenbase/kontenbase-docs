@@ -6,5 +6,7 @@ Finds all rows whose value on the stated column is greater than the specified va
 
 ```javascript
 const { data, error } = await kontenbase.service('posts')
-    .find({ like: {$gt: 100}})
+    .find({
+        where: { share: {$gt: 100}}
+    })
 ```
