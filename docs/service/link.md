@@ -1,3 +1,10 @@
 ---
 title: link()
 ---
+
+```javascript
+const { data } = await kontenbase.service('posts')
+    .link('605a251d7b8678bf6811k3b1', {
+        categories: '61d26e8e2adb12b85c33029c',
+    })
+```

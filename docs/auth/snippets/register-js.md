@@ -1,4 +1,4 @@
-const { data } = await kontenbase.auth.register({
+const { user, error } = await kontenbase.auth.register({
     firstName: 'Ega',
     lastName: 'Radiegtya',
     email: 'user@mail.com',
