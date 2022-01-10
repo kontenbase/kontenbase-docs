@@ -49,17 +49,17 @@ const sidebars = {
         'auth-server/send-mobile-otp',
       ],
     },
-    {
-      type: 'category',
-      label: 'Users',
-      items: [
-        'users/find',
-        'users/find-by-id',
-        'users/create',
-        'users/update-by-id',
-        'users/delete-by-id',
-      ],
-    },
+    // {
+    //   type: 'category',
+    //   label: 'Users',
+    //   items: [
+    //     'users/find',
+    //     'users/find-by-id',
+    //     'users/create',
+    //     'users/update-by-id',
+    //     'users/delete-by-id',
+    //   ],
+    // },
     {
       type: 'category',
       label: 'Service',
