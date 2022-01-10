@@ -1,5 +1,5 @@
 ---
-title: limit()
+title: limit
 ---
 
 import Tabs from '@theme/Tabs';

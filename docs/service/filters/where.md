@@ -8,7 +8,7 @@ import CodeBlock from '@theme/CodeBlock';
 import WhereJs from '!!raw-loader!./snippets/where-js.md';
 import WhereApi from '!!raw-loader!./snippets/where-api.md';
 
-Filters can be used on select(), update(), and delete() queries.
+Where can be used on select(), update(), and delete() queries.
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">

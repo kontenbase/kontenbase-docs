@@ -1,1 +1,1 @@
-https://api.kontenbase.com/query/api/v1/API_KEY/posts?%24limit=1
+https://api.kontenbase.com/query/api/v1/API_KEY/posts?limit=1

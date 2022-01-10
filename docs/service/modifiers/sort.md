@@ -1,5 +1,5 @@
 ---
-title: sort()
+title: sort
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,5 @@
 ---
-title: skip()
+title: skip
 ---
 
 import Tabs from '@theme/Tabs';

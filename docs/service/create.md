@@ -8,7 +8,7 @@ import CodeBlock from '@theme/CodeBlock';
 import CreateJs from '!!raw-loader!./snippets/create-js.md';
 import CreateApi from '!!raw-loader!./snippets/create-api.md';
 
-Sends an invite link to an email address.
+Create a record.
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">
