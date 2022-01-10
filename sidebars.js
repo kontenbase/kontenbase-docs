@@ -40,15 +40,15 @@ const sidebars = {
         'auth/reset-password',        
       ],
     },
-    {
-      type: 'category',
-      label: 'Auth (Server Only)',
-      items: [
-        'auth-server/generate-link',
-        'auth-server/invite-user-by-email',
-        'auth-server/send-mobile-otp',
-      ],
-    },
+    // {
+    //   type: 'category',
+    //   label: 'Auth (Server Only)',
+    //   items: [
+    //     'auth-server/generate-link',
+    //     'auth-server/invite-user-by-email',
+    //     'auth-server/send-mobile-otp',
+    //   ],
+    // },
     // {
     //   type: 'category',
     //   label: 'Users',
