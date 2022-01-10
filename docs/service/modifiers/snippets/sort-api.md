@@ -1,1 +1,1 @@
-https://api.kontenbase.com/query/api/v1/API_KEY/posts?sort%5BcreatedAt%5D=-1
+https://api.kontenbase.com/query/api/v1/API_KEY/posts?%24sort%5BcreatedAt%5D=-1

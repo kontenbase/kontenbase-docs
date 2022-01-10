@@ -34,7 +34,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      hideableSidebar: true,
+      hideableSidebar: false,
       navbar: {
         title: '',
         logo: {

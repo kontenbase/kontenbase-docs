@@ -121,8 +121,8 @@ const sidebars = {
       label: 'Tutorial',
       items: [
         'tutorials/blog',
-        'tutorials/todos',
-        'tutorials/chat',
+        // 'tutorials/todos',
+        // 'tutorials/chat',
       ],
     },
   ],
