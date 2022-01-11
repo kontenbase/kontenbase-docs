@@ -6,12 +6,24 @@ Kontenbase SDK could be installed whether on Client Side Javascript such as Vani
 
 ## Javascript
 
-Via NPM
+### Via NPM
 ```
 npm install --save @kontenbase/sdk
 ```
 
-Or Via CDN
+**Usage**
+
+Configure package with your account's API key obtained from your Kontenbase Dashboard.
+
+```javascript
+const { KontenbaseClient } = require('@kontenbase/sdk')
+
+const kontenbase = new KontenbaseClient({
+  apiKey: 'YOUR_API_KEY',
+})
+```
+
+### Via CDN
 ```
 <script src="https://cdn.jsdelivr.net/npm/@kontenbase/sdk"></script>
 ```
