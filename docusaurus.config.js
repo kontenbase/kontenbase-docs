@@ -9,7 +9,7 @@ const config = {
   tagline: 'No Code Backend API, Fast and Easy!',
   url: 'https://docs.kontenbase.com',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'kontenbase',
