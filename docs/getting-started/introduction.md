@@ -2,7 +2,6 @@
 title: Introduction
 slug: /
 ---
-<hr/>
 
 <p>
 <img width="200" src="https://user-images.githubusercontent.com/2161622/148682295-02674a97-62b0-41cc-90f0-793ef7065689.png"/>
