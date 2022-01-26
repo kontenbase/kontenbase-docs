@@ -1,0 +1,242 @@
+---
+title: Getting Started
+---
+
+import YouTube from 'react-youtube'
+
+## Introduction
+
+Let's go through some basic concepts in Kontenbase:
+
+- Project
+- Service
+- Authorization
+- Customize Fields
+- API Client
+- Data Table
+- Relational Services
+- and SDK
+
+## Project
+
+Once in the dashboard, you can create a new Project or use the existing Project you already have.
+
+The project can be named for apps such as:
+
+- Blog
+- Task
+- Todo
+- Chat
+- Address book
+- Store
+- Dictionary
+- Comedy
+- and so on
+
+After creating the Project, you can see the Project Settings here by clicking the gear icon:
+
+- Name of the project
+- REST API Key which we can copy
+- or if we want to delete the project
+
+## Service
+
+Within the Project, you can create some services.
+
+It will automatically generate their REST API endpoints or functionalities with available requests such as:
+
+- GET
+- POST
+- PATCH
+- and DELETE
+
+The REST API URL will be something like:
+
+[https://api.kontenbase.com/query/api/v1](https://api.kontenbase.com/query/api/v1) with the REST API Key
+
+The default built-in services are:
+
+- Authentication on `/auth`
+- Storage on `/storage`
+- Users on `/users`
+
+You can also create your services such as:
+
+- Articles
+- Authors
+- Todos
+- Messages
+- Contacts
+- Products
+- Carts
+- Words
+- Jokes
+- and so on
+
+We should name the services with plural words (except the Authentication) because that's what is usually recommended for naming the endpoints in REST API.
+
+### Authentication
+
+Authentication service can:
+
+- Register new user with name, email, and password
+- Login with email and password
+- Logout a user
+- Get user information
+- and Update user information
+
+### Storage
+
+Storage service can:
+
+- Find files
+- Create or upload file
+- and Delete the file by id
+
+### Users
+
+Users service can:
+
+- Find users
+- Get users
+- Create a new user
+- Update existing user
+- Delete a user by id
+- Link a user to certain fields
+- and Unlink a user to certain fields
+
+### Records or Items
+
+Any service we created will have generic available requests similar to Users service such as:
+
+- Find records
+- Get records
+- Create a new record
+- Update existing record
+- Delete record by id
+- Link a record to certain fields
+- and Unlink a record to certain fields
+
+## Authorization
+
+Authorization allows us to manage each role in our project such as:
+
+- Public
+- Authenticated
+- and Admin
+
+Then we can also toggle the permissions for certain requests such as:
+
+- GET
+- POST
+- PATCH
+- and DELETE
+
+With additional rules like:
+
+- Only find their data?
+- Prevent updating others' data?
+- and Prevent deleting others' data?
+
+## Customize Fields
+
+We can customize each service's fields with what we need:
+
+- Edit existing field
+- Delete existing field
+- Or add a new field
+
+We can name the field with a certain type based on what we need:
+
+- Link to Record
+- Single line text
+- Long text
+- Attachment for files in storage
+- Check box
+- Multi-select
+- Single select
+- Date and time
+- Phone number
+- Email
+- URL
+- Number
+- Currency
+- Percent
+- Duration in time
+- Rating
+- Created at
+- Updated at
+- Created by
+- and Updated by
+
+## API Client
+
+To interact with the API, we can use the built-in API Client interface or try the API directly in the app. Of course, we can still use other API clients such as cURL, HTTPie, Postman, Insomnia, and as we like.
+
+With this, we can send the request and receive the response right away.
+
+There are also 2 modes, Simple and Advanced.
+
+In Simple Mode, you can:
+
+- Set the &quot;Authenticated as&quot; certain user
+- And use modifiers:
+  - Filter with condition
+  - Sort field with the order method
+  - Pagination with limit and skip
+  - Toggle auto Lookup link to record fields
+  - Select only certain fields
+
+In Advanced Mode, you can:
+
+- Set the Headers key and value
+- Set the Params key and value
+
+## Data Table
+
+What's nice about Kontenbase is other than using the REST API or API Client interface, we can also use the Data Table interface.
+
+Similar to a spreadsheet, where we can do some things directly:
+
+- Edit the records
+- Hide certain fields
+- Filtering
+- and Grouping
+
+## Relational Services
+
+To link different records together, we can do relational services.
+
+Just make sure the Service fields have a &quot;Link to Record&quot; field.
+
+We can also toggle &quot;Allow linking to multiple records&quot; too.
+
+Therefore when we create or update the record, we can set the relation to the other records.
+
+## SDK
+
+The SDK or Software Development Kit for Kontenabse is available on npm:
+
+[https://www.npmjs.com/package/@kontenbase/sdk](https://www.npmjs.com/package/@kontenbase/sdk)
+
+We can install it in our project like this:
+
+```bash
+npm install @kontenbase/sdk
+```
+
+Then configure it with the API key obtained from the dashboard:
+
+```js
+import { KontenbaseClient } from '@kontenbase/sdk'
+
+const kontenbase = new KontenbaseClient({ apiKey: 'YOUR_API_KEY' })
+```
+
+After that we can do data manipulation as usual:
+
+```js
+const { data, error } = await kontenbase.service('articles').create({
+  title: 'The new world',
+})
+```
