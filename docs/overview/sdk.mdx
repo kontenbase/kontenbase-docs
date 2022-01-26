@@ -1,0 +1,46 @@
+---
+title: SDK
+---
+
+Kontenbase SDK (Software Development Kit) could be installed whether on Client Side Javascript such as Vanilla Js, React, Vue, etc, and also Server Side Javascript such as Node Js.
+
+## JavaScript
+
+### Installation via NPM
+
+```
+npm install @kontenbase/sdk
+```
+
+### Installation via CDN
+
+```
+<script src="https://cdn.jsdelivr.net/npm/@kontenbase/sdk"></script>
+```
+
+### Usage
+
+Configure the package with your project's API Key obtained from the dashboard or project settings.
+
+ES Modules:
+
+```js
+import { KontenbaseClient } from '@kontenbase/sdk'
+
+const kontenbase = new KontenbaseClient({ apiKey: 'YOUR_API_KEY' })
+```
+
+CommonJS:
+
+```js
+const { KontenbaseClient } = require('@kontenbase/sdk')
+
+const kontenbase = new KontenbaseClient({ apiKey: 'YOUR_API_KEY' })
+```
+
+With the SDK we can perform Kontenbase built-in features for:
+
+- Auth
+- Service
+- Realtime
+- Storage
