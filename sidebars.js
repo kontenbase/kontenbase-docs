@@ -20,12 +20,13 @@ const sidebars = {
   tutorialSidebar: [
     {
       type: 'category',
-      label: 'Getting Started',
+      label: 'Overview',
       items: [
-        'getting-started/introduction',
-        'getting-started/installation',
-        'getting-started/quick-start',
-        'getting-started/data-types'
+        'overview/welcome',
+        'overview/quick-look',
+        'overview/getting-started',
+        'overview/data-types',
+        'overview/sdk',
       ],
     },
     {
@@ -37,7 +38,7 @@ const sidebars = {
         'auth/logout',
         'auth/user',
         'auth/update',
-        'auth/reset-password',        
+        'auth/reset-password',
       ],
     },
     // {
@@ -104,17 +105,12 @@ const sidebars = {
     {
       type: 'category',
       label: 'Realtime',
-      items: [
-        'realtime/subscribe',
-        'realtime/unsubscribe',
-      ],
+      items: ['realtime/subscribe', 'realtime/unsubscribe'],
     },
     {
       type: 'category',
       label: 'Storage',
-      items: [
-        'storage/upload',
-      ],
+      items: ['storage/upload'],
     },
     {
       type: 'category',
@@ -126,6 +122,6 @@ const sidebars = {
       ],
     },
   ],
-};
+}
 
-module.exports = sidebars;
+module.exports = sidebars

@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Kontenbase',
-  tagline: 'No Code Backend API, Fast and Easy!',
+  tagline: 'Documentation of Kontenbase, a node code backend API platform.',
   url: 'https://docs.kontenbase.com',
   baseUrl: '/',
   onBrokenLinks: 'ignore',
