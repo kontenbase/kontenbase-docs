@@ -1,0 +1,122 @@
+---
+title: Writter, a Twitter clone
+---
+
+import YouTube from 'react-youtube'
+
+Let's create an app called Writter, a Twitter clone made using Remix and Kontenbase.
+
+Twitter has posts called Tweets. Writter has posts called Wreets.
+
+You can check the final result here:
+
+- GitHub repository: https://github.com/kontenbase-team/writter
+- Live URL: https://writter.kontenbase.com
+
+## Video Overview
+
+(There will be a video overview here)
+
+## Expected results
+
+(There will be some screenshots here)
+
+## Services or REST API Endpoints
+
+There will be some services with their REST API endpoints or functionalities:
+
+Authentication, Users, and Wreets.
+
+- Authentication
+  - Register new user
+  - Login to user
+  - Logout a user
+- Users
+  - `GET` Find all users
+    - `GET` Find one or more users with a filter
+  - `POST` Create one user
+  - `PATCH` Update one user
+  - `DELETE` Remove one user
+  - `DELETE` Remove all users
+    - `DELETE` Remove one user by id
+- Wreets
+  - `GET` Find all wreets
+    - `GET` Find one or more wreets with a filter
+  - `POST` Create one wreet
+  - `PATCH` Update one wreet
+  - `DELETE` Remove one wreet
+  - `DELETE` Remove all wreets
+
+## Fields or Data Structure
+
+- Users
+  - `_id`: UUID
+  - `firstName`: string
+  - `lastName`: string
+  - `email`: string
+  - `password`: encrypted string
+- Wreets
+  - `_id`: UUID
+  - `content`: string | multi-line text
+  - `createdAt`: datetime
+  - `createdBy`: link to User
+
+---
+
+# Blog with Simple Service
+
+## Create or login to the account
+
+First of all, create a new account or log in to your existing account. Currently, we only support Google Account or Gmail at the moment.
+
+## Create a project
+
+Then create a project, we can name it "Writter".
+
+## Private Wreets
+
+This is the dashboard.
+
+Which shows we don't have any service yet.
+
+Let's create a new service called "Wreets", and the type is "Private".
+
+It will generate the default REST API with available requests such as `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`.
+
+## Customize Wreets fields
+
+Now let's customize the `Wreets` fields so we can have:
+
+- `content` as a string of multi-line text
+- `createdAt` as a string of datetime.
+
+## Create some wreets
+
+Alright, time to create some wreets by using the `POST` request.
+
+- Authentication: ...
+- Content: Just setting up my Writter.
+
+Send the request, and receive the response of the created Wreet.
+
+For the content itself, you are free to use any format either plain text, Markdown, or HTML. Because the decision to render that is up to you in the frontend.
+
+## Find or get the wreets
+
+After creating the wreet, then we can find them with the `GET` request.
+
+Send the request, and receive the response to the wreets.
+
+We can also copy the full URL and put it in the browser or your favorite REST API Client to see.
+
+## Update or patch a wreet
+
+Next, we can also update one of the wreets with the `PATCH` request.
+
+Get the `id` of the wreet we want to update, change the fields, and it will be updated.
+
+## Remove or delete a wreet
+
+Let's try to delete one of them with the `DELETE` request.
+
+Get the `id` of the wreet we want to delete, enter it, and it will be deleted.
