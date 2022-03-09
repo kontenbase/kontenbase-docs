@@ -9,3 +9,114 @@ Let's create a simple form using HTML that interact with Kontenbase SDK via CDN.
 ## Video Overview
 
 <YouTube videoId="og-5Pg5HF7Y" />
+
+## Expected results
+
+(There will be some screenshots here)
+
+## Services or REST API Endpoints
+
+There will be only two services with their REST API endpoints or functionalities:
+
+Storage and Names
+
+We name the services in plural because that's what is usually recommended for naming the endpoints in REST API.
+
+- Storage
+  - `GET` Find all files
+  - `POST` Post one file
+  - `DELETE` Remove one file
+- Names
+  - `GET` Find all authors
+    - `GET` Find one or more authors with a filter
+  - `GET` Find record by ID
+  - `POST` Create one author
+  - `PATCH` Update one author
+  - `DELETE` Remove one author
+
+# Fields or Data Structure
+
+- Names
+  - `_id`: UUID
+  - `name`: string | single-line text
+  - `createdAt`: date | createdAt
+
+Notes: You can blank the field name and it will generate field name like the choosen data structure
+
+---
+
+# Plain Form HTML with Simple Service
+
+## Create or login to your account
+
+First of all, create a new account or log in to your existing Kontenbase account. Currently, we only support Google Account or Gmail at the moment.
+
+## Create a project or workspace
+
+Then create a project or workspace, we can name it "Form HTML".
+
+## Public Names
+
+This is the workspace.
+
+That shows we don't have any service yet.
+
+Let's create a new service called "names", and the type is "Public".
+
+It will generate the default REST API with available requests such as `GET`, `POST`, `PATCH`, and `DELETE`.
+
+## Customize Article fields
+
+Now let's customize the `Names` fields so we can have `names` as a string of single-line text and `createdAt` as a date.
+
+## Create some Names
+
+Alright, time to create some names by using the `POST` request.
+
+- Name : Harry
+
+Send the request, and receive the created name with JSON API response format.
+
+Let's create another one:
+
+- Name : Ron
+
+## Find or get the names
+
+After creating the names, then we can find them with the `GET` request.
+
+Notice that right now we are only "Authenticated as Public".
+
+Send the request, and receive the response to the names.
+
+We can also copy the full URL and put it in the browser or your favorite REST API Client to see the recrds.
+
+## Filter names
+
+The filter is available. We can find one or more names with conditions using filter. Such as find names that containing particular word. 
+
+## Sort names
+
+Sorting names to ascending or descending from certain field is easy.
+
+## Pagination
+
+We may also use pagination in order to get certain amount of data from a huge data you had.
+
+## Update or patch a name
+
+Next, we can also update one of the names with the `PATCH` request.
+
+Get the `id` of the names we want to update, fill the name field with the up-to-date information, and it will be updated.
+
+## Remove or delete a name
+
+Let's try to delete one of them with the `DELETE` request.
+
+Get the `id` of the name we want to delete, enter it, and it will be deleted.
+
+## Closing
+
+And that's it. We made a very simple "Plain Names Form HTML" project backend API with Kontenbase. 🎉
+
+---
