@@ -22,10 +22,10 @@ Sends an invite link to an email address.
   </TabItem>
 </Tabs>
 
-## Parameters
+### Parameters
 |Name   |Type  |Description       |
 |-------|------|------------------|
 |email (required)|string|The user email|
 
-## Note
+### Notes
 - This function should only be called on server

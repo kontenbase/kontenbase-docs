@@ -2,14 +2,23 @@
 title: or
 ---
 
-Finds all rows satisfying at least one of the filters.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import OrJs from '!!raw-loader!./snippets/or-js.md';
+import OrApi from '!!raw-loader!./snippets/or-api.md';
 
-```javascript
-const { data, error } = await kontenbase.service('posts')
-    .find({
-        or: [
-            {tags: 'sport'},
-            {tags: 'game'}
-        ]
-    })
-```
+Find all records that match any of the given criteria.
+
+<Tabs>
+  <TabItem value="javascript" label="Javascript" default>
+    <CodeBlock className="language-jsx">
+      {OrJs}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="API" label="API">
+    <CodeBlock className="language-jsx" title="[GET]">
+      {OrApi}
+    </CodeBlock>
+  </TabItem>
+</Tabs>

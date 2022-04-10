@@ -22,10 +22,10 @@ Sends a mobile OTP via SMS. Will register the account if it doesn't already exis
   </TabItem>
 </Tabs>
 
-## Parameters
+### Parameters
 |Name   |Type  |Description       |
 |-------|------|------------------|
 |phoneNumber (required)|string|The user's phone number WITH international prefix|
 
-## Note
+### Notes
 - This function should only be called on server

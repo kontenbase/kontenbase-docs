@@ -8,7 +8,8 @@ import CodeBlock from '@theme/CodeBlock';
 import FindJs from '!!raw-loader!./snippets/find-js.md';
 import FindApi from '!!raw-loader!./snippets/find-api.md';
 
-Sends an invite link to an email address.
+Find all records from the service.
+
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">
@@ -16,16 +17,16 @@ Sends an invite link to an email address.
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">
-    <CodeBlock className="language-jsx" title="[POST]">
+    <CodeBlock className="language-jsx" title="[GET]">
       {FindApi}
     </CodeBlock>
   </TabItem>
 </Tabs>
 
-## Note
-- By Default Kontenbase will return a maximum of 1.000 rows to prevent from malicious requests. 
+### Notes
+- By default Kontenbase will return a maximum of 100 records to prevent from malicious requests. 
 
-## Examples
+<!-- ## Examples
 
 ### Find All Data
 ```javascript
@@ -42,4 +43,4 @@ const { data, error } = await kontenbase.service('posts')
 ```javascript
 const { data, error } = await kontenbase.service('posts')
   .find({ lookup: ['categories', 'createdBy'] })
-```
+``` -->

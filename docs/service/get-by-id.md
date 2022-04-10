@@ -8,7 +8,8 @@ import CodeBlock from '@theme/CodeBlock';
 import GetByIdJs from '!!raw-loader!./snippets/get-by-id-js.md';
 import GetByIdApi from '!!raw-loader!./snippets/get-by-id-api.md';
 
-Get a record by Id.
+Get a record by id.
+
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">
@@ -21,3 +22,16 @@ Get a record by Id.
     </CodeBlock>
   </TabItem>
 </Tabs>
+
+### Notes
+
+Get a record with filters:
+- select
+- lookup
+
+```javascript
+const { data, error } = await kontenbase.service('posts').getById('605a251d7b8678bf6811k3b1', {
+  filterKey: filterValue,
+  ...
+})
+```

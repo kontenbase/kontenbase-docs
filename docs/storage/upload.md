@@ -9,5 +9,5 @@ const file = event.target.files[0]
 const { data, error } = await kontenbase.storage.upload(file)
 ```
 
-## Note
-- Default Bucket used is Kontenbase project ID
+### Notes
+- Default bucket used is Kontenbase project id

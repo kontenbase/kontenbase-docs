@@ -168,6 +168,3 @@ Upon login, this is the beginning. Create workspace where the project developmen
 A service is place to manage and store records based on the field arrangement. There are 2 types of service on Kontenbase : Public Service and Private Service.
 
 In Public Service, users are free to search, create, update, and even delete records without being authenticated.
-
-
-

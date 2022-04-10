@@ -9,6 +9,7 @@ import UserJs from '!!raw-loader!./snippets/user-js.md';
 import UserApi from '!!raw-loader!./snippets/user-api.md';
 
 Return user data if there is a logged in user
+
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>    
     <CodeBlock className="language-jsx">
@@ -21,3 +22,15 @@ Return user data if there is a logged in user
     </CodeBlock>
   </TabItem>
 </Tabs>
+
+### Notes
+
+Get user with filter:
+- lookup
+
+```javascript
+const { user, error } = await kontenbase.auth.user({
+  filterKey: filterValue,
+  ...
+})
+```

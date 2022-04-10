@@ -9,6 +9,7 @@ import DeleteByIdJs from '!!raw-loader!./snippets/delete-by-id-js.md';
 import DeleteByIdApi from '!!raw-loader!./snippets/delete-by-id-api.md';
 
 Delete a record by id.
+
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">

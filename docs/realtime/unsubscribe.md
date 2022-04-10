@@ -2,12 +2,21 @@
 title: unsubscribe()
 ---
 
-Subscribe to realtime changes in your service.
+Unsubscribe to realtime changes in your service.
 
 ```javascript
-const subscription = await kontenbase.realtime.subscribe('posts', { event: 'CREATE_RECORD', where: { tags: 'sport' } }, (message) => {
-  console.log(message)
-})
+const key = await kontenbase.realtime.subscribe(
+  'posts',
+  { event: '*' },
+  (message) => {
+    if (message.error) {
+      console.log(message.error)
+      return
+    }
 
-kontenbase.realtime.unsubscribe(subscription)
+    console.log(message.event, message.payload)
+  }
+)
+
+kontenbase.realtime.unsubscribe(key)
 ```

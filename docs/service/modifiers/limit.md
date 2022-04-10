@@ -8,7 +8,8 @@ import CodeBlock from '@theme/CodeBlock';
 import LimitJs from '!!raw-loader!./snippets/limit-js.md';
 import LimitApi from '!!raw-loader!./snippets/limit-api.md';
 
-Limits the result with the specified count.
+Limit the result with the specified count.
+
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">

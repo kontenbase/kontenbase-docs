@@ -8,7 +8,8 @@ import CodeBlock from '@theme/CodeBlock';
 import LoginJs from '!!raw-loader!./snippets/login-js.md';
 import LoginApi from '!!raw-loader!./snippets/login-api.md';
 
-Log in an existing user. Kontenbase give you some option to choose login strategy.
+Log in an existing user.
+<!-- Kontenbase give you some option to choose login strategy. -->
 
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>
@@ -23,8 +24,7 @@ Log in an existing user. Kontenbase give you some option to choose login strateg
   </TabItem>
 </Tabs>
 
-
-## Examples
+<!-- ## Examples
 
 ### Login with Email
 
@@ -65,4 +65,4 @@ const { user, error } = await kontenbase.auth.login({
 }, {
   redirectTo: 'https://yoursite.com/example'
 })
-```
+``` -->

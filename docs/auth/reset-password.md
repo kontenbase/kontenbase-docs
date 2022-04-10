@@ -9,6 +9,7 @@ import ResetPasswordJs from '!!raw-loader!./snippets/reset-password-js.md';
 import ResetPasswordApi from '!!raw-loader!./snippets/reset-password-api.md';
 
 Return user data if there is a logged in user
+
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>    
     <CodeBlock className="language-jsx">

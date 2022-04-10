@@ -9,6 +9,7 @@ import CreateJs from '!!raw-loader!./snippets/create-js.md';
 import CreateApi from '!!raw-loader!./snippets/create-api.md';
 
 Create a record.
+
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">

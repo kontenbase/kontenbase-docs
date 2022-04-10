@@ -2,11 +2,23 @@
 title: $lte
 ---
 
-Finds all rows whose value on the stated column is less than or equal to the specified value.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import LteJs from '!!raw-loader!./snippets/lte-js.md';
+import LteApi from '!!raw-loader!./snippets/lte-api.md';
 
-```javascript
-const { data, error } = await kontenbase.service('posts')
-    .find({
-        where: { share: {$lte: 100}}
-    })
-```
+Find all records where the value is less and equal to a given value.
+
+<Tabs>
+  <TabItem value="javascript" label="Javascript" default>
+    <CodeBlock className="language-jsx">
+      {LteJs}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="API" label="API">
+    <CodeBlock className="language-jsx" title="[GET]">
+      {LteApi}
+    </CodeBlock>
+  </TabItem>
+</Tabs>

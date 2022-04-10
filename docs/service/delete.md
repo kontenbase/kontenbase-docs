@@ -9,6 +9,7 @@ import DeleteJs from '!!raw-loader!./snippets/delete-js.md';
 import DeleteApi from '!!raw-loader!./snippets/delete-api.md';
 
 Delete a record by specified query.
+
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">
@@ -21,4 +22,3 @@ Delete a record by specified query.
     </CodeBlock>
   </TabItem>
 </Tabs>
-

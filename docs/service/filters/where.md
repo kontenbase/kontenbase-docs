@@ -8,7 +8,8 @@ import CodeBlock from '@theme/CodeBlock';
 import WhereJs from '!!raw-loader!./snippets/where-js.md';
 import WhereApi from '!!raw-loader!./snippets/where-api.md';
 
-Where can be used on select(), update(), and delete() queries.
+Find all records that match all of the given criteria.
+
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">

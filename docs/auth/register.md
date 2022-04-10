@@ -8,7 +8,8 @@ import CodeBlock from '@theme/CodeBlock';
 import RegisterJs from '!!raw-loader!./snippets/register-js.md';
 import RegisterApi from '!!raw-loader!./snippets/register-api.md';
 
-Create a new user
+Register a new user.
+
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>    
     <CodeBlock className="language-jsx">
@@ -22,5 +23,5 @@ Create a new user
   </TabItem>
 </Tabs>
 
-## Notes
-- First Registered user will have "admin" role
+### Notes
+- First registered user will have "admin" role

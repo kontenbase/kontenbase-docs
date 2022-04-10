@@ -22,11 +22,11 @@ Generates links to be sent via email or other.
   </TabItem>
 </Tabs>
 
-## Parameters
+### Parameters
 |Name   |Type  |Description       |
 |-------|------|------------------|
 |type (required)|string|The link type ("signup"/"magiclink"/"recovery"/"invite")|
 |email (required)|string|The user email|
 
-## Note
+### Notes
 - This function should only be called on server

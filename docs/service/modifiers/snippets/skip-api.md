@@ -1,1 +1,1 @@
-https://api.kontenbase.com/query/api/v1/API_KEY/posts?%24skip=1
+https://api.kontenbase.com/query/api/v1/API_KEY/posts?$skip=10

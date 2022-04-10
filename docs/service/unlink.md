@@ -9,6 +9,7 @@ import UnlinkJs from '!!raw-loader!./snippets/unlink-js.md';
 import UnlinkApi from '!!raw-loader!./snippets/unlink-api.md';
 
 Unlink an existing record to a destinated related record on other service.
+
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">
@@ -16,7 +17,7 @@ Unlink an existing record to a destinated related record on other service.
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">
-    <CodeBlock className="language-jsx" title="[POST]">
+    <CodeBlock className="language-jsx" title="[UNLINK]">
       {UnlinkApi}
     </CodeBlock>
   </TabItem>

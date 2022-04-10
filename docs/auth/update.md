@@ -8,7 +8,8 @@ import CodeBlock from '@theme/CodeBlock';
 import UpdateJs from '!!raw-loader!./snippets/update-js.md';
 import UpdateApi from '!!raw-loader!./snippets/update-api.md';
 
-Update user data, if there is a logged in user.
+Update user data if there is a logged in user.
+
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>    
     <CodeBlock className="language-jsx">

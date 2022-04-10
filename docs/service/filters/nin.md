@@ -2,13 +2,23 @@
 title: $nin
 ---
 
-Finds all rows whose value on the stated column is not on the specified values.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import NinJs from '!!raw-loader!./snippets/nin-js.md';
+import NinApi from '!!raw-loader!./snippets/nin-api.md';
 
-```javascript
-const { data, error } = await kontenbase.service('posts')
-    .find({
-        where: { 
-            tags: {$nin: ['sport', 'game', 'electronic']}
-        }
-    })
-```
+Find all records where the property does not match any of the given values.
+
+<Tabs>
+  <TabItem value="javascript" label="Javascript" default>
+    <CodeBlock className="language-jsx">
+      {NinJs}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="API" label="API">
+    <CodeBlock className="language-jsx" title="[GET]">
+      {NinApi}
+    </CodeBlock>
+  </TabItem>
+</Tabs>

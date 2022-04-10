@@ -1,2 +1,3 @@
-const { data, error } = await kontenbase.service('posts')
-    .find({skip: 1})
+const { data, error } = await kontenbase.service('posts').find({
+  skip: 10,
+})

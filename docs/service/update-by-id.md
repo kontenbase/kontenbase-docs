@@ -8,7 +8,8 @@ import CodeBlock from '@theme/CodeBlock';
 import UpdateByIdJs from '!!raw-loader!./snippets/update-by-id-js.md';
 import UpdateByIdApi from '!!raw-loader!./snippets/update-by-id-api.md';
 
-Update record by id.
+Update a record by id.
+
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">

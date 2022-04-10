@@ -5,15 +5,21 @@ title: subscribe()
 Subscribe to realtime changes in your service.
 
 ```javascript
-kontenbase.realtime.subscribe('posts', { event: 'CREATE_RECORD', where: { tags: 'sport' } }, (message) => {
-  console.log(message)
+kontenbase.realtime.subscribe('posts', { event: '*' }, (message) => {
+  if (message.error) {
+    console.log(message.error)
+    return
+  }
+
+  console.log(message.event, message.payload)
 })
 ```
 
-## Parameters
-|Name   |Type  |Description       |
-|-------|------|------------------|
-|serviceName (required)|string|The Service Name to be subscribed|
-|condition (required)|object|condition consists of event and where|
-|condition.event (required)|string|The event can be "*"/"CREATE_RECORD"/"UPDATE_RECORD"/"DELETE_RECORD"|
-|condition.where| object | refer to filters docs|
+### Parameters
+
+| Name            | Type   | Required | Description                                                             |
+| --------------- | ------ | -------- | ----------------------------------------------------------------------- |
+| serviceName     | string | true     | The service name to be subscribed                                       |
+| condition       | object | true     | Condition consists of event and where                                   |
+| condition.event | string | true     | The event can be `*`, `CREATE_RECORD`, `UPDATE_RECORD`. `DELETE_RECORD` |
+| condition.where | object | false    | Refering to filters docs                                                |

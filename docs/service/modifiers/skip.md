@@ -8,7 +8,8 @@ import CodeBlock from '@theme/CodeBlock';
 import SkipJs from '!!raw-loader!./snippets/skip-js.md';
 import SkipApi from '!!raw-loader!./snippets/skip-api.md';
 
-Skip the starting index of the rows.
+Skip the starting index of the records.
+
 <Tabs>
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">
