@@ -1,1 +1,1 @@
-https://api.kontenbase.com/query/api/v1/API_KEY/auth/update
+https://api.kontenbase.com/query/api/v1/API_KEY/auth/user

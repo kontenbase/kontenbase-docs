@@ -17,7 +17,7 @@ Update user data if there is a logged in user.
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">
-    <CodeBlock className="language-jsx" title="[POST]">
+    <CodeBlock className="language-jsx" title="[PATCH]">
       {UpdateApi}
     </CodeBlock>
   </TabItem>
