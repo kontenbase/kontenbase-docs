@@ -23,3 +23,6 @@ Log out a logged in user.
     </CodeBlock>
   </TabItem>
 </Tabs>
+
+### Notes
+- `token` used will be removed and no longer available for authentication

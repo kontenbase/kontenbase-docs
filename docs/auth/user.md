@@ -24,9 +24,10 @@ Return user data if there is a logged in user
 </Tabs>
 
 ### Notes
-
-Get user with filter:
-- lookup
+- When using SDK you need to call `register()` or `login()` first
+- When using API you need to set the Bearer `token` returned by register or login API in the header request
+- Get user with filter:
+  - lookup
 
 ```javascript
 const { user, error } = await kontenbase.auth.user({
