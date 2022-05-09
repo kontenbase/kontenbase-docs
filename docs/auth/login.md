@@ -24,8 +24,11 @@ Log in an existing user.
   </TabItem>
 </Tabs>
 
-### Notes
+:::note
+
 - `token` returned is a Bearer Token Authentication that can be set in the header
+
+:::
 
 <!-- ## Examples
 

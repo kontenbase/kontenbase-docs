@@ -24,5 +24,8 @@ Log out a logged in user.
   </TabItem>
 </Tabs>
 
-### Notes
+:::note
+
 - `token` used will be removed and no longer available for authentication
+
+:::

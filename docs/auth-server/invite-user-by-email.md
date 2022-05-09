@@ -27,5 +27,8 @@ Sends an invite link to an email address.
 |-------|------|------------------|
 |email (required)|string|The user email|
 
-### Notes
+:::note
+
 - This function should only be called on server
+
+:::

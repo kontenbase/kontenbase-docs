@@ -27,5 +27,8 @@ Sends a mobile OTP via SMS. Will register the account if it doesn't already exis
 |-------|------|------------------|
 |phoneNumber (required)|string|The user's phone number WITH international prefix|
 
-### Notes
+:::note
+
 - This function should only be called on server
+
+:::

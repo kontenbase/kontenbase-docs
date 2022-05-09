@@ -23,6 +23,9 @@ Register a new user.
   </TabItem>
 </Tabs>
 
-### Notes
+:::note
+
 - First registered user will have "admin" role
 - `token` returned is a Bearer Token Authentication that can be set in the header
+
+:::

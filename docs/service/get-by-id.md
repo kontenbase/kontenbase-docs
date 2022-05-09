@@ -23,7 +23,7 @@ Get a record by id.
   </TabItem>
 </Tabs>
 
-### Notes
+:::note
 
 Get a record with filters:
 - select
@@ -35,3 +35,5 @@ const { data, error } = await kontenbase.service('posts').getById('605a251d7b867
   ...
 })
 ```
+
+:::

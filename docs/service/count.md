@@ -23,7 +23,7 @@ Count total records in the service.
   </TabItem>
 </Tabs>
 
-### Notes
+:::note
 
 Count records with filters:
 
@@ -33,3 +33,5 @@ const { data, error } = await kontenbase.service('posts').count({
     ...
 })
 ```
+
+:::

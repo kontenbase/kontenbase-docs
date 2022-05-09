@@ -19,5 +19,8 @@ const { data, error } = await kontenbase.storage.upload(
 );
 ```
 
-### Notes
+:::note
+
 - Default bucket used is Kontenbase project id
+
+:::

@@ -28,5 +28,8 @@ Generates links to be sent via email or other.
 |type (required)|string|The link type ("signup"/"magiclink"/"recovery"/"invite")|
 |email (required)|string|The user email|
 
-### Notes
+:::note
+
 - This function should only be called on server
+
+:::

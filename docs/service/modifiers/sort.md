@@ -23,7 +23,9 @@ Sort the result with the specified field.
   </TabItem>
 </Tabs>
 
-### Notes
+:::note
 
 - Ascending = 1
 - Descending = -1
+
+:::

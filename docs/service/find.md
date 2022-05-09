@@ -23,8 +23,11 @@ Find all records from the service.
   </TabItem>
 </Tabs>
 
-### Notes
+:::note
+
 - By default Kontenbase will return a maximum of 100 records to prevent from malicious requests. 
+
+:::
 
 <!-- ## Examples
 
