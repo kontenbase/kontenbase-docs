@@ -26,6 +26,13 @@ Log out a logged in user.
 
 :::note
 
-- `token` used will be removed and no longer available for authentication
+- After logout, `token` set in the header will no longer be valid for authentication
 
 :::
+
+:::info
+
+(Javascript only) Using this method in browser will also remove the saved token in `localStorage`.
+
+:::
+

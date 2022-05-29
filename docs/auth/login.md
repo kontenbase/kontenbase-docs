@@ -30,6 +30,12 @@ Log in an existing user.
 
 :::
 
+:::info
+
+(Javascript only) Using this method in browser will also save the returned token in `localStorage`.
+
+:::
+
 <!-- ## Examples
 
 ### Login with Email

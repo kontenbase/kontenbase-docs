@@ -29,3 +29,9 @@ Register a new user.
 - `token` returned is a Bearer Token Authentication that can be set in the header
 
 :::
+
+:::info
+
+(Javascript only) Using this method in browser will also save the returned token in `localStorage`.
+
+:::
