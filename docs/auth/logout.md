@@ -32,7 +32,7 @@ Log out a logged in user.
 
 :::info
 
-(Javascript only) Using this method in browser will also remove the saved token in `localStorage`.
+- (Javascript only) Using this method in browser will also remove the saved token in `localStorage`.
 
 :::
 
