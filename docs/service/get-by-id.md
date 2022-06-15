@@ -21,12 +21,18 @@ Get a record by id.
 
 Get a record with filters:
 - select
+
+```javascript
+const { data, error } = await kontenbase.service('posts').getById('605a251d7b8678bf6811k3b1', {
+  select: ['name'],
+})
+```
+
 - lookup
 
 ```javascript
 const { data, error } = await kontenbase.service('posts').getById('605a251d7b8678bf6811k3b1', {
-  filterKey: filterValue,
-  ...
+  lookup: ['categories'],
 })
 ```
 
@@ -37,6 +43,26 @@ const { data, error } = await kontenbase.service('posts').getById('605a251d7b867
     <CodeBlock className="language-jsx">
       {GetByIdGo}
     </CodeBlock>
+
+:::note
+
+Get a record with filters:
+- select
+
+```go
+resp, err := client.Service("posts").GetByID("605a251d7b8678bf6811k3b1")
+  .SetSelect([]interface{}{"name", "notes"})
+```
+
+- lookup
+
+```go
+resp, err := client.Service("posts").GetByID("605a251d7b8678bf6811k3b1")
+   .SetLookup("*")
+```
+
+:::
+
   </TabItem>
   <TabItem value="API" label="API">
     <CodeBlock className="language-jsx" title="[GET]">

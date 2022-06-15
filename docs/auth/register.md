@@ -19,7 +19,7 @@ Register a new user.
 
 :::info
 
-- (Javascript only) Using this method in browser will also save the returned token in `localStorage`.
+Using this method in browser will also save the returned token in `localStorage`.
 
 :::
 
