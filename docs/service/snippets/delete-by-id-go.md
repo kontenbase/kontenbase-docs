@@ -1,0 +1,1 @@
+resp, err := client.Service("posts").DeleteByID("605a251d7b8678bf6811k3b1")
