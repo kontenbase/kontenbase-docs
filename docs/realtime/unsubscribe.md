@@ -2,21 +2,23 @@
 title: unsubscribe()
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import UnSubscribeJs from '!!raw-loader!./snippets/unsubscribe-js.md';
+import UnSubscribeGo from '!!raw-loader!./snippets/unsubscribe-go.md';
+
 Unsubscribe to realtime changes in your service.
 
-```javascript
-const key = await kontenbase.realtime.subscribe(
-  'posts',
-  { event: '*' },
-  (message) => {
-    if (message.error) {
-      console.log(message.error)
-      return
-    }
-
-    console.log(message.event, message.payload)
-  }
-)
-
-kontenbase.realtime.unsubscribe(key)
-```
+<Tabs>        
+  <TabItem value="javascript" label="Javascript" default>
+    <CodeBlock className="language-jsx">
+        {UnSubscribeJs}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="go" label="Go" default>
+    <CodeBlock className="language-jsx">
+        {UnSubscribeGo}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
