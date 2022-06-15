@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import CountJs from '!!raw-loader!./snippets/count-js.md';
+import CountGo from '!!raw-loader!./snippets/count-go.md';
 import CountApi from '!!raw-loader!./snippets/count-api.md';
 
 Count total records in the service.
@@ -14,6 +15,11 @@ Count total records in the service.
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">
       {CountJs}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="go" label="Go" default>
+    <CodeBlock className="language-jsx">
+      {CountGo}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">
