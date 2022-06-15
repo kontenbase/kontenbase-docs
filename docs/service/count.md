@@ -16,18 +16,6 @@ Count total records in the service.
     <CodeBlock className="language-jsx">
       {CountJs}
     </CodeBlock>
-  </TabItem>
-  <TabItem value="go" label="Go" default>
-    <CodeBlock className="language-jsx">
-      {CountGo}
-    </CodeBlock>
-  </TabItem>
-  <TabItem value="API" label="API">
-    <CodeBlock className="language-jsx" title="[GET]">
-      {CountApi}
-    </CodeBlock>
-  </TabItem>
-</Tabs>
 
 :::note
 
@@ -41,3 +29,29 @@ const { data, error } = await kontenbase.service('posts').count({
 ```
 
 :::
+
+  </TabItem>
+  <TabItem value="go" label="Go" default>
+    <CodeBlock className="language-jsx">
+      {CountGo}
+    </CodeBlock>
+
+:::note
+
+Count records with filters:
+
+```go
+resp, err := client.Service("posts").Count().SetWhere(map[string]interface{}{
+    "name": "Ega",
+  })
+```
+
+:::
+
+  </TabItem>
+  <TabItem value="API" label="API">
+    <CodeBlock className="language-jsx" title="[GET]">
+      {CountApi}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
