@@ -15,7 +15,7 @@ Sort the result with the specified field.
     <CodeBlock className="language-jsx">
       {SortJs}
     </CodeBlock>
-  </TabItem>
+  </TabItem>  
   <TabItem value="API" label="API">
     <CodeBlock className="language-jsx" title="[GET]">
       {SortApi}

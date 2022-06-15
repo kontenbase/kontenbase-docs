@@ -1,0 +1,5 @@
+resp, err := client.Service("posts").Find()
+  .SetLimit(10)
+  .SetSkip(10)
+  .SetSelect([]interface{}{"name", "notes"})
+  .SetLookup("*")

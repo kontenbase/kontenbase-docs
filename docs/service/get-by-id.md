@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import GetByIdJs from '!!raw-loader!./snippets/get-by-id-js.md';
+import GetByIdGo from '!!raw-loader!./snippets/get-by-id-go.md';
 import GetByIdApi from '!!raw-loader!./snippets/get-by-id-api.md';
 
 Get a record by id.
@@ -14,6 +15,11 @@ Get a record by id.
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">
       {GetByIdJs}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="go" label="Go" default>
+    <CodeBlock className="language-jsx">
+      {GetByIdGo}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">
