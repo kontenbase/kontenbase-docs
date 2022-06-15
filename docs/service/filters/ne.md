@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import NeJs from '!!raw-loader!./snippets/ne-js.md';
+import NeGo from '!!raw-loader!./snippets/ne-go.md';
 import NeApi from '!!raw-loader!./snippets/ne-api.md';
 
 Find all records that do not equal the given property value.
@@ -14,6 +15,11 @@ Find all records that do not equal the given property value.
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">
       {NeJs}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="go" label="Go" default>
+    <CodeBlock className="language-jsx">
+      {NeGo}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">
