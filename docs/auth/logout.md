@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import LogoutJs from '!!raw-loader!./snippets/logout-js.md';
+import GoJs from '!!raw-loader!./snippets/logout-go.md';
 import LogoutApi from '!!raw-loader!./snippets/logout-api.md';
 
 Log out a logged in user.
@@ -15,6 +16,11 @@ Log out a logged in user.
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">
       {LogoutJs}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="go" label="Go" default>
+    <CodeBlock className="language-jsx">
+      {GoJs}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">

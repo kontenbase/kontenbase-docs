@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import UserJs from '!!raw-loader!./snippets/user-js.md';
+import UserGo from '!!raw-loader!./snippets/user-go.md';
 import UserApi from '!!raw-loader!./snippets/user-api.md';
 
 Return user data if there is a logged in user
@@ -14,6 +15,11 @@ Return user data if there is a logged in user
   <TabItem value="javascript" label="Javascript" default>    
     <CodeBlock className="language-jsx">
       {UserJs}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="go" label="Go" default>    
+    <CodeBlock className="language-jsx">
+      {UserGo}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">    
