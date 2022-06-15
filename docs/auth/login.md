@@ -17,6 +17,13 @@ Log in an existing user.
     <CodeBlock className="language-jsx">
       {LoginJs}
     </CodeBlock>
+
+:::info
+
+- (Javascript only) Using this method in browser will also save the returned token in `localStorage`.
+
+:::
+
   </TabItem>
   <TabItem value="go" label="Go" default>
     <CodeBlock className="language-jsx">
@@ -33,12 +40,6 @@ Log in an existing user.
 :::note
 
 - `token` returned is a Bearer Token Authentication that can be set in the header
-
-:::
-
-:::info
-
-- (Javascript only) Using this method in browser will also save the returned token in `localStorage`.
 
 :::
 

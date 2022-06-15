@@ -17,6 +17,13 @@ Log out a logged in user.
     <CodeBlock className="language-jsx">
       {LogoutJs}
     </CodeBlock>
+
+:::info
+
+- (Javascript only) Using this method in browser will also remove the saved token in `localStorage`.
+
+:::
+
   </TabItem>
   <TabItem value="go" label="Go" default>
     <CodeBlock className="language-jsx">
@@ -35,10 +42,3 @@ Log out a logged in user.
 - After logout, `token` set in the header will no longer be valid for authentication
 
 :::
-
-:::info
-
-- (Javascript only) Using this method in browser will also remove the saved token in `localStorage`.
-
-:::
-

@@ -16,18 +16,6 @@ Get a record by id.
     <CodeBlock className="language-jsx">
       {GetByIdJs}
     </CodeBlock>
-  </TabItem>
-  <TabItem value="go" label="Go" default>
-    <CodeBlock className="language-jsx">
-      {GetByIdGo}
-    </CodeBlock>
-  </TabItem>
-  <TabItem value="API" label="API">
-    <CodeBlock className="language-jsx" title="[GET]">
-      {GetByIdApi}
-    </CodeBlock>
-  </TabItem>
-</Tabs>
 
 :::note
 
@@ -43,3 +31,16 @@ const { data, error } = await kontenbase.service('posts').getById('605a251d7b867
 ```
 
 :::
+
+  </TabItem>
+  <TabItem value="go" label="Go" default>
+    <CodeBlock className="language-jsx">
+      {GetByIdGo}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="API" label="API">
+    <CodeBlock className="language-jsx" title="[GET]">
+      {GetByIdApi}
+    </CodeBlock>
+  </TabItem>
+</Tabs>

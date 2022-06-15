@@ -16,18 +16,6 @@ Return user data if there is a logged in user
     <CodeBlock className="language-jsx">
       {UserJs}
     </CodeBlock>
-  </TabItem>
-  <TabItem value="go" label="Go" default>    
-    <CodeBlock className="language-jsx">
-      {UserGo}
-    </CodeBlock>
-  </TabItem>
-  <TabItem value="API" label="API">    
-    <CodeBlock className="language-jsx" title="[GET]">
-      {UserApi}
-    </CodeBlock>
-  </TabItem>
-</Tabs>
 
 :::note
 
@@ -44,3 +32,16 @@ const { user, error } = await kontenbase.auth.user({
 ```
 
 :::
+
+  </TabItem>
+  <TabItem value="go" label="Go" default>    
+    <CodeBlock className="language-jsx">
+      {UserGo}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="API" label="API">    
+    <CodeBlock className="language-jsx" title="[GET]">
+      {UserApi}
+    </CodeBlock>
+  </TabItem>
+</Tabs>

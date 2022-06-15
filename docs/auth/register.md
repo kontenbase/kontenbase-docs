@@ -16,6 +16,13 @@ Register a new user.
     <CodeBlock className="language-jsx">
       {RegisterJs}
     </CodeBlock>
+
+:::info
+
+- (Javascript only) Using this method in browser will also save the returned token in `localStorage`.
+
+:::
+
   </TabItem>
   <TabItem value="go" label="Go" default>    
     <CodeBlock className="language-jsx">
@@ -33,11 +40,5 @@ Register a new user.
 
 - First registered user will have "admin" role
 - `token` returned is a Bearer Token Authentication that can be set in the header
-
-:::
-
-:::info
-
-- (Javascript only) Using this method in browser will also save the returned token in `localStorage`.
 
 :::
