@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import RegisterJs from '!!raw-loader!./snippets/register-js.md';
+import RegisterGo from '!!raw-loader!./snippets/register-go.md';
 import RegisterApi from '!!raw-loader!./snippets/register-api.md';
 
 Register a new user.
@@ -14,6 +15,11 @@ Register a new user.
   <TabItem value="javascript" label="Javascript" default>    
     <CodeBlock className="language-jsx">
       {RegisterJs}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="go" label="Go" default>    
+    <CodeBlock className="language-jsx">
+      {RegisterGo}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">
