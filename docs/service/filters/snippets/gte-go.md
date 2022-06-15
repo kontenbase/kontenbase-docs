@@ -1,4 +1,6 @@
 resp, err := client.Service("posts").Find()
   .SetWhere(map[string]interface{}{
-    "name": "Ega",    
+    "number": map[string]interface{}{
+      "$gte": 10,
+    },
   })
