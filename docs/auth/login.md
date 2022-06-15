@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import LoginJs from '!!raw-loader!./snippets/login-js.md';
-import GoJs from '!!raw-loader!./snippets/login-go.md';
+import LoginGo from '!!raw-loader!./snippets/login-go.md';
 import LoginApi from '!!raw-loader!./snippets/login-api.md';
 
 Log in an existing user.
@@ -20,7 +20,7 @@ Log in an existing user.
   </TabItem>
   <TabItem value="go" label="Go" default>
     <CodeBlock className="language-jsx">
-      {GoJs}
+      {LoginGo}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">
