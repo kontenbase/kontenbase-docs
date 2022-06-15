@@ -23,8 +23,7 @@ Count records with filters:
 
 ```javascript
 const { data, error } = await kontenbase.service('posts').count({
-    filterKey: filterValue,
-    ...
+    "name": "Ega",
 })
 ```
 
@@ -41,7 +40,8 @@ const { data, error } = await kontenbase.service('posts').count({
 Count records with filters:
 
 ```go
-resp, err := client.Service("posts").Count().SetWhere(map[string]interface{}{
+resp, err := client.Service("posts").Count()
+  .SetWhere(map[string]interface{}{
     "name": "Ega",
   })
 ```

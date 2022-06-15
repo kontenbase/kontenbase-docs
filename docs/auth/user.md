@@ -16,18 +16,6 @@ Return user data if there is a logged in user
     <CodeBlock className="language-jsx">
       {UserJs}
     </CodeBlock>
-  </TabItem>
-  <TabItem value="go" label="Go" default>    
-    <CodeBlock className="language-jsx">
-      {UserGo}
-    </CodeBlock>
-  </TabItem>
-  <TabItem value="API" label="API">    
-    <CodeBlock className="language-jsx" title="[GET]">
-      {UserApi}
-    </CodeBlock>
-  </TabItem>
-</Tabs>
 
 :::note
 
@@ -38,9 +26,36 @@ Return user data if there is a logged in user
 
 ```javascript
 const { user, error } = await kontenbase.auth.user({
-  filterKey: filterValue,
-  ...
+  lookup: ['categories'],
 })
 ```
 
 :::
+
+  </TabItem>
+  <TabItem value="go" label="Go" default>    
+    <CodeBlock className="language-jsx">
+      {UserGo}
+    </CodeBlock>
+
+:::note
+
+- When using SDK you need to call `register()` or `login()` first
+- When using API you need to set the Bearer `token` returned by register or login API in the header request
+- Get user with filter:
+  - lookup
+
+```go
+resp, err := client.Auth.User()
+  .SetLookup("*")
+```
+
+:::
+
+  </TabItem>
+  <TabItem value="API" label="API">    
+    <CodeBlock className="language-jsx" title="[GET]">
+      {UserApi}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
