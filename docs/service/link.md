@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import LinkJs from '!!raw-loader!./snippets/link-js.md';
+import LinkGo from '!!raw-loader!./snippets/link-go.md';
 import LinkApi from '!!raw-loader!./snippets/link-api.md';
 
 Link an existing record to a destinated related record on other service.
@@ -14,6 +15,11 @@ Link an existing record to a destinated related record on other service.
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">
       {LinkJs}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="go" label="Go" default>
+    <CodeBlock className="language-jsx">
+      {LinkGo}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">
