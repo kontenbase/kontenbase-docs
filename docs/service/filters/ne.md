@@ -7,6 +7,7 @@ import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import NeJs from '!!raw-loader!./snippets/ne-js.md';
 import NeGo from '!!raw-loader!./snippets/ne-go.md';
+import NePHP from '!!raw-loader!./snippets/ne-php.md';
 import NeApi from '!!raw-loader!./snippets/ne-api.md';
 
 Find all records that do not equal the given property value.
@@ -20,6 +21,11 @@ Find all records that do not equal the given property value.
   <TabItem value="go" label="Go" default>
     <CodeBlock className="language-jsx">
       {NeGo}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="php" label="PHP" default>
+    <CodeBlock className="language-jsx">
+      {NePHP}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">

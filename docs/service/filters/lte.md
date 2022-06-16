@@ -7,6 +7,7 @@ import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import LteJs from '!!raw-loader!./snippets/lte-js.md';
 import LteGo from '!!raw-loader!./snippets/lte-go.md';
+import LtePHP from '!!raw-loader!./snippets/lte-php.md';
 import LteApi from '!!raw-loader!./snippets/lte-api.md';
 
 Find all records where the value is less and equal to a given value.
@@ -20,6 +21,11 @@ Find all records where the value is less and equal to a given value.
   <TabItem value="go" label="Go" default>
     <CodeBlock className="language-jsx">
       {LteGo}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="php" label="PHP" default>
+    <CodeBlock className="language-jsx">
+      {LtePHP}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">
