@@ -7,6 +7,7 @@ import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import FindJs from '!!raw-loader!./snippets/find-js.md';
 import FindGo from '!!raw-loader!./snippets/find-go.md';
+import FindPHP from '!!raw-loader!./snippets/find-php.md';
 import FindApi from '!!raw-loader!./snippets/find-api.md';
 
 Find all records from the service.
@@ -20,6 +21,11 @@ Find all records from the service.
   <TabItem value="go" label="Go" default>
     <CodeBlock className="language-jsx">
       {FindGo}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="php" label="PHP" default>
+    <CodeBlock className="language-jsx">
+      {FindPHP}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">

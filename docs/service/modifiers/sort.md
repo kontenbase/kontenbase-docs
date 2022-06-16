@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import SortJs from '!!raw-loader!./snippets/sort-js.md';
+import SortPHP from '!!raw-loader!./snippets/sort-php.md';
 import SortApi from '!!raw-loader!./snippets/sort-api.md';
 
 Sort the result with the specified field.
@@ -15,7 +16,12 @@ Sort the result with the specified field.
     <CodeBlock className="language-jsx">
       {SortJs}
     </CodeBlock>
-  </TabItem>  
+  </TabItem>
+  <TabItem value="php" label="PHP" default>
+    <CodeBlock className="language-jsx">
+      {SortPHP}
+    </CodeBlock>
+  </TabItem>
   <TabItem value="API" label="API">
     <CodeBlock className="language-jsx" title="[GET]">
       {SortApi}
