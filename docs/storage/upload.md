@@ -41,6 +41,16 @@ resp, err := client.Storage.Upload(file)
 ```
 
   </TabItem>
+  <TabItem value="php" label="PHP" default>
+
+```javascript
+$file = fopen('/path/to/file', 'r');
+$res = $kontenbase->storage->upload($file);
+
+echo $res['data'] // The data of the uploaded file
+```
+
+  </TabItem>
 </Tabs>
 
 :::note
