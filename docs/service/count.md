@@ -7,6 +7,7 @@ import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import CountJs from '!!raw-loader!./snippets/count-js.md';
 import CountGo from '!!raw-loader!./snippets/count-go.md';
+import CountPHP from '!!raw-loader!./snippets/count-php.md';
 import CountApi from '!!raw-loader!./snippets/count-api.md';
 
 Count total records in the service.
@@ -16,6 +17,15 @@ Count total records in the service.
     <CodeBlock className="language-jsx">
       {CountJs}
     </CodeBlock>
+
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| res.data    | object | Response for data |
+| res.status  | number | Response for status code |
+| res.statusText | string | Response for status message |
+| res.error | object | Response for error occurred |
 
 :::note
 
@@ -44,6 +54,35 @@ resp, err := client.Service("posts").Count()
   .SetWhere(map[string]interface{}{
     "name": "Ega",
   })
+```
+
+:::
+
+  </TabItem>
+  <TabItem value="php" label="PHP" default>
+    <CodeBlock className="language-jsx">
+      {CountPHP}
+    </CodeBlock>
+
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| $res['data']    | object | Response for data |
+| $res['status']  | integer | Response for status code |
+| $res['statusText'] | string | Response for status message |
+| $res['error'] | object | Response for error occurred |
+
+:::note
+
+Count records with filters:
+
+```javascript
+$res = $kontenbase->service('posts')->count([
+	'where' => [
+		'name' => 'Ega'
+	]
+]);
 ```
 
 :::

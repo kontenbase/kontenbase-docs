@@ -7,6 +7,7 @@ import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import LoginJs from '!!raw-loader!./snippets/login-js.md';
 import LoginGo from '!!raw-loader!./snippets/login-go.md';
+import LoginPHP from '!!raw-loader!./snippets/login-php.md';
 import LoginApi from '!!raw-loader!./snippets/login-api.md';
 
 Log in an existing user.
@@ -17,6 +18,16 @@ Log in an existing user.
     <CodeBlock className="language-jsx">
       {LoginJs}
     </CodeBlock>
+
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| res.user    | object | Response for data user |
+| res.token   | string | Response for data token |
+| res.status  | number | Response for status code |
+| res.statusText | string | Response for status message |
+| res.error | object | Response for error occurred |    
 
 :::info
 
@@ -29,6 +40,22 @@ Using this method in browser will also save the returned token in `localStorage`
     <CodeBlock className="language-jsx">
       {LoginGo}
     </CodeBlock>
+  </TabItem>
+  <TabItem value="php" label="PHP" default>
+    <CodeBlock className="language-jsx">
+      {LoginPHP}
+    </CodeBlock>
+
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| $res['user']    | object | Response for data user |
+| $res['token']   | string | Response for data token |
+| $res['status']  | integer | Response for status code |
+| $res['statusText'] | string | Response for status message |
+| $res['error'] | object | Response for error occurred |
+    
   </TabItem>
   <TabItem value="API" label="API">
     <CodeBlock className="language-jsx" title="[POST]">

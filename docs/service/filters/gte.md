@@ -7,6 +7,7 @@ import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import GteJs from '!!raw-loader!./snippets/gte-js.md';
 import GteGo from '!!raw-loader!./snippets/gte-go.md';
+import GtePHP from '!!raw-loader!./snippets/gte-php.md';
 import GteApi from '!!raw-loader!./snippets/gte-api.md';
 
 Find all records where the value is more and equal to a given value.
@@ -20,6 +21,11 @@ Find all records where the value is more and equal to a given value.
   <TabItem value="go" label="Go" default>
     <CodeBlock className="language-jsx">
       {GteGo}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="php" label="PHP" default>
+    <CodeBlock className="language-jsx">
+      {GtePHP}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">
