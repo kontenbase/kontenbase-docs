@@ -4,6 +4,3 @@ $res = $kontenbase->auth->register([
 	'email' => 'user@mail.com',
 	'password' => 'password'
 ]);
-
-echo $res['user'];
-echo $res['token'];

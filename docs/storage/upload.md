@@ -46,8 +46,6 @@ resp, err := client.Storage.Upload(file)
 ```javascript
 $file = fopen('/path/to/file', 'r');
 $res = $kontenbase->storage->upload($file);
-
-echo $res['data'];
 ```
 
 ### Response
