@@ -32,6 +32,15 @@ Delete a record by id.
     <CodeBlock className="language-jsx">
       {DeleteByIdGo}
     </CodeBlock>
+
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| resp.Data    | map[string]interface{} | Response for data |
+| resp.Status  | int | Response for status code |
+| resp.StatusText | string | Response for status message |
+
   </TabItem>
   <TabItem value="php" label="PHP" default>
     <CodeBlock className="language-jsx">

@@ -49,6 +49,14 @@ defer file.Close()
 resp, err := client.Storage.Upload(file)
 ```
 
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| resp.Data    | Storage | Response for data |
+| resp.Status  | int | Response for status code |
+| resp.StatusText | string | Response for status message |
+
   </TabItem>
   <TabItem value="php" label="PHP" default>
 
