@@ -7,6 +7,7 @@ import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import LoginJs from '!!raw-loader!./snippets/login-js.md';
 import LoginGo from '!!raw-loader!./snippets/login-go.md';
+import LoginPHP from '!!raw-loader!./snippets/login-php.md';
 import LoginApi from '!!raw-loader!./snippets/login-api.md';
 
 Log in an existing user.
@@ -28,6 +29,11 @@ Using this method in browser will also save the returned token in `localStorage`
   <TabItem value="go" label="Go" default>
     <CodeBlock className="language-jsx">
       {LoginGo}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="php" label="PHP" default>
+    <CodeBlock className="language-jsx">
+      {LoginPHP}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">
