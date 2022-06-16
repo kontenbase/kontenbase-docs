@@ -17,6 +17,16 @@ Delete a record by id.
     <CodeBlock className="language-jsx">
       {DeleteByIdJs}
     </CodeBlock>
+
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| res.data    | object | Response for data |
+| res.status  | number | Response for status code |
+| res.statusText | string | Response for status message |
+| res.error | object | Response for error occurred |
+
   </TabItem>
   <TabItem value="go" label="Go" default>
     <CodeBlock className="language-jsx">
@@ -32,9 +42,10 @@ Delete a record by id.
 
 | Name            | Type   | Description |
 | --------------- | ------ | ----------- | 
-| $res['data']    | object | Response for all data |
-| $res['status']  | object | Response for status code |
-| $res['statusText'] | object | Response for status message |
+| $res['data']    | object | Response for data |
+| $res['status']  | integer | Response for status code |
+| $res['statusText'] | string | Response for status message |
+| $res['error'] | object | Response for error occurred |
 
   </TabItem>
   <TabItem value="API" label="API">

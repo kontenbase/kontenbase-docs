@@ -19,6 +19,16 @@ Log in an existing user.
       {LoginJs}
     </CodeBlock>
 
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| res.user    | object | Response for data user |
+| res.token   | string | Response for data token |
+| res.status  | number | Response for status code |
+| res.statusText | string | Response for status message |
+| res.error | object | Response for error occurred |    
+
 :::info
 
 Using this method in browser will also save the returned token in `localStorage`.
@@ -41,9 +51,10 @@ Using this method in browser will also save the returned token in `localStorage`
 | Name            | Type   | Description |
 | --------------- | ------ | ----------- | 
 | $res['user']    | object | Response for data user |
-| $res['token']   | object | Response for data token |
-| $res['status']  | object | Response for status code |
-| $res['statusText'] | object | Response for status message |
+| $res['token']   | string | Response for data token |
+| $res['status']  | integer | Response for status code |
+| $res['statusText'] | string | Response for status message |
+| $res['error'] | object | Response for error occurred |
     
   </TabItem>
   <TabItem value="API" label="API">

@@ -17,6 +17,16 @@ Find all records from the service.
     <CodeBlock className="language-jsx">
       {FindJs}
     </CodeBlock>
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| res.data    | object | Response for data |
+| res.status  | number | Response for status code |
+| res.statusText | string | Response for status message |
+| res.limit | number | Response for data limit |
+| res.skip | number | Response for data skip |
+| res.error | object | Response for error occurred |
+
   </TabItem>
   <TabItem value="go" label="Go" default>
     <CodeBlock className="language-jsx">
@@ -33,10 +43,11 @@ Find all records from the service.
 | Name            | Type   | Description |
 | --------------- | ------ | ----------- | 
 | $res['data']    | object | Response for all data |
-| $res['status']  | object | Response for status code |
-| $res['statusText'] | object | Response for status message |
-| $res['limit']    | int | Response for data limit |
-| $res['skip']    | int | Response for data skip |
+| $res['status']  | integer | Response for status code |
+| $res['statusText'] | string | Response for status message |
+| $res['limit']    | integer | Response for data limit |
+| $res['skip']    | integer | Response for data skip |
+| $res['error'] | object | Response for error occurred |
 
   </TabItem>
   <TabItem value="API" label="API">

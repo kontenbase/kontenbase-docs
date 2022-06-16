@@ -17,6 +17,16 @@ Update user data if there is a logged in user.
     <CodeBlock className="language-jsx">
       {UpdateJs}
     </CodeBlock>
+
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| res.user    | object | Response for data user |
+| res.status  | number | Response for status code |
+| res.statusText | string | Response for status message |
+| res.error | object | Response for error occurred |
+
   </TabItem>
   <TabItem value="go" label="Go" default>    
     <CodeBlock className="language-jsx">
@@ -33,8 +43,9 @@ Update user data if there is a logged in user.
 | Name            | Type   | Description |
 | --------------- | ------ | ----------- | 
 | $res['user']    | object | Response for data user |
-| $res['status']  | object | Response for status code |
-| $res['statusText'] | object | Response for status message |
+| $res['status']  | integer | Response for status code |
+| $res['statusText'] | string | Response for status message |
+| $res['error'] | object | Response for error occurred |
 
   </TabItem>
   <TabItem value="API" label="API">

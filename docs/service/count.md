@@ -18,6 +18,15 @@ Count total records in the service.
       {CountJs}
     </CodeBlock>
 
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| res.data    | object | Response for data |
+| res.status  | number | Response for status code |
+| res.statusText | string | Response for status message |
+| res.error | object | Response for error occurred |
+
 :::note
 
 Count records with filters:
@@ -59,9 +68,10 @@ resp, err := client.Service("posts").Count()
 
 | Name            | Type   | Description |
 | --------------- | ------ | ----------- | 
-| $res['data']    | object | Response for all data |
-| $res['status']  | object | Response for status code |
-| $res['statusText'] | object | Response for status message |
+| $res['data']    | object | Response for data |
+| $res['status']  | integer | Response for status code |
+| $res['statusText'] | string | Response for status message |
+| $res['error'] | object | Response for error occurred |
 
 :::note
 
