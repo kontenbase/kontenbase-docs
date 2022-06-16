@@ -1,3 +1,3 @@
 $res = $kontenbase->service('posts')->getById('605a251d7b8678bf6811k3b1');
 
-echo $res['data'] // The data of the record
+echo $res['data'];

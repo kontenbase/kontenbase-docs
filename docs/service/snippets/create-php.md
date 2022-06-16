@@ -3,4 +3,4 @@ $res = $kontenbase->service('posts')->create([
 	'notes' => 'Hello Kontenbase'
 ]);
 
-echo $res['data'] // The data of the new record
+echo $res['data'];

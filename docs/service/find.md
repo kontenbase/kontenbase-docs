@@ -27,6 +27,17 @@ Find all records from the service.
     <CodeBlock className="language-jsx">
       {FindPHP}
     </CodeBlock>
+
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| $res['data']    | object | Response for all data |
+| $res['status']  | object | Response for status code |
+| $res['statusText'] | object | Response for status message |
+| $res['limit']    | int | Response for data limit |
+| $res['skip']    | int | Response for data skip |
+
   </TabItem>
   <TabItem value="API" label="API">
     <CodeBlock className="language-jsx" title="[GET]">

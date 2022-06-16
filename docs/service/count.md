@@ -55,6 +55,14 @@ resp, err := client.Service("posts").Count()
       {CountPHP}
     </CodeBlock>
 
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| $res['data']    | object | Response for all data |
+| $res['status']  | object | Response for status code |
+| $res['statusText'] | object | Response for status message |
+
 :::note
 
 Count records with filters:

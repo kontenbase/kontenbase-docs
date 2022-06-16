@@ -59,6 +59,14 @@ resp, err := client.Auth.User()
       {UserPHP}
     </CodeBlock>
 
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| $res['user']    | object | Response for data user |
+| $res['status']  | object | Response for status code |
+| $res['statusText'] | object | Response for status message |
+
 :::note
 
 - When using SDK you need to call `register()` or `login()` first

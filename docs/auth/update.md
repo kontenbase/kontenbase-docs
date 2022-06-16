@@ -27,6 +27,15 @@ Update user data if there is a logged in user.
     <CodeBlock className="language-jsx">
       {UpdatePHP}
     </CodeBlock>
+
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| $res['user']    | object | Response for data user |
+| $res['status']  | object | Response for status code |
+| $res['statusText'] | object | Response for status message |
+
   </TabItem>
   <TabItem value="API" label="API">
     <CodeBlock className="language-jsx" title="[PATCH]">

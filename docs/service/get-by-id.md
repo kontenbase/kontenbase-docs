@@ -70,6 +70,14 @@ resp, err := client.Service("posts").GetByID("605a251d7b8678bf6811k3b1")
       {GetByIdPHP}
     </CodeBlock>
 
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| $res['data']    | object | Response for all data |
+| $res['status']  | object | Response for status code |
+| $res['statusText'] | object | Response for status message |
+
 :::note
 
 Get a record with filters:

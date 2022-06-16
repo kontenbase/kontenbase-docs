@@ -47,8 +47,16 @@ resp, err := client.Storage.Upload(file)
 $file = fopen('/path/to/file', 'r');
 $res = $kontenbase->storage->upload($file);
 
-echo $res['data'] // The data of the uploaded file
+echo $res['data'];
 ```
+
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| $res['data']    | object | Response for all data |
+| $res['status']  | object | Response for status code |
+| $res['statusText'] | object | Response for status message |
 
   </TabItem>
 </Tabs>

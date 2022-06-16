@@ -27,6 +27,15 @@ Create a record.
     <CodeBlock className="language-jsx">
       {CreatePHP}
     </CodeBlock>
+
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| $res['data']    | object | Response for all data |
+| $res['status']  | object | Response for status code |
+| $res['statusText'] | object | Response for status message |
+
   </TabItem>
   <TabItem value="API" label="API">
     <CodeBlock className="language-jsx" title="[POST]">

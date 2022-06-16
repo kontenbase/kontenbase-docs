@@ -27,6 +27,15 @@ Unlink an existing record to a destinated related record on other service.
     <CodeBlock className="language-jsx">
       {UnlinkPHP}
     </CodeBlock>
+
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| $res['data']    | object | Response for all data |
+| $res['status']  | object | Response for status code |
+| $res['statusText'] | object | Response for status message |
+
   </TabItem>
   <TabItem value="API" label="API">
     <CodeBlock className="language-jsx" title="[UNLINK]">

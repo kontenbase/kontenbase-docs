@@ -34,6 +34,16 @@ Using this method in browser will also save the returned token in `localStorage`
     <CodeBlock className="language-jsx">
       {RegisterPHP}
     </CodeBlock>
+
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| $res['user']    | object | Response for data user |
+| $res['token']   | object | Response for data token |
+| $res['status']  | object | Response for status code |
+| $res['statusText'] | object | Response for status message |
+
   </TabItem>
   <TabItem value="API" label="API">
     <CodeBlock className="language-jsx" title="[POST]">

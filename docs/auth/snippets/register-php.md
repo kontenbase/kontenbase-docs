@@ -5,5 +5,5 @@ $res = $kontenbase->auth->register([
 	'password' => 'password'
 ]);
 
-echo $res['user']; // The data of registered user
-echo $res['token']; // The token of registered user
+echo $res['user'];
+echo $res['token'];
