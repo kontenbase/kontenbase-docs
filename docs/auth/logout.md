@@ -38,6 +38,16 @@ Using this method in browser will also remove the saved token in `localStorage`.
     <CodeBlock className="language-jsx">
       {LogoutGo}
     </CodeBlock>
+
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| resp.User    | map[string]interface{} | Response for data user |
+| resp.Token   | string | Response for data token |
+| resp.Status  | int | Response for status code |
+| resp.StatusText | string | Response for status message |
+
   </TabItem>
   <TabItem value="php" label="PHP" default>
     <CodeBlock className="language-jsx">

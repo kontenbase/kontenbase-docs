@@ -48,6 +48,14 @@ const { user, error } = await kontenbase.auth.user({
       {UserGo}
     </CodeBlock>
 
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| resp.User    | map[string]interface{} | Response for data user |
+| resp.Status  | int | Response for status code |
+| resp.StatusText | string | Response for status message |
+
 :::note
 
 - When using SDK you need to call `register()` or `login()` first

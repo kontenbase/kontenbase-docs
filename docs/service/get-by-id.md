@@ -54,6 +54,14 @@ const { data, error } = await kontenbase.service('posts').getById('605a251d7b867
       {GetByIdGo}
     </CodeBlock>
 
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| resp.Data    | map[string]interface{} | Response for data |
+| resp.Status  | int | Response for status code |
+| resp.StatusText | string | Response for status message |
+
 :::note
 
 Get a record with filters:

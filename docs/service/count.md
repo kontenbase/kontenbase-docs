@@ -45,6 +45,14 @@ const { data, error } = await kontenbase.service('posts').count({
       {CountGo}
     </CodeBlock>
 
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| resp.Data    | map[string]interface{} | Response for data |
+| resp.Status  | int | Response for status code |
+| resp.StatusText | string | Response for status message |
+
 :::note
 
 Count records with filters:

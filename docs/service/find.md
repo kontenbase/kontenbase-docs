@@ -32,6 +32,17 @@ Find all records from the service.
     <CodeBlock className="language-jsx">
       {FindGo}
     </CodeBlock>
+
+### Response
+
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- | 
+| resp.Data    | []map[string]interface{} | Response for data |
+| resp.Status  | int | Response for status code |
+| resp.StatusText | string | Response for status message |
+| resp.Limit | int | Response for data limit |
+| resp.Skip | int | Response for data skip |
+
   </TabItem>
   <TabItem value="php" label="PHP" default>
     <CodeBlock className="language-jsx">
