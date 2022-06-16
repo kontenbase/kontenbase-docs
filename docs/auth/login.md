@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import LoginJs from '!!raw-loader!./snippets/login-js.md';
+import LoginGo from '!!raw-loader!./snippets/login-go.md';
 import LoginApi from '!!raw-loader!./snippets/login-api.md';
 
 Log in an existing user.
@@ -15,6 +16,18 @@ Log in an existing user.
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">
       {LoginJs}
+    </CodeBlock>
+
+:::info
+
+Using this method in browser will also save the returned token in `localStorage`.
+
+:::
+
+  </TabItem>
+  <TabItem value="go" label="Go" default>
+    <CodeBlock className="language-jsx">
+      {LoginGo}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">
@@ -27,12 +40,6 @@ Log in an existing user.
 :::note
 
 - `token` returned is a Bearer Token Authentication that can be set in the header
-
-:::
-
-:::info
-
-- (Javascript only) Using this method in browser will also save the returned token in `localStorage`.
 
 :::
 

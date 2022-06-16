@@ -1,0 +1,1 @@
+resp, err := client.Auth.Logout()

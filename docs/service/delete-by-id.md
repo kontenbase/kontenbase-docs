@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import DeleteByIdJs from '!!raw-loader!./snippets/delete-by-id-js.md';
+import DeleteByIdGo from '!!raw-loader!./snippets/delete-by-id-go.md';
 import DeleteByIdApi from '!!raw-loader!./snippets/delete-by-id-api.md';
 
 Delete a record by id.
@@ -14,6 +15,11 @@ Delete a record by id.
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">
       {DeleteByIdJs}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="go" label="Go" default>
+    <CodeBlock className="language-jsx">
+      {DeleteByIdGo}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">

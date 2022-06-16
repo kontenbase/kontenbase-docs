@@ -1,0 +1,1 @@
+resp, err := client.Service("posts").GetByID("605a251d7b8678bf6811k3b1")

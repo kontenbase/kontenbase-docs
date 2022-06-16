@@ -8,6 +8,7 @@ import CodeBlock from '@theme/CodeBlock';
 import LookupJs from '!!raw-loader!./snippets/lookup-js.md';
 import LookupApi from '!!raw-loader!./snippets/lookup-api.md';
 import LookupAllJs from '!!raw-loader!./snippets/lookup-all-js.md';
+import LookupAllGo from '!!raw-loader!./snippets/lookup-all-go.md';
 import LookupAllApi from '!!raw-loader!./snippets/lookup-all-api.md';
 import LookupIdJs from '!!raw-loader!./snippets/lookup-id-js.md';
 import LookupIdApi from '!!raw-loader!./snippets/lookup-id-api.md';
@@ -21,7 +22,7 @@ Allows to pick which link to record fields to lookup.
     <CodeBlock className="language-jsx">
       {LookupJs}
     </CodeBlock>
-  </TabItem>
+  </TabItem>  
   <TabItem value="API" label="API">
     <CodeBlock className="language-jsx" title="[GET]">
       {LookupApi}
@@ -37,6 +38,11 @@ Lookup to all link to record fields.
   <TabItem value="javascript" label="Javascript" default>
     <CodeBlock className="language-jsx">
       {LookupAllJs}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="go" label="Go" default>
+    <CodeBlock className="language-jsx">
+      {LookupAllGo}
     </CodeBlock>
   </TabItem>
   <TabItem value="API" label="API">
