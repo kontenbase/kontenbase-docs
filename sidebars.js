@@ -31,6 +31,11 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Quickstarts',
+      items: ['quickstart/react'],
+    },
+    {
+      type: 'category',
       label: 'Auth',
       items: [
         'auth/register',
@@ -125,6 +130,6 @@ const sidebars = {
       ],
     },
   ],
-}
+};
 
-module.exports = sidebars
+module.exports = sidebars;
