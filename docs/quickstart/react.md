@@ -6,11 +6,10 @@ title: Quickstart React
 This example will show you how to build a simple user management app from scratch using Kontenbase and React. before begin make sure that you are familiar with React.js basics.
 
  This also includes:
-- Kontenbase Database: to store data, such as user and profile .
-- Kontenbase SDK: this will make easier to handle auth and service features. 
-- Kontenbase Authentication & Authorization: users can sign in with username and password.
-- Kontenbase Storage: users can upload a photo.
-- Row Level Security:  protected so that individuals can only access their own data.
+- Kontenbase [Database](/service/find): to store data, such as user and profile .
+- Kontenbase [SDK](/overview/sdk): this will make easier to handle auth and service features. 
+- Kontenbase [Authentication & Authorization](/auth/register): users can sign in with username and password.
+- Kontenbase [Storage](/storage/upload): users can upload a photo.
 
 By the end, you'll have an application that is able to register a new user, login and update some basic profile details.
 
@@ -33,25 +32,23 @@ Now we are going to set `profile` and `users` service.
 
 ![](./assets/profile-field.png)
 
-We need some configuration  in `users` service to make public can get user data. but don't worry, by default that will not return password. so user still secure.  
-1. clik `authorization` button on top.
+We need some configuration  in `users` service to make both autheticated user and public can get or access users data. but don't worry, by default that will not return password, so user still secure.  
+1. clik `authorization` button.
 2. change service to `users`, and turn on `GET` permission for role autheticated and public. 
 
 ![](./assets/user-service-permission.png)
 
-3. add new field called : `username`, select data type : `username`.  the set field as required and unique.
+3. add new field called : `username`, select data type : `username`.  then set field as required and unique.
 4. enable username as user identity when logging in:  click `settings`, then `configuration` on the sidebar, find `User identity field` and change to username. 
-
-
-
 
 ### Get the API Key
 1. Go to the "Settings".
-2. Click "API" in the sidebar.
+2. Click "API" on the sidebar.
 3. Find your API KEY in this page.
 
 ### Building the App
-Let's start building the React app from scratch.
+To build the application you can set up your project on your local computer or [stackblitz](https://stackblitz.com), it depends on your prereferences.   
+you can check out and try the completed project code on stackblitz, [click here](https://github-jcdvaq-ukv45g.stackblitz.io/).
 
 #### Initialize a React app
 We can use Create React App to initialize an app called kontenbase-react:
@@ -434,7 +431,7 @@ export default Register;
 
 ```
 
-create `Auth.js` file inside the `pages` folder, this will import `Login` and `Register` components. copy code below: 
+create `Auth.js` file inside the `pages` folder, this will import `Login` and `Register` components. copy the code below: 
 
 ```js title='/src/pages/Auth.js'
 
@@ -510,7 +507,7 @@ This is what we will see after doing the steps above.
 
 #### Setup Profile page
 
-To show our profile, let's create  `Account.js` file inside the `pages` folder. then copy code below:
+To show our profile, let's create  `Account.js` file inside the `pages` folder. then copy the code below:
 
 ```js title='/src/pages/Account.js'
 import React, { useEffect, useState } from 'react';
@@ -888,14 +885,14 @@ function App() {
 export default App;
 
 ```
-now you will able to update data and upload picture.
+now you will able to update data and upload a picture.
 
 ![](./assets/kontenbase-final-app.png)
 
 #### Share Profile
 you may notice if there is a share button, this button will copy our account link, then you can share to other user if they want to view your profile.
 to make this work, let's create new page called `profile`, this page accept param to find user by username.
-copy code below:
+copy the code below:
 
 ```js title='/src/pages/Profile.js'
 import React, { useEffect, useState } from 'react';
