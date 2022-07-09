@@ -47,7 +47,7 @@ We need some configuration  in `Users` service to make both autheticated user an
 3. Find your API KEY in this page.
 
 ### Building the App
-To build the application you can set up your project on your local computer or [stackblitz](https://stackblitz.com), it depends on your prereferences. You can check out and try the completed project code on stackblitz, [click here](https://github-jcdvaq-ukv45g.stackblitz.io/).
+To build the application you can set up your project on your local computer or [stackblitz](https://stackblitz.com), it depends on your prereferences. You can check out and try the completed project code on stackblitz, [click here](https://stackblitz.com/edit/kontenbase-quickstart-react).
 
 #### Initialize a React App
 We can use Create React App to initialize an App called kontenbase-react:
