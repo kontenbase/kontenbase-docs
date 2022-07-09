@@ -615,7 +615,7 @@ import Auth from './pages/Auth';
 import Account from './pages/Account';
 // highlight-end
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -844,25 +844,26 @@ import React from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Auth from './pages/Auth';
 import Account from './pages/Account';
-// highlight-start
+ //highlight-start
 import EditAccount from './pages/EditAccount';
-// highlight-end
+ //highlight-end
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Auth />} />
         <Route path="/myaccount" element={<Account />} />
-      // highlight-start
-         <Route path="/edit-account" element={<EditAccount />} />
-           // highlight-end
+          //highlight-start
+        <Route path="/edit-account" element={<EditAccount />} />
+          //highlight-end
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
+
 ```
 Now you will able to update data and upload a picture.
 
@@ -978,12 +979,13 @@ Finally, create a route for Profile page.
 import React from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Auth from './pages/Auth';
-import EditAccount from './pages/EditAccount';
 import Account from './pages/Account';
+import EditAccount from './pages/EditAccount';
 //highlight-start
 import Profile from './pages/Profile';
 //highlight-end
-function App() {
+
+const App = () => {
   return (
     <BrowserRouter>
       <Routes>
