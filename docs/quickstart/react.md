@@ -30,11 +30,11 @@ Before we start building we're going to set up our Database and get the API KEY.
 
 ### Set up the Database Service
 
-Now we are going to set `Profiles` and `Users` service.
+Now we are going to set `profile` and `Users` service.
 
 1. Click on `Create New Service` button.
-2. Fill in the service detail, give a name `Profiles`, select as private.
-3. Click on `Profiles` service, select`Customize Fields`, then add some fields following picture below. note, there is a field `Users` with data type `Link To Record`. It means we create a data relation between the service `Profiles` with the `Users`.
+2. Fill in the service detail, give a name `profile`, select as private.
+3. Click on `profile` service, select`Customize Fields`, then add some fields following picture below. note, there is a field `Users` with data type `Link To Record`. It means we create a data relation between the service `profile` with the `Users`.
 
 ![](./assets/profile-field.png)
 
@@ -720,7 +720,7 @@ const EditAccount = () => {
       return;
     }
 
-    setImage(data?.image);
+    setImage(data?.url);
     setLoading(false);
   };
 
