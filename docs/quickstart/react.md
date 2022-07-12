@@ -15,7 +15,7 @@ This also includes:
 
 By the end, you'll have an application that is able to register a new user, login and update some basic profile details.
 
-![](./assets/kontenbase-final-app.png)
+![](./assets/final-app.png)
 
 ## Project Set up
 
@@ -36,14 +36,14 @@ Now we are going to set `profile` and `Users` service.
 2. Fill in the service detail, give a name `profile`, select as private.
 3. Click on `profile` service, select`Customize Fields`, then add some fields following picture below. note, there is a field `Users` with data type `Link To Record`. It means we create a data relation between the service `profile` with the `Users`.
 
-![](./assets/profile-field.png)
+![](./assets/field-profile.png)
 
 We need some configuration in `Users` service to make both autheticated user and public can get or access users data. But don't worry, by default that will not return password, so user still secure.
 
 1. Click on `Authorization` button.
 2. Change service to `Users` and turn on `GET` permission for role autheticated and public.
 
-![](./assets/user-service-permission.png)
+![](./assets/profile-authorization.png)
 
 3. Add new field called : `username`, select data type : `username`, then set field as required and unique.
 4. Enable username as user identity when logging in: click `Settings`, then `Configuration` on the sidebar, find `User identity field` and change to username.
@@ -82,7 +82,7 @@ REACT_APP_KONTENBASE_API_KEY=YOUR_API_KEY
 Once that is done, let's create a helper file to initialize the Kontenbase Client and configure your SDK with the API KEY:
 
 ```js title="/src/lib/kontenbase.js"
-import { KontenbaseClient } from "@kontenbase/sdk";
+import { KontenbaseClient } from '@kontenbase/sdk';
 
 export const kontenbase = new KontenbaseClient({
   apiKey: process.env.REACT_APP_KONTENBASE_API_KEY,
@@ -92,13 +92,13 @@ export const kontenbase = new KontenbaseClient({
 An optional step is updating the CSS file on src/index.css to make the App look nice. Remove everything from the src/index.css and copy the css code that we have provided below:
 
 ```css title='/src/index.css'
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 button {
   background-color: transparent;
@@ -213,7 +213,7 @@ button {
 .logout-button {
   text-align: end;
 }
-input[type="file"] {
+input[type='file'] {
   display: none;
 }
 .label-file {
@@ -253,14 +253,14 @@ Let's set up the react components to manage login and register. We'll use userna
 Create the folders inside the src which will be called `pages` and `components`, then create `Login.js` and `Register.js` file inside the `components` folder and copy the code below in each files.
 
 ```js title='/src/components/Login.js'
-import * as React from "react";
-import { useNavigate } from "react-router-dom";
-import { kontenbase } from "../lib/kontenbase";
+import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { kontenbase } from '../lib/kontenbase';
 
 const Login = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [username, setUsername] = React.useState('');
+  const [password, setPassword] = React.useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -275,7 +275,7 @@ const Login = () => {
       return;
     }
 
-    navigate("/myaccount");
+    navigate('/myaccount');
   };
 
   return (
@@ -312,17 +312,17 @@ export default Login;
 ```
 
 ```js title='/src/components/Register.js'
-import * as React from "react";
-import { kontenbase } from "../lib/kontenbase";
-import { useNavigate } from "react-router-dom";
+import * as React from 'react';
+import { kontenbase } from '../lib/kontenbase';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const navigate = useNavigate();
-  const [firstName, setFirstName] = React.useState("");
-  const [lastName, setLastName] = React.useState("");
-  const [username, setUsername] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [firstName, setFirstName] = React.useState('');
+  const [lastName, setLastName] = React.useState('');
+  const [username, setUsername] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -340,7 +340,7 @@ const Register = () => {
       return;
     }
 
-    const { error: ErrorProfile } = await kontenbase.service("profile").create({
+    const { error: ErrorProfile } = await kontenbase.service('profile').create({
       Users: [user._id],
     });
 
@@ -349,7 +349,7 @@ const Register = () => {
       return;
     }
 
-    navigate("/myaccount");
+    navigate('/myaccount');
   };
 
   return (
@@ -413,15 +413,15 @@ export default Register;
 Create `Auth.js` file inside the `pages` folder, this will import `Login` and `Register` components. Copy the code below:
 
 ```js title='/src/pages/Auth.js'
-import * as React from "react";
-import Login from "../components/Login";
-import Register from "../components/Register";
-import { kontenbase } from "../lib/kontenbase";
-import { useNavigate } from "react-router-dom";
+import * as React from 'react';
+import Login from '../components/Login';
+import Register from '../components/Register';
+import { kontenbase } from '../lib/kontenbase';
+import { useNavigate } from 'react-router-dom';
 
 const Auth = () => {
   const navigate = useNavigate();
-  const [switchAuthForm, setSwitchAuthForm] = React.useState("login");
+  const [switchAuthForm, setSwitchAuthForm] = React.useState('login');
 
   React.useEffect(() => {
     (async () => {
@@ -432,16 +432,16 @@ const Auth = () => {
         return;
       }
 
-      navigate("myaccount");
+      navigate('myaccount');
     })();
   }, []);
 
   const handleRegisterForm = () => {
-    setSwitchAuthForm("register");
+    setSwitchAuthForm('register');
   };
 
   const handleLoginForm = () => {
-    setSwitchAuthForm("login");
+    setSwitchAuthForm('login');
   };
 
   return (
@@ -450,7 +450,7 @@ const Auth = () => {
         <button onClick={handleLoginForm}>Login</button>
         <button onClick={handleRegisterForm}>Register</button>
       </div>
-      {switchAuthForm === "register" ? <Register /> : <Login />}
+      {switchAuthForm === 'register' ? <Register /> : <Login />}
     </div>
   );
 };
@@ -461,9 +461,9 @@ export default Auth;
 Create a route for Auth page, then launch App.
 
 ```js title='/src/App.js'
-import React from "react";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Auth from "./pages/Auth";
+import React from 'react';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import Auth from './pages/Auth';
 
 const App = () => {
   return (
@@ -480,16 +480,16 @@ export default App;
 
 This is what we will see after doing the steps above.
 
-![](./assets/auth-form.png)
+![](./assets/auth-page.png)
 
 #### Set up Account Page
 
 To see our profile, let's create `Account.js` file inside the `pages` folder, then copy the code below:
 
 ```js title='/src/pages/Account.js'
-import * as React from "react";
-import { kontenbase } from "../lib/kontenbase";
-import { useNavigate } from "react-router-dom";
+import * as React from 'react';
+import { kontenbase } from '../lib/kontenbase';
+import { useNavigate } from 'react-router-dom';
 
 const Account = () => {
   const navigate = useNavigate();
@@ -498,7 +498,7 @@ const Account = () => {
   React.useEffect(() => {
     (async () => {
       const { user, error } = await kontenbase.auth.user({
-        lookup: "*",
+        lookup: '*',
       });
 
       if (error) {
@@ -518,21 +518,25 @@ const Account = () => {
       return;
     }
 
-    navigate("/");
+    navigate('/');
   };
 
   const handleShareProfile = (e) => {
     e.preventDefault();
-    navigator.clipboard.writeText("REACT_APP_URL/profile/" + user?.username);
-    alert("Link Copied!");
+    navigator.clipboard
+      .writeText(`${window.location.hostname}/profile/${user?.username}`)
+      .then(
+        () => alert('Link Copied!'),
+        () => alert('Failed to copy. Please open in new window.')
+      );
   };
 
   const handleLogin = () => {
-    navigate("/");
+    navigate('/');
   };
 
   const handleEditAccount = () => {
-    navigate("/edit-account");
+    navigate('/edit-account');
   };
 
   return (
@@ -557,15 +561,15 @@ const Account = () => {
                 width={90}
                 height={90}
                 src={
-                  user?.profile?.[0]?.image ?? "https://via.placeholder.com/90"
+                  user?.profile?.[0]?.image ?? 'https://via.placeholder.com/90'
                 }
                 alt=""
               />
               <h3 className="profile-title">
-                <span>{user?.firstName}</span>{" "}
-                <span>{user?.lastName ?? ""}</span>
+                <span>{user?.firstName}</span>{' '}
+                <span>{user?.lastName ?? ''}</span>
               </h3>
-              <p>{user?.profile?.[0]?.position ?? "position is null"}</p>
+              <p>{user?.profile?.[0]?.position ?? 'position is null'}</p>
             </div>
             <div className="card">
               <div className="share-contact">
@@ -577,12 +581,12 @@ const Account = () => {
               <div className="card-field">
                 <span>Name</span>
                 <p>
-                  {user?.firstName} {user?.lastName ?? ""}
+                  {user?.firstName} {user?.lastName ?? ''}
                 </p>
               </div>
               <div className="card-field">
                 <span>Mobile</span>
-                <p>{user?.phoneNumber ?? "phone number is null"}</p>
+                <p>{user?.phoneNumber ?? 'phone number is null'}</p>
               </div>
               <div className="card-field">
                 <span>Email</span>
@@ -592,18 +596,18 @@ const Account = () => {
               </div>
               <div className="card-field">
                 <span>Company</span>
-                <p>{user?.profile?.[0]?.company ?? "company is null"}</p>
+                <p>{user?.profile?.[0]?.company ?? 'company is null'}</p>
               </div>
             </div>
             <div className="card">
               <h3>Location</h3>
-              <p>{user?.profile?.[0]?.location ?? "location is null"}</p>
+              <p>{user?.profile?.[0]?.location ?? 'location is null'}</p>
             </div>
             <div className="card">
               <h3>Web Links</h3>
               <a
                 className="website-link"
-                href={user?.profile?.[0]?.website ?? ""}
+                href={user?.profile?.[0]?.website ?? ''}
               >
                 Website
               </a>
@@ -621,11 +625,11 @@ export default Account;
 Create a route for Account page.
 
 ```js title='/src/App.js'
-import React from "react";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Auth from "./pages/Auth";
+import React from 'react';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import Auth from './pages/Auth';
 // highlight-start
-import Account from "./pages/Account";
+import Account from './pages/Account';
 // highlight-end
 
 const App = () => {
@@ -647,27 +651,27 @@ export default App;
 If we register or login successfully we should be navigated to `Account` page. But there is a little problem, because some field will show null. Let's create `EditAccount.js` inside the `pages` folder to update our data.
 
 ```js title='/src/pages/EditAccount.js'
-import * as React from "react";
-import { kontenbase } from "../lib/kontenbase";
-import { useNavigate } from "react-router-dom";
+import * as React from 'react';
+import { kontenbase } from '../lib/kontenbase';
+import { useNavigate } from 'react-router-dom';
 
 const EditAccount = () => {
   const navigate = useNavigate();
-  const [profileId, setProfileId] = React.useState("");
-  const [firstName, setFirstName] = React.useState("");
-  const [lastName, setLastName] = React.useState("");
-  const [phoneNumber, setphoneNumber] = React.useState("");
-  const [company, setCompany] = React.useState("");
-  const [position, setPosition] = React.useState("");
-  const [location, setLocation] = React.useState("");
+  const [profileId, setProfileId] = React.useState('');
+  const [firstName, setFirstName] = React.useState('');
+  const [lastName, setLastName] = React.useState('');
+  const [phoneNumber, setphoneNumber] = React.useState('');
+  const [company, setCompany] = React.useState('');
+  const [position, setPosition] = React.useState('');
+  const [location, setLocation] = React.useState('');
   const [loading, setLoading] = React.useState(false);
-  const [image, setImage] = React.useState("");
-  const [website, setWebsite] = React.useState("");
+  const [image, setImage] = React.useState('');
+  const [website, setWebsite] = React.useState('');
 
   React.useEffect(() => {
     (async () => {
       const { user, error } = await kontenbase.auth.user({
-        lookup: "*",
+        lookup: '*',
       });
 
       if (error) {
@@ -676,6 +680,7 @@ const EditAccount = () => {
       }
 
       const profile = user?.profile?.[0];
+
       setProfileId(profile?._id);
       setFirstName(user?.firstName);
       setLastName(user?.lastName);
@@ -696,7 +701,7 @@ const EditAccount = () => {
       return;
     }
 
-    navigate("/");
+    navigate('/');
   };
 
   const handleChangeImage = async (e) => {
@@ -710,7 +715,7 @@ const EditAccount = () => {
     }
 
     const { error: updateError } = await kontenbase
-      .service("profile")
+      .service('profile')
       .updateById(profileId, {
         image: data?.url,
       });
@@ -732,9 +737,8 @@ const EditAccount = () => {
       firstName,
       phoneNumber,
     });
-
     const { error: profileError } = await kontenbase
-      .service("profile")
+      .service('profile')
       .updateById(profileId, {
         company,
         location,
@@ -746,11 +750,11 @@ const EditAccount = () => {
       return;
     }
 
-    navigate("/myaccount");
+    navigate('/myaccount');
   };
 
   const handleGotoBack = () => {
-    navigate("/myaccount");
+    navigate('/myaccount');
   };
 
   return (
@@ -767,12 +771,12 @@ const EditAccount = () => {
             className="image-avatar"
             width={90}
             height={90}
-            src={image ? image : "https://via.placeholder.com/90"}
+            src={image ? image : 'https://via.placeholder.com/90'}
             alt=""
           />
           <div>
             <label className="label-file" htmlFor="file">
-              {loading ? "Loading..." : "Change Image"}
+              {loading ? 'Loading...' : 'Change Image'}
             </label>
             <input onChange={handleChangeImage} id="file" type="file" />
           </div>
@@ -784,7 +788,7 @@ const EditAccount = () => {
               <input
                 type="text"
                 value={firstName}
-                onChange={(e) => setFirstName(e.target.value) || ""}
+                onChange={(e) => setFirstName(e.target.value) || ''}
               />
             </div>
             <div className="card-field">
@@ -792,14 +796,14 @@ const EditAccount = () => {
               <input
                 type="text"
                 value={lastName}
-                onChange={(e) => setLastName(e.target.value) || ""}
+                onChange={(e) => setLastName(e.target.value) || ''}
               />
             </div>
             <div className="card-field">
               <label>Phone Number</label>
               <input
                 type="text"
-                value={phoneNumber || ""}
+                value={phoneNumber || ''}
                 onChange={(e) => setphoneNumber(e.target.value)}
               />
             </div>
@@ -807,7 +811,7 @@ const EditAccount = () => {
               <label>Company</label>
               <input
                 type="text"
-                value={company || ""}
+                value={company || ''}
                 onChange={(e) => setCompany(e.target.value)}
               />
             </div>
@@ -815,7 +819,7 @@ const EditAccount = () => {
               <label>Position</label>
               <input
                 type="text"
-                value={position || ""}
+                value={position || ''}
                 onChange={(e) => setPosition(e.target.value)}
               />
             </div>
@@ -823,7 +827,7 @@ const EditAccount = () => {
               <label>Location</label>
               <input
                 type="text"
-                value={location || ""}
+                value={location || ''}
                 onChange={(e) => setLocation(e.target.value)}
               />
             </div>
@@ -832,7 +836,7 @@ const EditAccount = () => {
               <label>Website</label>
               <input
                 type="url"
-                value={website || ""}
+                value={website || ''}
                 onChange={(e) => setWebsite(e.target.value)}
               />
             </div>
@@ -854,12 +858,12 @@ export default EditAccount;
 Create a route for Edit Account page.
 
 ```js title='/src/App.js'
-import React from "react";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Auth from "./pages/Auth";
-import Account from "./pages/Account";
+import React from 'react';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import Auth from './pages/Auth';
+import Account from './pages/Account';
 //highlight-start
-import EditAccount from "./pages/EditAccount";
+import EditAccount from './pages/EditAccount';
 //highlight-end
 
 const App = () => {
@@ -881,7 +885,7 @@ export default App;
 
 Now you will able to update data and upload a picture.
 
-![](./assets/kontenbase-final-app.png)
+![](./assets/update-profile.png)
 
 #### Set up Share Profile Page
 
@@ -890,9 +894,9 @@ to make this work, let's create new page called `profile`, this page accept para
 copy the code below:
 
 ```js title='/src/pages/Profile.js'
-import * as React from "react";
-import { kontenbase } from "../lib/kontenbase";
-import { useParams } from "react-router-dom";
+import * as React from 'react';
+import { kontenbase } from '../lib/kontenbase';
+import { useParams } from 'react-router-dom';
 
 const Profile = () => {
   const params = useParams();
@@ -901,11 +905,11 @@ const Profile = () => {
   React.useEffect(() => {
     (async () => {
       const { username } = params;
-      const { data: user, error } = await kontenbase.service("Users").find({
+      const { data: user, error } = await kontenbase.service('Users').find({
         where: {
           username,
         },
-        lookup: "*",
+        lookup: '*',
       });
 
       if (error) {
@@ -932,27 +936,27 @@ const Profile = () => {
                 width={90}
                 height={90}
                 src={
-                  user?.profile?.[0]?.image ?? "https://via.placeholder.com/90"
+                  user?.profile?.[0]?.image ?? 'https://via.placeholder.com/90'
                 }
                 alt=""
               />
               <h3 className="profile-title">
-                <span>{user?.firstName}</span>{" "}
-                <span>{user?.lastName ?? ""}</span>
+                <span>{user?.firstName}</span>{' '}
+                <span>{user?.lastName ?? ''}</span>
               </h3>
-              <p>{user?.profile?.[0]?.position ?? "position is null"}</p>
+              <p>{user?.profile?.[0]?.position ?? 'position is null'}</p>
             </div>
             <div className="card">
               <h3>Contact</h3>
               <div className="card-field">
                 <span>Name</span>
                 <p>
-                  {user?.firstName} {user?.lastName ?? ""}
+                  {user?.firstName} {user?.lastName ?? ''}
                 </p>
               </div>
               <div className="card-field">
                 <span>Mobile</span>
-                <p>{user?.phoneNumber ?? "phone number is null"}</p>
+                <p>{user?.phoneNumber ?? 'phone number is null'}</p>
               </div>
               <div className="card-field">
                 <span>Email</span>
@@ -962,18 +966,18 @@ const Profile = () => {
               </div>
               <div className="card-field">
                 <span>Company</span>
-                <p>{user?.profile?.[0]?.company ?? "company is null"}</p>
+                <p>{user?.profile?.[0]?.company ?? 'company is null'}</p>
               </div>
             </div>
             <div className="card">
               <h3>Location</h3>
-              <p>{user?.profile?.[0]?.location ?? "location is null"}</p>
+              <p>{user?.profile?.[0]?.location ?? 'location is null'}</p>
             </div>
             <div className="card">
               <h3>Web Links</h3>
               <a
                 className="website-link"
-                href={user?.profile?.[0]?.website ?? ""}
+                href={user?.profile?.[0]?.website ?? ''}
               >
                 Website
               </a>
@@ -991,13 +995,13 @@ export default Profile;
 Finally, create a route for Profile page.
 
 ```js title='/src/App.js'
-import React from "react";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Auth from "./pages/Auth";
-import Account from "./pages/Account";
-import EditAccount from "./pages/EditAccount";
+import React from 'react';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import Auth from './pages/Auth';
+import Account from './pages/Account';
+import EditAccount from './pages/EditAccount';
 //highlight-start
-import Profile from "./pages/Profile";
+import Profile from './pages/Profile';
 //highlight-end
 
 const App = () => {

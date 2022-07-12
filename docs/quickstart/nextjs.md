@@ -15,7 +15,7 @@ This also includes:
 
 By the end, you'll have an application that is able to register a new user, login and update some basic profile details.
 
-![](./assets/kontenbase-final-app.png)
+![](./assets//final-app.png)
 
 ## Project Set up
 
@@ -36,14 +36,14 @@ Now we are going to set `profile` and `Users` service.
 2. Fill in the service detail, give a name `profile`, select as private.
 3. Click on `profile` service, select`Customize Fields`, then add some fields following picture below. note, there is a field `Users` with data type `Link To Record`. It means we create a data relation between the service `profile` with the `Users`.
 
-![](./assets/profile-field.png)
+![](./assets/field-profile.png)
 
 We need some configuration in `Users` service to make both autheticated user and public can get or access users data. But don't worry, by default that will not return password, so user still secure.
 
 1. Click on `Authorization` button.
 2. Change service to `Users` and turn on `GET` permission for role autheticated and public.
 
-![](./assets/user-service-permission.png)
+![](./assets/profile-authorization.png)
 
 3. Add new field called : `username`, select data type : `username`, then set field as required and unique.
 4. Enable username as user identity when logging in: click `Settings`, then `Configuration` on the sidebar, find `User identity field` and change to username.
@@ -453,7 +453,7 @@ export default function Home() {
 
 If we launch the App after doing the steps above, We'll see this page show:
 
-![](./assets/auth-form.png)
+![](./assets/auth-page.png)
 
 #### Set up Account Page
 
@@ -798,7 +798,7 @@ export default function EditAccount() {
 
 Now you will able to update data and upload a picture.
 
-![](./assets/kontenbase-final-app.png)
+![](./assets/update-profile.png)
 
 #### Set up Share Profile Page
 
