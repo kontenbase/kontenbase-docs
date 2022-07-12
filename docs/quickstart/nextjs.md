@@ -1,10 +1,10 @@
 ---
-title: Quickstart React
+title: Quickstart Next.js
 ---
 
 ## Intro
 
-This example will show you how to build a simple user management app from scratch using Kontenbase and React. Before begin make sure that you are familiar with ReactJs basics.
+This example will show you how to build a simple user management app from scratch using Kontenbase and Next.js. Before begin make sure that you are familiar with Next.js basics.
 
 This also includes:
 
@@ -15,7 +15,7 @@ This also includes:
 
 By the end, you'll have an application that is able to register a new user, login and update some basic profile details.
 
-![](./assets/final-app.png)
+![](./assets//final-app.png)
 
 ## Project Set up
 
@@ -56,42 +56,42 @@ We need some configuration in `Users` service to make both autheticated user and
 
 ### Building the App
 
-To build the application you can set up your project on your local computer or [StackBlitz](https://stackblitz.com), it depends on your prereferences. You can check out and try the completed project code on StackBlitz, [click here](https://stackblitz.com/edit/kontenbase-quickstart-react).
+To build the application you can set up your project on your local computer or [StackBlitz](https://stackblitz.com), it depends on your prereferences. You can check out and try the completed project code on StackBlitz, [click here](https://stackblitz.com/edit/kontenbase-quickstart-nextjs).
 
-#### Initialize a React App
+#### Initialize a Next.js App
 
-We can use Create React App to initialize an App called kontenbase-react:
+We can use `create-next-app` to initialize an app called kontenbase-nextjs:
 
 ```cmd
-npx create-react-app kontenbase-react
-cd kontenbase-react
+npx create-next-app kontenbase-nextjs
+cd kontenbase-nextjs
 ```
 
-Let's install Kontenbase SDK and additional dependency react-router-dom, simply use the command below:
+Let's install Kontenbase SDK, simply use the command below:
 
 ```
-npm install @kontenbase/sdk react-router-dom
+npm install @kontenbase/sdk
 ```
 
-Save the API KEY to environment variable. create `.env` file inside the root folder.
+Save the API KEY to environment variable in a `.env.local` that you copied earlier.
 
-```cmd title=".env"
-REACT_APP_KONTENBASE_API_KEY=YOUR_API_KEY
+```cmd title=".env.local"
+NEXT_PUBLIC_KONTENBASE_API_KEY=YOUR_KONTENBASE_API_KEY
 ```
 
 Once that is done, let's create a helper file to initialize the Kontenbase Client and configure your SDK with the API KEY:
 
-```js title="/src/lib/kontenbase.js"
+```js title="/lib/kontenbase.js"
 import { KontenbaseClient } from '@kontenbase/sdk';
 
 export const kontenbase = new KontenbaseClient({
-  apiKey: process.env.REACT_APP_KONTENBASE_API_KEY,
+  apiKey: process.env.NEXT_PUBLIC_KONTENBASE_API_KEY,
 });
 ```
 
-An optional step is updating the CSS file on src/index.css to make the App look nice. Remove everything from the src/index.css and copy the css code that we have provided below:
+An optional step is updating the CSS file to make the App look nice. Remove everything from the `styles/globals.css` and copy the css code that we have provided below:
 
-```css title='/src/index.css'
+```css title='/styles/globals.css'
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
 
 * {
@@ -250,15 +250,15 @@ input[type='file'] {
 
 Let's set up the react components to manage login and register. We'll use username and password to login.
 
-Create the folders inside the src which will be called `pages` and `components`, then create `Login.js` and `Register.js` file inside the `components` folder and copy the code below in each files.
+Create a folder which will be called `components`, then create `Login.js` and `Register.js` file inside that folder and copy the code below in each files.
 
-```js title='/src/components/Login.js'
+```js title='/components/Login.js'
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import { kontenbase } from '../lib/kontenbase';
 
 const Login = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
@@ -275,7 +275,7 @@ const Login = () => {
       return;
     }
 
-    navigate('/myaccount');
+    router.push('/myaccount');
   };
 
   return (
@@ -311,13 +311,13 @@ const Login = () => {
 export default Login;
 ```
 
-```js title='/src/components/Register.js'
+```js title='/components/Register.js'
 import * as React from 'react';
+import { useRouter } from 'next/router';
 import { kontenbase } from '../lib/kontenbase';
-import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [firstName, setFirstName] = React.useState('');
   const [lastName, setLastName] = React.useState('');
   const [username, setUsername] = React.useState('');
@@ -349,7 +349,7 @@ const Register = () => {
       return;
     }
 
-    navigate('/myaccount');
+    router.push('/myaccount');
   };
 
   return (
@@ -410,17 +410,17 @@ const Register = () => {
 export default Register;
 ```
 
-Create `Auth.js` file inside the `pages` folder, this will import `Login` and `Register` components. Copy the code below:
+Find `index.js` inside the `pages` folder and copy the code below to import `Login` and `Register` components:
 
-```js title='/src/pages/Auth.js'
+```js title='/pages/index.js'
 import * as React from 'react';
+import { useRouter } from 'next/router';
 import Login from '../components/Login';
 import Register from '../components/Register';
 import { kontenbase } from '../lib/kontenbase';
-import { useNavigate } from 'react-router-dom';
 
-const Auth = () => {
-  const navigate = useNavigate();
+const Home = () => {
+  const router = useRouter();
   const [switchAuthForm, setSwitchAuthForm] = React.useState('login');
 
   React.useEffect(() => {
@@ -432,7 +432,7 @@ const Auth = () => {
         return;
       }
 
-      navigate('myaccount');
+      router.push('/myaccount');
     })();
   }, []);
 
@@ -455,44 +455,24 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default Home;
 ```
 
-Create a route for Auth page, then launch App.
-
-```js title='/src/App.js'
-import React from 'react';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import Auth from './pages/Auth';
-
-const App = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Auth />} />
-      </Routes>
-    </BrowserRouter>
-  );
-};
-
-export default App;
-```
-
-This is what we will see after doing the steps above.
+If we launch the App after doing the steps above, We'll see this page show:
 
 ![](./assets/auth-page.png)
 
 #### Set up Account Page
 
-To see our profile, let's create `Account.js` file inside the `pages` folder, then copy the code below:
+To see our profile, let's create `myaccount.js` file inside the `pages` folder, then copy the code below:
 
-```js title='/src/pages/Account.js'
+```js title='/pages/myaccount.js'
 import * as React from 'react';
+import { useRouter } from 'next/router';
 import { kontenbase } from '../lib/kontenbase';
-import { useNavigate } from 'react-router-dom';
 
-const Account = () => {
-  const navigate = useNavigate();
+const MyAccount = () => {
+  const router = useRouter();
   const [user, setUser] = React.useState();
 
   React.useEffect(() => {
@@ -518,11 +498,12 @@ const Account = () => {
       return;
     }
 
-    navigate('/');
+    router.push('/');
   };
 
   const handleShareProfile = (e) => {
     e.preventDefault();
+
     navigator.clipboard
       .writeText(`${window.location.hostname}/profile/${user?.username}`)
       .then(
@@ -532,11 +513,11 @@ const Account = () => {
   };
 
   const handleLogin = () => {
-    navigate('/');
+    router.push('/');
   };
 
   const handleEditAccount = () => {
-    navigate('/edit-account');
+    router.push('/edit-account');
   };
 
   return (
@@ -619,44 +600,18 @@ const Account = () => {
   );
 };
 
-export default Account;
+export default MyAccount;
 ```
 
-Create a route for Account page.
+If we register or login successfully we should be navigated to `myaccount` page. But there is a little problem, because some field will show null. Let's create `edit-account.js` inside the `pages` folder to update our data.
 
-```js title='/src/App.js'
-import React from 'react';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import Auth from './pages/Auth';
-// highlight-start
-import Account from './pages/Account';
-// highlight-end
-
-const App = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Auth />} />
-        // highlight-start
-        <Route path="/myaccount" element={<Account />} />
-        // highlight-end
-      </Routes>
-    </BrowserRouter>
-  );
-};
-
-export default App;
-```
-
-If we register or login successfully we should be navigated to `Account` page. But there is a little problem, because some field will show null. Let's create `EditAccount.js` inside the `pages` folder to update our data.
-
-```js title='/src/pages/EditAccount.js'
+```js title='/pages/edit-account.js'
 import * as React from 'react';
+import { useRouter } from 'next/router';
 import { kontenbase } from '../lib/kontenbase';
-import { useNavigate } from 'react-router-dom';
 
 const EditAccount = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [profileId, setProfileId] = React.useState('');
   const [firstName, setFirstName] = React.useState('');
   const [lastName, setLastName] = React.useState('');
@@ -701,7 +656,7 @@ const EditAccount = () => {
       return;
     }
 
-    navigate('/');
+    router.push('/');
   };
 
   const handleChangeImage = async (e) => {
@@ -751,11 +706,11 @@ const EditAccount = () => {
       return;
     }
 
-    navigate('/myaccount');
+    router.push('/myaccount');
   };
 
   const handleGotoBack = () => {
-    navigate('/myaccount');
+    router.push('/myaccount');
   };
 
   return (
@@ -856,34 +811,6 @@ const EditAccount = () => {
 export default EditAccount;
 ```
 
-Create a route for Edit Account page.
-
-```js title='/src/App.js'
-import React from 'react';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import Auth from './pages/Auth';
-import Account from './pages/Account';
-//highlight-start
-import EditAccount from './pages/EditAccount';
-//highlight-end
-
-const App = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Auth />} />
-        <Route path="/myaccount" element={<Account />} />
-        //highlight-start
-        <Route path="/edit-account" element={<EditAccount />} />
-        //highlight-end
-      </Routes>
-    </BrowserRouter>
-  );
-};
-
-export default App;
-```
-
 Now you will able to update data and upload a picture.
 
 ![](./assets/update-profile.png)
@@ -891,21 +818,21 @@ Now you will able to update data and upload a picture.
 #### Set up Share Profile Page
 
 You may notice if there is a share button. this button will copy our account link, then you can share to other user if they want to view your profile.
-to make this work, let's create new page called `profile`, this page accept param to find user by username.
+to make this work, let's create new page called `profile/[username].js`, this page accept param to find user by username.
 copy the code below:
 
-```js title='/src/pages/Profile.js'
+```js title='/pages/profile/[username].js'
 import * as React from 'react';
-import { kontenbase } from '../lib/kontenbase';
-import { useParams } from 'react-router-dom';
+import { useRouter } from 'next/router';
+import { kontenbase } from '../../lib/kontenbase';
 
 const Profile = () => {
-  const params = useParams();
+  const query = useRouter();
+  const { username } = query;
   const [user, setUser] = React.useState();
 
   React.useEffect(() => {
     (async () => {
-      const { username } = params;
       const { data: user, error } = await kontenbase.service('Users').find({
         where: {
           username,
@@ -920,7 +847,7 @@ const Profile = () => {
 
       setUser(user?.[0]);
     })();
-  }, []);
+  }, [username]);
 
   return (
     <>
@@ -991,36 +918,6 @@ const Profile = () => {
 };
 
 export default Profile;
-```
-
-Finally, create a route for Profile page.
-
-```js title='/src/App.js'
-import React from 'react';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import Auth from './pages/Auth';
-import Account from './pages/Account';
-import EditAccount from './pages/EditAccount';
-//highlight-start
-import Profile from './pages/Profile';
-//highlight-end
-
-const App = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Auth />} />
-        <Route path="/myaccount" element={<Account />} />
-        <Route path="/edit-account" element={<EditAccount />} />
-        //highlight-start
-        <Route path="/profile/:username" element={<Profile />} />
-        //highlight-end
-      </Routes>
-    </BrowserRouter>
-  );
-};
-
-export default App;
 ```
 
 And we're done to complete our App!
