@@ -706,6 +706,7 @@ const EditAccount = () => {
 
   const handleChangeImage = async (e) => {
     setLoading(true);
+
     const file = e.target.files[0];
     const { data, error: uploadError } = await kontenbase.storage.upload(file);
 
