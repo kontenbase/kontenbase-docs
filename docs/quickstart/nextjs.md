@@ -257,12 +257,12 @@ import * as React from 'react';
 import { useRouter } from 'next/router';
 import { kontenbase } from '../lib/kontenbase';
 
-export default function Login() {
+const Login = () => {
   const router = useRouter();
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-  async function handleLogin(e) {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     const { error } = await kontenbase.auth.login({
@@ -276,7 +276,7 @@ export default function Login() {
     }
 
     router.push('/myaccount');
-  }
+  };
 
   return (
     <div>
@@ -306,7 +306,9 @@ export default function Login() {
       </form>
     </div>
   );
-}
+};
+
+export default Login;
 ```
 
 ```js title='/components/Register.js'
@@ -314,7 +316,7 @@ import * as React from 'react';
 import { useRouter } from 'next/router';
 import { kontenbase } from '../lib/kontenbase';
 
-export default function Register() {
+const Register = () => {
   const router = useRouter();
   const [firstName, setFirstName] = React.useState('');
   const [lastName, setLastName] = React.useState('');
@@ -322,7 +324,7 @@ export default function Register() {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-  async function handleRegister(e) {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
     const { user, error } = await kontenbase.auth.register({
@@ -348,7 +350,7 @@ export default function Register() {
     }
 
     router.push('/myaccount');
-  }
+  };
 
   return (
     <div>
@@ -394,6 +396,7 @@ export default function Register() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+
         <div className="form-button">
           <button className="button button-primary" type="sumbit">
             Submit
@@ -402,7 +405,9 @@ export default function Register() {
       </form>
     </div>
   );
-}
+};
+
+export default Register;
 ```
 
 Find `index.js` inside the `pages` folder and copy the code below to import `Login` and `Register` components:
@@ -414,12 +419,12 @@ import Login from '../components/Login';
 import Register from '../components/Register';
 import { kontenbase } from '../lib/kontenbase';
 
-export default function Home() {
+const Home = () => {
   const router = useRouter();
   const [switchAuthForm, setSwitchAuthForm] = React.useState('login');
 
   React.useEffect(() => {
-    (async function () {
+    (async () => {
       const { error } = await kontenbase.auth.user();
 
       if (error) {
@@ -431,13 +436,13 @@ export default function Home() {
     })();
   }, []);
 
-  function handleRegisterForm() {
+  const handleRegisterForm = () => {
     setSwitchAuthForm('register');
-  }
+  };
 
-  function handleLoginForm() {
+  const handleLoginForm = () => {
     setSwitchAuthForm('login');
-  }
+  };
 
   return (
     <div className="auth-page">
@@ -448,7 +453,9 @@ export default function Home() {
       {switchAuthForm === 'register' ? <Register /> : <Login />}
     </div>
   );
-}
+};
+
+export default Home;
 ```
 
 If we launch the App after doing the steps above, We'll see this page show:
@@ -464,12 +471,12 @@ import * as React from 'react';
 import { useRouter } from 'next/router';
 import { kontenbase } from '../lib/kontenbase';
 
-export default function Account() {
+const MyAccount = () => {
   const router = useRouter();
   const [user, setUser] = React.useState();
 
   React.useEffect(() => {
-    (async function () {
+    (async () => {
       const { user, error } = await kontenbase.auth.user({
         lookup: '*',
       });
@@ -483,7 +490,7 @@ export default function Account() {
     })();
   }, []);
 
-  async function handleLogout() {
+  const handleLogout = async () => {
     const { error } = await kontenbase.auth.logout();
 
     if (error) {
@@ -492,23 +499,26 @@ export default function Account() {
     }
 
     router.push('/');
-  }
+  };
 
-  function handleShareProfile(e) {
+  const handleShareProfile = (e) => {
     e.preventDefault();
-    navigator.clipboard.writeText(
-      'YOUR_NEXT_APP_URL/profile/' + user?.username
-    );
-    alert('Link Copied!');
-  }
 
-  function handleLogin() {
+    navigator.clipboard
+      .writeText(`${window.location.hostname}/profile/${user?.username}`)
+      .then(
+        () => alert('Link Copied!'),
+        () => alert('Failed to copy. Please open in new window.')
+      );
+  };
+
+  const handleLogin = () => {
     router.push('/');
-  }
+  };
 
-  function handleEditAccount() {
+  const handleEditAccount = () => {
     router.push('/edit-account');
-  }
+  };
 
   return (
     <>
@@ -588,7 +598,9 @@ export default function Account() {
       )}
     </>
   );
-}
+};
+
+export default MyAccount;
 ```
 
 If we register or login successfully we should be navigated to `myaccount` page. But there is a little problem, because some field will show null. Let's create `edit-account.js` inside the `pages` folder to update our data.
@@ -598,7 +610,7 @@ import * as React from 'react';
 import { useRouter } from 'next/router';
 import { kontenbase } from '../lib/kontenbase';
 
-export default function EditAccount() {
+const EditAccount = () => {
   const router = useRouter();
   const [profileId, setProfileId] = React.useState('');
   const [firstName, setFirstName] = React.useState('');
@@ -612,7 +624,7 @@ export default function EditAccount() {
   const [website, setWebsite] = React.useState('');
 
   React.useEffect(() => {
-    (async function () {
+    (async () => {
       const { user, error } = await kontenbase.auth.user({
         lookup: '*',
       });
@@ -623,6 +635,7 @@ export default function EditAccount() {
       }
 
       const profile = user?.profile?.[0];
+
       setProfileId(profile?._id);
       setFirstName(user?.firstName);
       setLastName(user?.lastName);
@@ -635,7 +648,7 @@ export default function EditAccount() {
     })();
   }, []);
 
-  async function handleLogout() {
+  const handleLogout = async () => {
     const { error } = await kontenbase.auth.logout();
 
     if (error) {
@@ -644,9 +657,9 @@ export default function EditAccount() {
     }
 
     router.push('/');
-  }
+  };
 
-  async function handleChangeImage(e) {
+  const handleChangeImage = async (e) => {
     setLoading(true);
     const file = e.target.files[0];
     const { data, error: uploadError } = await kontenbase.storage.upload(file);
@@ -669,9 +682,9 @@ export default function EditAccount() {
 
     setImage(data?.url);
     setLoading(false);
-  }
+  };
 
-  async function handleUpdate(e) {
+  const handleUpdate = async (e) => {
     e.preventDefault();
 
     const { error: userError } = await kontenbase.auth.update({
@@ -679,7 +692,6 @@ export default function EditAccount() {
       firstName,
       phoneNumber,
     });
-
     const { error: profileError } = await kontenbase
       .service('profile')
       .updateById(profileId, {
@@ -694,11 +706,11 @@ export default function EditAccount() {
     }
 
     router.push('/myaccount');
-  }
+  };
 
-  function handleGotoBack() {
+  const handleGotoBack = () => {
     router.push('/myaccount');
-  }
+  };
 
   return (
     <div className="profile-page">
@@ -793,7 +805,9 @@ export default function EditAccount() {
       </div>
     </div>
   );
-}
+};
+
+export default EditAccount;
 ```
 
 Now you will able to update data and upload a picture.
@@ -811,13 +825,13 @@ import * as React from 'react';
 import { useRouter } from 'next/router';
 import { kontenbase } from '../../lib/kontenbase';
 
-export default function Profile() {
+const Profile = () => {
   const query = useRouter();
   const { username } = query;
   const [user, setUser] = React.useState();
 
   React.useEffect(() => {
-    (async function () {
+    (async () => {
       const { data: user, error } = await kontenbase.service('Users').find({
         where: {
           username,
@@ -900,7 +914,9 @@ export default function Profile() {
       )}
     </>
   );
-}
+};
+
+export default Profile;
 ```
 
 And we're done to complete our App!
