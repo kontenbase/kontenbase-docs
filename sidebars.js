@@ -32,7 +32,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Quickstarts',
-      items: ['quickstart/react'],
+      items: ['quickstart/react', 'quickstart/nextjs'],
     },
     {
       type: 'category',
