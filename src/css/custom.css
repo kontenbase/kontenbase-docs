@@ -8,11 +8,11 @@
 :root {
   --ifm-color-primary: #ec4d37;
   --ifm-color-primary-dark: #ec4d37;
-  --ifm-color-primary-darker: #D72C14;
-  --ifm-color-primary-darkest: #A32110;
+  --ifm-color-primary-darker: #d72c14;
+  --ifm-color-primary-darkest: #a32110;
   --ifm-color-primary-light: #ec4d37;
-  --ifm-color-primary-lighter: #D72C14;
-  --ifm-color-primary-lightest: #A32110;
+  --ifm-color-primary-lighter: #d72c14;
+  --ifm-color-primary-lightest: #a32110;
   --ifm-code-font-size: 95%;
 }
 
@@ -27,6 +27,25 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-html[data-theme='dark'] .navbar .navbar__logo { 
-  content: url(/img/logo-dark.svg)
+html[data-theme='dark'] .navbar .navbar__logo {
+  content: url(/img/logo-dark.svg);
+}
+
+.button-link {
+  display: inline-flex;
+  height: 40px;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 0 8px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.button-link svg {
+  margin-left: 10px;
+}
+
+.button-github {
+  margin-left: 1rem;
 }
