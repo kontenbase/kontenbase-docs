@@ -68,8 +68,6 @@ We need some configuration in `Users` service to make both autheticated user and
 
 ### Building the App
 
-To build the application you can set up your project on your local computer or [StackBlitz](https://stackblitz.com), it depends on your prereferences. You can check out and try the completed project code on StackBlitz, [click here](https://stackblitz.com/edit/kontenbase-quickstart-react).
-
 #### Initialize a React App
 
 We can use Create React App to initialize an App called kontenbase-react:
