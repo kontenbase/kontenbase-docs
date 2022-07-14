@@ -879,6 +879,7 @@ import EditProfile from './pages/EditProfile';
 //highlight-start
 import Profile from './pages/Profile';
 //highlight-end
+
 const App = () => {
   return (
     <BrowserRouter>
