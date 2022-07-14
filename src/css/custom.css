@@ -31,19 +31,29 @@ html[data-theme='dark'] .navbar .navbar__logo {
   content: url(/img/logo-dark.svg);
 }
 
-.button-link {
-  display: inline-flex;
-  height: 40px;
+.container-link {
+  display: flex;
   align-items: center;
-  border: 1px solid #e5e7eb;
-  border-radius: 4px;
-  padding: 0 8px;
-  font-weight: bold;
-  text-decoration: none;
 }
 
-.button-link svg {
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #ec4d37;
+  text-decoration: none !important;
+}
+
+.button-link img {
   margin-left: 10px;
+}
+
+.button-stackblitz {
+  height: 32px;
 }
 
 .button-github {
