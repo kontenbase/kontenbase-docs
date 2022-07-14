@@ -226,9 +226,14 @@ input[type='file'] {
   display: none;
 }
 .label-file {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 2px;
   cursor: pointer;
+}
+.label-file span {
+  margin-top: 10px;
 }
 .not-autheticated {
   margin-top: 30vh;
@@ -284,7 +289,7 @@ const Login = () => {
       return;
     }
 
-    navigate('/myaccount');
+    navigate('/profile');
   };
 
   return (
@@ -358,7 +363,7 @@ const Register = () => {
       return;
     }
 
-    navigate('/myaccount');
+    navigate('/profile');
   };
 
   return (
@@ -440,7 +445,7 @@ const Auth = () => {
         return;
       }
 
-      navigate('myaccount');
+      navigate('/profile');
     })();
   }, []);
 
@@ -490,191 +495,28 @@ This is what we will see after doing the steps above.
 
 ![](./assets/auth-page.png)
 
-#### Set up Account Page
+#### Set up Profile Page
 
-To see our profile, let's create `Account.js` file inside the `pages` folder, then copy the code below:
+To view and edit our profile, let's create `EditProfile.js` file inside the `pages` folder, then copy the code below:
 
-```js title='/src/pages/Account.js'
+```js title='/src/pages/EditProfile.js'
 import * as React from 'react';
 import { kontenbase } from '../lib/kontenbase';
 import { useNavigate } from 'react-router-dom';
 
-const Account = () => {
+const EditProfile = () => {
   const navigate = useNavigate();
-  const [user, setUser] = React.useState();
-
-  React.useEffect(() => {
-    (async () => {
-      const { user, error } = await kontenbase.auth.user({
-        lookup: '*',
-      });
-
-      if (error) {
-        console.log(error);
-        return;
-      }
-
-      setUser(user);
-    })();
-  }, []);
-
-  const handleLogout = async () => {
-    const { error } = await kontenbase.auth.logout();
-
-    if (error) {
-      console.log(error);
-      return;
-    }
-
-    navigate('/');
-  };
-
-  const handleShareProfile = (e) => {
-    e.preventDefault();
-    navigator.clipboard
-      .writeText(`${window.location.hostname}/profile/${user?.username}`)
-      .then(
-        () => alert('Link Copied!'),
-        () => alert('Failed to copy. Please open in new window.')
-      );
-  };
-
-  const handleLogin = () => {
-    navigate('/');
-  };
-
-  const handleEditAccount = () => {
-    navigate('/edit-account');
-  };
-
-  return (
-    <>
-      {!user ? (
-        <div className="not-autheticated">
-          <p>Your Are not autheticated!</p>
-          <button onClick={handleLogin} className="button button-primary">
-            Login
-          </button>
-        </div>
-      ) : (
-        <div className="profile-page">
-          <div className="button-top">
-            <button onClick={handleEditAccount}>Edit Profile</button>
-            <button onClick={handleLogout}>Logout</button>
-          </div>
-          <div className="profile-wrapper">
-            <div className="profile-header">
-              <img
-                className="image-avatar"
-                width={90}
-                height={90}
-                src={
-                  user?.profile?.[0]?.image ?? 'https://via.placeholder.com/90'
-                }
-                alt=""
-              />
-              <h3 className="profile-title">
-                <span>{user?.firstName}</span>{' '}
-                <span>{user?.lastName ?? ''}</span>
-              </h3>
-              <p>{user?.profile?.[0]?.position ?? 'position is null'}</p>
-            </div>
-            <div className="card">
-              <div className="share-contact">
-                <button className="button-share" onClick={handleShareProfile}>
-                  Share
-                </button>
-              </div>
-              <h3>Contact</h3>
-              <div className="card-field">
-                <span>Name</span>
-                <p>
-                  {user?.firstName} {user?.lastName ?? ''}
-                </p>
-              </div>
-              <div className="card-field">
-                <span>Mobile</span>
-                <p>{user?.phoneNumber ?? 'phone number is null'}</p>
-              </div>
-              <div className="card-field">
-                <span>Email</span>
-                <a className="link-email" href="mailto:name@email.com">
-                  {user?.email}
-                </a>
-              </div>
-              <div className="card-field">
-                <span>Company</span>
-                <p>{user?.profile?.[0]?.company ?? 'company is null'}</p>
-              </div>
-            </div>
-            <div className="card">
-              <h3>Location</h3>
-              <p>{user?.profile?.[0]?.location ?? 'location is null'}</p>
-            </div>
-            <div className="card">
-              <h3>Web Links</h3>
-              <a
-                className="website-link"
-                href={user?.profile?.[0]?.website ?? ''}
-              >
-                Website
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
-  );
-};
-
-export default Account;
-```
-
-Create a route for Account page.
-
-```js title='/src/App.js'
-import React from 'react';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import Auth from './pages/Auth';
-// highlight-start
-import Account from './pages/Account';
-// highlight-end
-
-const App = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Auth />} />
-        // highlight-start
-        <Route path="/myaccount" element={<Account />} />
-        // highlight-end
-      </Routes>
-    </BrowserRouter>
-  );
-};
-
-export default App;
-```
-
-If we register or login successfully we should be navigated to `Account` page. But there is a little problem, because some field will show null. Let's create `EditAccount.js` inside the `pages` folder to update our data.
-
-```js title='/src/pages/EditAccount.js'
-import * as React from 'react';
-import { kontenbase } from '../lib/kontenbase';
-import { useNavigate } from 'react-router-dom';
-
-const EditAccount = () => {
-  const navigate = useNavigate();
-  const [profileId, setProfileId] = React.useState('');
   const [firstName, setFirstName] = React.useState('');
   const [lastName, setLastName] = React.useState('');
   const [phoneNumber, setphoneNumber] = React.useState('');
+  const [username, setUsername] = React.useState('');
+  const [profileId, setProfileId] = React.useState('');
+  const [image, setImage] = React.useState('');
   const [company, setCompany] = React.useState('');
   const [position, setPosition] = React.useState('');
   const [location, setLocation] = React.useState('');
-  const [loading, setLoading] = React.useState(false);
-  const [image, setImage] = React.useState('');
   const [website, setWebsite] = React.useState('');
+  const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
     (async () => {
@@ -689,10 +531,11 @@ const EditAccount = () => {
 
       const profile = user?.profile?.[0];
 
-      setProfileId(profile?._id);
       setFirstName(user?.firstName);
       setLastName(user?.lastName);
       setphoneNumber(user?.phoneNumber);
+      setUsername(user?.username);
+      setProfileId(profile?._id);
       setImage(profile?.image);
       setCompany(profile?.company);
       setLocation(profile?.location);
@@ -700,6 +543,10 @@ const EditAccount = () => {
       setWebsite(profile?.website);
     })();
   }, []);
+
+  const handleViewProfile = () => {
+    navigate(`/${username}`);
+  };
 
   const handleLogout = async () => {
     const { error } = await kontenbase.auth.logout();
@@ -717,20 +564,14 @@ const EditAccount = () => {
 
     const file = e.target.files[0];
     const { data, error: uploadError } = await kontenbase.storage.upload(file);
-
-    if (uploadError) {
-      alert(uploadError.message);
-      return;
-    }
-
     const { error: updateError } = await kontenbase
       .service('profile')
       .updateById(profileId, {
         image: data?.url,
       });
 
-    if (updateError) {
-      alert(updateError.message);
+    if (uploadError || updateError) {
+      alert('Failed to change image profile');
       return;
     }
 
@@ -756,39 +597,31 @@ const EditAccount = () => {
       });
 
     if (userError || profileError) {
-      return;
+      alert('Failed to update profile');
+    } else {
+      alert('Profile updated!');
     }
-
-    navigate('/myaccount');
-  };
-
-  const handleGotoBack = () => {
-    navigate('/myaccount');
   };
 
   return (
     <div className="profile-page">
       <div className="button-top">
-        <button className="button-back" onClick={handleGotoBack}>
-          Back
-        </button>
+        <button onClick={handleViewProfile}>View Profile</button>
         <button onClick={handleLogout}>Logout</button>
       </div>
       <div className="profile-wrapper">
         <div className="profile-header">
-          <img
-            className="image-avatar"
-            width={90}
-            height={90}
-            src={image ? image : 'https://via.placeholder.com/90'}
-            alt=""
-          />
-          <div>
-            <label className="label-file" htmlFor="file">
-              {loading ? 'Loading...' : 'Change Image'}
-            </label>
-            <input onChange={handleChangeImage} id="file" type="file" />
-          </div>
+          <label className="label-file" htmlFor="file">
+            <img
+              className="image-avatar"
+              width={90}
+              height={90}
+              src={image ? image : 'https://via.placeholder.com/90'}
+              alt=""
+            />
+            <span>{loading ? 'Uploading...' : 'Change Image'}</span>
+          </label>
+          <input onChange={handleChangeImage} id="file" type="file" />
         </div>
         <div className="card">
           <form onSubmit={handleUpdate}>
@@ -861,29 +694,27 @@ const EditAccount = () => {
   );
 };
 
-export default EditAccount;
+export default EditProfile;
 ```
 
-Create a route for Edit Account page.
+Create a route for Profile page.
 
 ```js title='/src/App.js'
 import React from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Auth from './pages/Auth';
-import Account from './pages/Account';
-//highlight-start
-import EditAccount from './pages/EditAccount';
-//highlight-end
+// highlight-start
+import EditProfile from './pages/EditProfile';
+// highlight-end
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Auth />} />
-        <Route path="/myaccount" element={<Account />} />
-        //highlight-start
-        <Route path="/edit-account" element={<EditAccount />} />
-        //highlight-end
+        // highlight-start
+        <Route path="/profile" element={<EditProfile />} />
+        // highlight-end
       </Routes>
     </BrowserRouter>
   );
@@ -892,29 +723,50 @@ const App = () => {
 export default App;
 ```
 
-Now you will able to update data and upload a picture.
+If we register or login successfully we should be navigated to `Profile` page. In this page we will able to edit profile and upload a picture.
 
 ![](./assets/update-profile.png)
 
-#### Set up Share Profile Page
+#### Set up Profile Page
 
-You may notice if there is a share button. this button will copy our account link, then you can share to other user if they want to view your profile.
-to make this work, let's create new page called `profile`, this page accept param to find user by username.
-copy the code below:
+Now we will create a page to show user profile based on the username defined in the URL. Example when user visit: app_url/`johndoe`,
+this page will show user profile with username `johndoe`.
+
+Create `Profile.js` file inside the `pages` folder, Copy the code below:
 
 ```js title='/src/pages/Profile.js'
 import * as React from 'react';
 import { kontenbase } from '../lib/kontenbase';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Profile = () => {
-  const params = useParams();
+  const navigate = useNavigate();
+  const { username } = useParams();
+  const [authUsername, setAuthUsername] = React.useState('');
   const [user, setUser] = React.useState();
 
   React.useEffect(() => {
     (async () => {
-      const { username } = params;
-      const { data: user, error } = await kontenbase.service('Users').find({
+      const { user, error } = await kontenbase.auth.user({
+        lookup: '*',
+      });
+
+      if (error) {
+        console.log(error);
+        return;
+      }
+
+      setAuthUsername(user?.username);
+    })();
+  }, []);
+
+  React.useEffect(() => {
+    (async () => {
+      if (!username) {
+        return;
+      }
+
+      const { data, error } = await kontenbase.service('Users').find({
         where: {
           username,
         },
@@ -926,18 +778,35 @@ const Profile = () => {
         return;
       }
 
-      setUser(user?.[0]);
+      setUser(data?.[0]);
     })();
-  }, []);
+  }, [username]);
+
+  const handleEditProfile = () => {
+    navigate('/profile');
+  };
+
+  const handleLogout = async () => {
+    const { error } = await kontenbase.auth.logout();
+
+    if (error) {
+      console.log(error);
+      return;
+    }
+
+    navigate('/');
+  };
 
   return (
     <>
-      {!user ? (
-        <div className="not-found">
-          <p>User Not Found</p>
-        </div>
-      ) : (
+      {user && (
         <div className="profile-page">
+          {authUsername === username && (
+            <div className="button-top">
+              <button onClick={handleEditProfile}>Edit Profile</button>
+              <button onClick={handleLogout}>Logout</button>
+            </div>
+          )}
           <div className="profile-wrapper">
             <div className="profile-header">
               <img
@@ -945,48 +814,47 @@ const Profile = () => {
                 width={90}
                 height={90}
                 src={
-                  user?.profile?.[0]?.image ?? 'https://via.placeholder.com/90'
+                  user.profile?.[0]?.image ?? 'https://via.placeholder.com/90'
                 }
                 alt=""
               />
               <h3 className="profile-title">
-                <span>{user?.firstName}</span>{' '}
-                <span>{user?.lastName ?? ''}</span>
+                <span>{user.firstName}</span> <span>{user.lastName ?? ''}</span>
               </h3>
-              <p>{user?.profile?.[0]?.position ?? 'position is null'}</p>
+              <p>{user.profile?.[0]?.position ?? 'position is null'}</p>
             </div>
             <div className="card">
               <h3>Contact</h3>
               <div className="card-field">
                 <span>Name</span>
                 <p>
-                  {user?.firstName} {user?.lastName ?? ''}
+                  {user.firstName} {user.lastName ?? ''}
                 </p>
               </div>
               <div className="card-field">
                 <span>Mobile</span>
-                <p>{user?.phoneNumber ?? 'phone number is null'}</p>
+                <p>{user.phoneNumber ?? 'phone number is null'}</p>
               </div>
               <div className="card-field">
                 <span>Email</span>
                 <a className="link-email" href="mailto:name@email.com">
-                  {user?.email}
+                  {user.email}
                 </a>
               </div>
               <div className="card-field">
                 <span>Company</span>
-                <p>{user?.profile?.[0]?.company ?? 'company is null'}</p>
+                <p>{user.profile?.[0]?.company ?? 'company is null'}</p>
               </div>
             </div>
             <div className="card">
               <h3>Location</h3>
-              <p>{user?.profile?.[0]?.location ?? 'location is null'}</p>
+              <p>{user.profile?.[0]?.location ?? 'location is null'}</p>
             </div>
             <div className="card">
               <h3>Web Links</h3>
               <a
                 className="website-link"
-                href={user?.profile?.[0]?.website ?? ''}
+                href={user.profile?.[0]?.website ?? ''}
               >
                 Website
               </a>
@@ -1001,27 +869,24 @@ const Profile = () => {
 export default Profile;
 ```
 
-Finally, create a route for Profile page.
+Finally, create a route for this page.
 
 ```js title='/src/App.js'
 import React from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Auth from './pages/Auth';
-import Account from './pages/Account';
-import EditAccount from './pages/EditAccount';
+import EditProfile from './pages/EditProfile';
 //highlight-start
 import Profile from './pages/Profile';
 //highlight-end
-
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Auth />} />
-        <Route path="/myaccount" element={<Account />} />
-        <Route path="/edit-account" element={<EditAccount />} />
+        <Route path="/profile" element={<EditProfile />} />
         //highlight-start
-        <Route path="/profile/:username" element={<Profile />} />
+        <Route path="/:username" element={<Profile />} />
         //highlight-end
       </Routes>
     </BrowserRouter>
