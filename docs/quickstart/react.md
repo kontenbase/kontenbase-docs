@@ -2,14 +2,17 @@
 title: Quickstart React
 ---
 
-<a class='button-link' href='https://kontenbase-quickstart-react.stackblitz.io'>Try App
-<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="1em" height="1em"> <path d="M5.853 18.647h8.735L9.45 31l16.697-17.647h-8.735L22.55 1 5.853 18.647z"></path>
-</svg>
-</a>
-
-<a class='button-link button-github' href='https://github.com/kontenbase/quickstart-react'>View Source
-<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-</a>
+<div class='container-link'>
+  <a  class='button-stackblitz' href="https://stackblitz.com/fork/github/kontenbase/quickstart-react">
+    <img
+      src="https://developer.stackblitz.com/img/open_in_stackblitz.svg"
+      alt="Open in StackBlitz"
+    />
+  </a>
+  <a class='button-link button-github' href='https://github.com/kontenbase/quickstart-react'>View source
+    <img src='/img/icon-github.svg' />
+  </a>
+</div>
 
 ## Intro
 
@@ -64,8 +67,6 @@ We need some configuration in `Users` service to make both autheticated user and
 3. Find your API KEY in this page.
 
 ### Building the App
-
-To build the application you can set up your project on your local computer or [StackBlitz](https://stackblitz.com), it depends on your prereferences. You can check out and try the completed project code on StackBlitz, [click here](https://stackblitz.com/edit/kontenbase-quickstart-react).
 
 #### Initialize a React App
 
@@ -211,10 +212,6 @@ button {
   border-bottom: 1px solid gainsboro;
   outline: none;
 }
-.button-map {
-  display: block;
-  margin-top: 8px;
-}
 .website-link {
   text-decoration: none;
   color: black;
@@ -226,28 +223,18 @@ input[type='file'] {
   display: none;
 }
 .label-file {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 2px;
   cursor: pointer;
 }
-.not-autheticated {
-  margin-top: 30vh;
-  text-align: center;
-}
-.not-autheticated button {
-  border: 1px solid white;
-  margin-top: 16px;
+.label-file span {
+  margin-top: 10px;
 }
 .button-top {
   display: flex;
   justify-content: space-between;
-}
-.share-contact {
-  text-align: right;
-}
-.button-share {
-  font-size: 12px;
-  border: 1px solid gainsboro;
 }
 .link-email {
   text-decoration: none;
@@ -284,7 +271,7 @@ const Login = () => {
       return;
     }
 
-    navigate('/myaccount');
+    navigate('/profile');
   };
 
   return (
@@ -358,7 +345,7 @@ const Register = () => {
       return;
     }
 
-    navigate('/myaccount');
+    navigate('/profile');
   };
 
   return (
@@ -440,7 +427,7 @@ const Auth = () => {
         return;
       }
 
-      navigate('myaccount');
+      navigate('/profile');
     })();
   }, []);
 
@@ -490,191 +477,28 @@ This is what we will see after doing the steps above.
 
 ![](./assets/auth-page.png)
 
-#### Set up Account Page
+#### Set up Profile Page
 
-To see our profile, let's create `Account.js` file inside the `pages` folder, then copy the code below:
+To view and edit our profile, let's create `EditProfile.js` file inside the `pages` folder, then copy the code below:
 
-```js title='/src/pages/Account.js'
+```js title='/src/pages/EditProfile.js'
 import * as React from 'react';
 import { kontenbase } from '../lib/kontenbase';
 import { useNavigate } from 'react-router-dom';
 
-const Account = () => {
+const EditProfile = () => {
   const navigate = useNavigate();
-  const [user, setUser] = React.useState();
-
-  React.useEffect(() => {
-    (async () => {
-      const { user, error } = await kontenbase.auth.user({
-        lookup: '*',
-      });
-
-      if (error) {
-        console.log(error);
-        return;
-      }
-
-      setUser(user);
-    })();
-  }, []);
-
-  const handleLogout = async () => {
-    const { error } = await kontenbase.auth.logout();
-
-    if (error) {
-      console.log(error);
-      return;
-    }
-
-    navigate('/');
-  };
-
-  const handleShareProfile = (e) => {
-    e.preventDefault();
-    navigator.clipboard
-      .writeText(`${window.location.hostname}/profile/${user?.username}`)
-      .then(
-        () => alert('Link Copied!'),
-        () => alert('Failed to copy. Please open in new window.')
-      );
-  };
-
-  const handleLogin = () => {
-    navigate('/');
-  };
-
-  const handleEditAccount = () => {
-    navigate('/edit-account');
-  };
-
-  return (
-    <>
-      {!user ? (
-        <div className="not-autheticated">
-          <p>Your Are not autheticated!</p>
-          <button onClick={handleLogin} className="button button-primary">
-            Login
-          </button>
-        </div>
-      ) : (
-        <div className="profile-page">
-          <div className="button-top">
-            <button onClick={handleEditAccount}>Edit Profile</button>
-            <button onClick={handleLogout}>Logout</button>
-          </div>
-          <div className="profile-wrapper">
-            <div className="profile-header">
-              <img
-                className="image-avatar"
-                width={90}
-                height={90}
-                src={
-                  user?.profile?.[0]?.image ?? 'https://via.placeholder.com/90'
-                }
-                alt=""
-              />
-              <h3 className="profile-title">
-                <span>{user?.firstName}</span>{' '}
-                <span>{user?.lastName ?? ''}</span>
-              </h3>
-              <p>{user?.profile?.[0]?.position ?? 'position is null'}</p>
-            </div>
-            <div className="card">
-              <div className="share-contact">
-                <button className="button-share" onClick={handleShareProfile}>
-                  Share
-                </button>
-              </div>
-              <h3>Contact</h3>
-              <div className="card-field">
-                <span>Name</span>
-                <p>
-                  {user?.firstName} {user?.lastName ?? ''}
-                </p>
-              </div>
-              <div className="card-field">
-                <span>Mobile</span>
-                <p>{user?.phoneNumber ?? 'phone number is null'}</p>
-              </div>
-              <div className="card-field">
-                <span>Email</span>
-                <a className="link-email" href="mailto:name@email.com">
-                  {user?.email}
-                </a>
-              </div>
-              <div className="card-field">
-                <span>Company</span>
-                <p>{user?.profile?.[0]?.company ?? 'company is null'}</p>
-              </div>
-            </div>
-            <div className="card">
-              <h3>Location</h3>
-              <p>{user?.profile?.[0]?.location ?? 'location is null'}</p>
-            </div>
-            <div className="card">
-              <h3>Web Links</h3>
-              <a
-                className="website-link"
-                href={user?.profile?.[0]?.website ?? ''}
-              >
-                Website
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
-  );
-};
-
-export default Account;
-```
-
-Create a route for Account page.
-
-```js title='/src/App.js'
-import React from 'react';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import Auth from './pages/Auth';
-// highlight-start
-import Account from './pages/Account';
-// highlight-end
-
-const App = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Auth />} />
-        // highlight-start
-        <Route path="/myaccount" element={<Account />} />
-        // highlight-end
-      </Routes>
-    </BrowserRouter>
-  );
-};
-
-export default App;
-```
-
-If we register or login successfully we should be navigated to `Account` page. But there is a little problem, because some field will show null. Let's create `EditAccount.js` inside the `pages` folder to update our data.
-
-```js title='/src/pages/EditAccount.js'
-import * as React from 'react';
-import { kontenbase } from '../lib/kontenbase';
-import { useNavigate } from 'react-router-dom';
-
-const EditAccount = () => {
-  const navigate = useNavigate();
-  const [profileId, setProfileId] = React.useState('');
   const [firstName, setFirstName] = React.useState('');
   const [lastName, setLastName] = React.useState('');
   const [phoneNumber, setphoneNumber] = React.useState('');
+  const [username, setUsername] = React.useState('');
+  const [profileId, setProfileId] = React.useState('');
+  const [image, setImage] = React.useState('');
   const [company, setCompany] = React.useState('');
   const [position, setPosition] = React.useState('');
   const [location, setLocation] = React.useState('');
-  const [loading, setLoading] = React.useState(false);
-  const [image, setImage] = React.useState('');
   const [website, setWebsite] = React.useState('');
+  const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
     (async () => {
@@ -689,10 +513,11 @@ const EditAccount = () => {
 
       const profile = user?.profile?.[0];
 
-      setProfileId(profile?._id);
       setFirstName(user?.firstName);
       setLastName(user?.lastName);
       setphoneNumber(user?.phoneNumber);
+      setUsername(user?.username);
+      setProfileId(profile?._id);
       setImage(profile?.image);
       setCompany(profile?.company);
       setLocation(profile?.location);
@@ -700,6 +525,10 @@ const EditAccount = () => {
       setWebsite(profile?.website);
     })();
   }, []);
+
+  const handleViewProfile = () => {
+    navigate(`/${username}`);
+  };
 
   const handleLogout = async () => {
     const { error } = await kontenbase.auth.logout();
@@ -717,20 +546,14 @@ const EditAccount = () => {
 
     const file = e.target.files[0];
     const { data, error: uploadError } = await kontenbase.storage.upload(file);
-
-    if (uploadError) {
-      alert(uploadError.message);
-      return;
-    }
-
     const { error: updateError } = await kontenbase
       .service('profile')
       .updateById(profileId, {
         image: data?.url,
       });
 
-    if (updateError) {
-      alert(updateError.message);
+    if (uploadError || updateError) {
+      alert('Failed to change image profile');
       return;
     }
 
@@ -756,39 +579,31 @@ const EditAccount = () => {
       });
 
     if (userError || profileError) {
-      return;
+      alert('Failed to update profile');
+    } else {
+      alert('Profile updated!');
     }
-
-    navigate('/myaccount');
-  };
-
-  const handleGotoBack = () => {
-    navigate('/myaccount');
   };
 
   return (
     <div className="profile-page">
       <div className="button-top">
-        <button className="button-back" onClick={handleGotoBack}>
-          Back
-        </button>
+        <button onClick={handleViewProfile}>View Profile</button>
         <button onClick={handleLogout}>Logout</button>
       </div>
       <div className="profile-wrapper">
         <div className="profile-header">
-          <img
-            className="image-avatar"
-            width={90}
-            height={90}
-            src={image ? image : 'https://via.placeholder.com/90'}
-            alt=""
-          />
-          <div>
-            <label className="label-file" htmlFor="file">
-              {loading ? 'Loading...' : 'Change Image'}
-            </label>
-            <input onChange={handleChangeImage} id="file" type="file" />
-          </div>
+          <label className="label-file" htmlFor="file">
+            <img
+              className="image-avatar"
+              width={90}
+              height={90}
+              src={image ? image : 'https://via.placeholder.com/90'}
+              alt=""
+            />
+            <span>{loading ? 'Uploading...' : 'Change Image'}</span>
+          </label>
+          <input onChange={handleChangeImage} id="file" type="file" />
         </div>
         <div className="card">
           <form onSubmit={handleUpdate}>
@@ -861,29 +676,27 @@ const EditAccount = () => {
   );
 };
 
-export default EditAccount;
+export default EditProfile;
 ```
 
-Create a route for Edit Account page.
+Create a route for Profile page.
 
 ```js title='/src/App.js'
 import React from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Auth from './pages/Auth';
-import Account from './pages/Account';
-//highlight-start
-import EditAccount from './pages/EditAccount';
-//highlight-end
+// highlight-start
+import EditProfile from './pages/EditProfile';
+// highlight-end
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Auth />} />
-        <Route path="/myaccount" element={<Account />} />
-        //highlight-start
-        <Route path="/edit-account" element={<EditAccount />} />
-        //highlight-end
+        // highlight-start
+        <Route path="/profile" element={<EditProfile />} />
+        // highlight-end
       </Routes>
     </BrowserRouter>
   );
@@ -892,29 +705,50 @@ const App = () => {
 export default App;
 ```
 
-Now you will able to update data and upload a picture.
+If we register or login successfully we should be navigated to `Profile` page. In this page we will able to edit profile and upload a picture.
 
 ![](./assets/update-profile.png)
 
-#### Set up Share Profile Page
+#### Set up View Profile Based on the Username
 
-You may notice if there is a share button. this button will copy our account link, then you can share to other user if they want to view your profile.
-to make this work, let's create new page called `profile`, this page accept param to find user by username.
-copy the code below:
+Now we will create a page to show user profile based on the username defined in the URL. Example when user visit: `app_url/johndoe`,
+this page will show user profile with username `johndoe`.
+
+Create `Profile.js` file inside the `pages` folder, Copy the code below:
 
 ```js title='/src/pages/Profile.js'
 import * as React from 'react';
 import { kontenbase } from '../lib/kontenbase';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Profile = () => {
-  const params = useParams();
+  const navigate = useNavigate();
+  const { username } = useParams();
+  const [authUsername, setAuthUsername] = React.useState('');
   const [user, setUser] = React.useState();
 
   React.useEffect(() => {
     (async () => {
-      const { username } = params;
-      const { data: user, error } = await kontenbase.service('Users').find({
+      const { user, error } = await kontenbase.auth.user({
+        lookup: '*',
+      });
+
+      if (error) {
+        console.log(error);
+        return;
+      }
+
+      setAuthUsername(user?.username);
+    })();
+  }, []);
+
+  React.useEffect(() => {
+    (async () => {
+      if (!username) {
+        return;
+      }
+
+      const { data, error } = await kontenbase.service('Users').find({
         where: {
           username,
         },
@@ -926,18 +760,35 @@ const Profile = () => {
         return;
       }
 
-      setUser(user?.[0]);
+      setUser(data?.[0]);
     })();
-  }, []);
+  }, [username]);
+
+  const handleEditProfile = () => {
+    navigate('/profile');
+  };
+
+  const handleLogout = async () => {
+    const { error } = await kontenbase.auth.logout();
+
+    if (error) {
+      console.log(error);
+      return;
+    }
+
+    navigate('/');
+  };
 
   return (
     <>
-      {!user ? (
-        <div className="not-found">
-          <p>User Not Found</p>
-        </div>
-      ) : (
+      {user && (
         <div className="profile-page">
+          {authUsername === username && (
+            <div className="button-top">
+              <button onClick={handleEditProfile}>Edit Profile</button>
+              <button onClick={handleLogout}>Logout</button>
+            </div>
+          )}
           <div className="profile-wrapper">
             <div className="profile-header">
               <img
@@ -945,48 +796,47 @@ const Profile = () => {
                 width={90}
                 height={90}
                 src={
-                  user?.profile?.[0]?.image ?? 'https://via.placeholder.com/90'
+                  user.profile?.[0]?.image ?? 'https://via.placeholder.com/90'
                 }
                 alt=""
               />
               <h3 className="profile-title">
-                <span>{user?.firstName}</span>{' '}
-                <span>{user?.lastName ?? ''}</span>
+                <span>{user.firstName}</span> <span>{user.lastName ?? ''}</span>
               </h3>
-              <p>{user?.profile?.[0]?.position ?? 'position is null'}</p>
+              <p>{user.profile?.[0]?.position ?? 'position is null'}</p>
             </div>
             <div className="card">
               <h3>Contact</h3>
               <div className="card-field">
                 <span>Name</span>
                 <p>
-                  {user?.firstName} {user?.lastName ?? ''}
+                  {user.firstName} {user.lastName ?? ''}
                 </p>
               </div>
               <div className="card-field">
                 <span>Mobile</span>
-                <p>{user?.phoneNumber ?? 'phone number is null'}</p>
+                <p>{user.phoneNumber ?? 'phone number is null'}</p>
               </div>
               <div className="card-field">
                 <span>Email</span>
                 <a className="link-email" href="mailto:name@email.com">
-                  {user?.email}
+                  {user.email}
                 </a>
               </div>
               <div className="card-field">
                 <span>Company</span>
-                <p>{user?.profile?.[0]?.company ?? 'company is null'}</p>
+                <p>{user.profile?.[0]?.company ?? 'company is null'}</p>
               </div>
             </div>
             <div className="card">
               <h3>Location</h3>
-              <p>{user?.profile?.[0]?.location ?? 'location is null'}</p>
+              <p>{user.profile?.[0]?.location ?? 'location is null'}</p>
             </div>
             <div className="card">
               <h3>Web Links</h3>
               <a
                 className="website-link"
-                href={user?.profile?.[0]?.website ?? ''}
+                href={user.profile?.[0]?.website ?? ''}
               >
                 Website
               </a>
@@ -1001,14 +851,13 @@ const Profile = () => {
 export default Profile;
 ```
 
-Finally, create a route for Profile page.
+Finally, create a route for this page.
 
 ```js title='/src/App.js'
 import React from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Auth from './pages/Auth';
-import Account from './pages/Account';
-import EditAccount from './pages/EditAccount';
+import EditProfile from './pages/EditProfile';
 //highlight-start
 import Profile from './pages/Profile';
 //highlight-end
@@ -1018,10 +867,9 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Auth />} />
-        <Route path="/myaccount" element={<Account />} />
-        <Route path="/edit-account" element={<EditAccount />} />
+        <Route path="/profile" element={<EditProfile />} />
         //highlight-start
-        <Route path="/profile/:username" element={<Profile />} />
+        <Route path="/:username" element={<Profile />} />
         //highlight-end
       </Routes>
     </BrowserRouter>
