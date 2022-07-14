@@ -727,7 +727,7 @@ If we register or login successfully we should be navigated to `Profile` page. I
 
 ![](./assets/update-profile.png)
 
-#### Set up Profile Page
+#### Set up View Profile Based on the Username
 
 Now we will create a page to show user profile based on the username defined in the URL. Example when user visit: app_url/`johndoe`,
 this page will show user profile with username `johndoe`.
