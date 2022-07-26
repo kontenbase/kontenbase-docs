@@ -316,6 +316,7 @@ const cookieOptions = {
   secure: true,
   maxAge: 604_800,
 };
+
 export const kontenbaseToken = createCookie('token', {
   ...cookieOptions,
 });
