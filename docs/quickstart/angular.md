@@ -94,7 +94,7 @@ export const environment = {
 
 Once that is done, let's create a helper file to initialize the Kontenbase Client and configure your SDK with the API KEY:
 
-```js title="/app/src/kontenbase.service.ts"
+```js title="/src/app/kontenbase.service.ts"
 import { Injectable } from '@angular/core';
 import { createClient } from '@kontenbase/sdk';
 import { environment } from '../environments/environment';
