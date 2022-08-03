@@ -33,11 +33,11 @@ const sidebars = {
       type: 'category',
       label: 'Quickstarts',
       items: [
-        'quickstart/react',
-        'quickstart/nextjs',
-        'quickstart/vue',
-        'quickstart/solid',
         'quickstart/angular',
+        'quickstart/nextjs',
+        'quickstart/react',
+        'quickstart/solid',
+        'quickstart/vue',
       ],
     },
     {
