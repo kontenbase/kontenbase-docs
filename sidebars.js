@@ -36,6 +36,7 @@ const sidebars = {
         'quickstart/react',
         'quickstart/nextjs',
         'quickstart/vue',
+        'quickstart/solid',
         'quickstart/angular',
       ],
     },
