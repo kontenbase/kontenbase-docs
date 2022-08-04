@@ -252,7 +252,7 @@ input[type='file'] {
 #### Set up Login and Register Components
 
 Let's set up the svelte components to manage login and register. We'll use username and password to login.
-Create the folders inside the src which will be called `components`, then create `login.svelte` and `register.svelte` file inside the `components` folder and copy the code below in each files.
+Create a folder inside the src which will be called `components`, then create `login.svelte` and `register.svelte` file inside the `components` folder and copy the code below in each files.
 
 ```js title='/src/components/login.svelte'
 <script>
