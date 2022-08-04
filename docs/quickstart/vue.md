@@ -257,7 +257,6 @@ Create the folders inside the src which will be called `views` and `components`,
 ```js title='/src/components/Login.vue'
 <template>
   <form @submit.prevent="handleLogin">
-    <input type="hidden" name="operation" value="login" />
     <div class="form-group">
       <label>Username</label>
       <input type="text" name="username" required v-model="username" />
@@ -378,17 +377,6 @@ export default {
       }
 
       router.push('/profile');
-    };
-
-    const handleLogout = async () => {
-      const { error } = await kontenbase.auth.logout();
-
-      if (error) {
-        console.log(error);
-        return;
-      }
-
-      router.push('/');
     };
 
     return {
@@ -599,7 +587,6 @@ export default {
     const handleChangeImage = async (e) => {
       loading.value = true;
       const file = e.target.files[0];
-      console.log(file);
       const { data, error: uploadError } = await kontenbase.storage.upload(
         file
       );
