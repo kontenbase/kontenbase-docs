@@ -430,7 +430,7 @@ export default {
 Now configure router for our app.
 Create a folder called `router` in the `src` folder, followed by a file called `index.js` in the `router` folder, copy the code below which is the router configuration.
 
-```js title='/src/router/index.js'
+```js title='/src/router/index.vue'
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 
