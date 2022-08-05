@@ -35,6 +35,7 @@ const sidebars = {
       items: [
         'quickstart/angular',
         'quickstart/nextjs',
+        'quickstart/nuxt',
         'quickstart/react',
         'quickstart/solid',
         'quickstart/svelte',
