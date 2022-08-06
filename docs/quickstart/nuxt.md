@@ -1,22 +1,22 @@
 ---
-title: Quickstart Vue
+title: Quickstart Nuxt
 ---
 
 <div class='container-link'>
-  <a  class='button-stackblitz' href="https://stackblitz.com/fork/github/kontenbase/quickstart-vue">
+  <a  class='button-stackblitz' href="https://stackblitz.com/fork/github/kontenbase/quickstart-nuxt">
     <img
       src="https://developer.stackblitz.com/img/open_in_stackblitz.svg"
       alt="Open in StackBlitz"
     />
   </a>
-  <a class='button-link button-github' href='https://github.com/kontenbase/quickstart-vue'>View source
+  <a class='button-link button-github' href='https://github.com/kontenbase/quickstart-nuxt'>View source
     <img src='/img/icon-github.svg' />
   </a>
 </div>
 
 ## Intro
 
-This example will show you how to build a simple user management app from scratch using Kontenbase and Vue. Before begin make sure that you are familiar with Vue basics.
+This example will show you how to build a simple user management app from scratch using Kontenbase and Nuxt. Before begin make sure that you are familiar with Nuxt basics.
 
 This also includes:
 
@@ -68,41 +68,41 @@ We need some configuration in `Users` service to make both autheticated user and
 
 ### Building the App
 
-#### Initialize a Vue App
+#### Initialize a Nuxt App
 
-We use Vite template to initialize a Vue app called kontenbase-vue:
+We can use nuxi init to create an app called kontenbase-nuxt:
 
-```cmd
-npm create vite@latest kontenbase-vue -- --template vue
-cd kontenbase-vue
+```bash
+npx nuxi init kontenbase-nuxt
+cd kontenbase-nuxt
 npm install
 ```
 
-Let's install Kontenbase SDK and additional dependency vue-router simply use the command below:
+Let's install Kontenbase SDK, simply use the command below:
 
-```
-npm install @kontenbase/sdk vue-router
+```bash
+npm install @kontenbase/sdk
 ```
 
 Save the API KEY to environment variable in a `.env` that you copied earlier.
 
-```cmd title=".env"
-VITE_KONTENBASE_API_KEY=YOUR_KONTENBASE_API_KEY
+```title=".env"
+NUXT_KONTENBASE_API_KEY=YOUR_KONTENBASE_API_KEY
 ```
 
 Once that is done, let's create a helper file to initialize the Kontenbase Client and configure your SDK with the API KEY:
 
-```js title="/src/lib/kontenbase.js"
+```js title="/lib/kontenbase.js"
 import { KontenbaseClient } from '@kontenbase/sdk';
 
 export const kontenbase = new KontenbaseClient({
-  apiKey: import.meta.env.VITE_KONTENBASE_API_KEY,
+  apiKey: process.env.NUXT_KONTENBASE_API_KEY,
 });
 ```
 
-An optional step is updating the CSS file to make the App look nice. Remove everything from the `style.css` and copy the css code that we have provided below:
+An optional step is updating the CSS file to make the App look nice. Create `/assets/global.css` and copy the css code that we have provided below:
 
-```css title='/src/style.css'
+```css title='/assets/global.css'
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
 
 * {
@@ -249,12 +249,22 @@ input[type='file'] {
 }
 ```
 
+Then update nuxt configuration:
+
+```ts title='/nuxt.config.ts'
+import { defineNuxtConfig } from 'nuxt';
+
+export default defineNuxtConfig({
+  css: ['@/assets/global.css'],
+});
+```
+
 #### Set up Login and Register Components
 
 Let's set up the vue components to manage login and register. We'll use username and password to login.
-Create the folders inside the src which will be called `views` and `components`, then create `Login.vue` and `Register.vue` file inside the `components` folder and copy the code below in each files.
+Create the folders inside the src which will be called `pages` and `components`, then create `Login.vue` and `Register.vue` file inside the `components` folder and copy the code below in each files.
 
-```js title='/src/components/Login.vue'
+```js title='/components/Login.vue'
 <template>
   <form @submit.prevent="handleLogin">
     <div class="form-group">
@@ -271,44 +281,33 @@ Create the folders inside the src which will be called `views` and `components`,
   </form>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue';
-import { kontenbase } from '../lib/kontenbase';
-import { useRouter } from 'vue-router';
+import { kontenbase } from '~~/lib/kontenbase.js';
 
-export default {
-  setup() {
-    const router = useRouter();
-    const username = ref('');
-    const password = ref('');
+const router = useRouter();
+const username = ref('');
+const password = ref('');
 
-    const handleLogin = async () => {
-      const { error, token } = await kontenbase.auth.login({
-        username: username.value,
-        password: password.value,
-      });
+const handleLogin = async () => {
+  const { error, token } = await kontenbase.auth.login({
+    username: username.value,
+    password: password.value,
+  });
 
-      if (error) {
-        alert(error.message);
-        return;
-      }
+  if (error) {
+    alert(error.message);
+    return;
+  }
 
-      if (token) {
-        router.push('/profile');
-      }
-    };
-
-    return {
-      username,
-      password,
-      handleLogin,
-    };
-  },
+  if (token) {
+    router.push('/profile');
+  }
 };
 </script>
 ```
 
-```js title='/src/components/Register.vue'
+```js title='/components/Register.vue'
 <template>
   <form @submit.prevent="handleRegister">
     <div class="form-group">
@@ -337,70 +336,48 @@ export default {
   </form>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue';
-import { kontenbase } from '../lib/kontenbase';
-import { useRouter } from 'vue-router';
+import { kontenbase } from '~~/lib/kontenbase.js';
 
-export default {
-  setup() {
-    const router = useRouter();
-    const firstName = ref('');
-    const lastName = ref('');
-    const username = ref('');
-    const email = ref('');
-    const password = ref('');
+const router = useRouter();
+const firstName = ref('');
+const lastName = ref('');
+const username = ref('');
+const email = ref('');
+const password = ref('');
 
-    const handleRegister = async () => {
-      const { user, error } = await kontenbase.auth.register({
-        firstName: firstName.value,
-        lastName: lastName.value,
-        username: username.value,
-        email: email.value,
-        password: password.value,
-      });
+const handleRegister = async () => {
+  const { user, error } = await kontenbase.auth.register({
+    firstName: firstName.value,
+    lastName: lastName.value,
+    username: username.value,
+    email: email.value,
+    password: password.value,
+  });
 
-      if (error) {
-        alert(error.message);
-        return;
-      }
+  if (error) {
+    alert(error.message);
+    return;
+  }
 
-      const { error: ErrorProfile } = await kontenbase
-        .service('profile')
-        .create({
-          Users: [user._id],
-        });
+  const { error: ErrorProfile } = await kontenbase.service('profile').create({
+    Users: [user._id],
+  });
 
-      if (ErrorProfile) {
-        alert(ErrorProfile.message);
-        return;
-      }
+  if (ErrorProfile) {
+    alert(ErrorProfile.message);
+    return;
+  }
 
-      router.push('/profile');
-    };
-
-    return {
-      firstName,
-      lastName,
-      username,
-      email,
-      password,
-      handleRegister,
-      handleLogout,
-    };
-  },
+  router.push('/profile');
 };
 </script>
-
 ```
 
-Create `Home.vue` file inside the `views` folder, this will import `Login` and `Register` components. Copy the code below:
+Create `index.vue` file inside the `pages` folder, this will import `Login` and `Register` components. Copy the code below:
 
-```js title='/src/views/Home.vue'
-<script setup>
-import Login from '../components/Login.vue';
-import Register from '../components/Register.vue';
-</script>
+```js title='/pages/index.vue'
 <template>
   <div class="auth-page">
     <div class="auth-button">
@@ -427,40 +404,14 @@ export default {
 </script>
 ```
 
-Now configure router for our app.
-Create a folder called `router` in the `src` folder, followed by a file called `index.js` in the `router` folder, copy the code below which is the router configuration.
+let's configure our pages, update `app.vue`:
 
-```js title='/src/router/index.vue'
-import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
-
-const routes = [
-  {
-    path: '/',
-    component: Home,
-  },
-];
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
-});
-
-export default router;
-```
-
-then replace the code in the `App.vue` with the code bellow.
-
-```js title='/src/App.vue'
+```js title='/app.vue'
 <template>
-  <router-view></router-view>
+  <div>
+    <NuxtPage />
+  </div>
 </template>
-
-<script>
-export default {
-  name: 'App',
-};
-</script>
 ```
 
 If we launch the App after doing the steps above, We'll see this page show:
@@ -469,9 +420,9 @@ If we launch the App after doing the steps above, We'll see this page show:
 
 #### Set up Profile Page
 
-To view and edit our profile, let's create `EditProfile.vue` file inside the `views` folder, then copy the code below:
+To view and edit our profile, let's create `profile.vue` file inside the `pages` folder, then copy the code below:
 
-```js title='/src/views/EditProfile.vue'
+```js title='/pages/profile.vue'
 <template>
   <div class="profile-page">
     <div class="button-top">
@@ -496,7 +447,7 @@ To view and edit our profile, let's create `EditProfile.vue` file inside the `vi
           id="file"
           type="file"
           accept="image/*"
-          @change="handleChangeImage"
+          @input="handleChangeImage"
         />
       </div>
       <div class="card">
@@ -538,160 +489,106 @@ To view and edit our profile, let's create `EditProfile.vue` file inside the `vi
   </div>
 </template>
 
-<script>
+<script setup>
 import { onMounted, ref } from 'vue';
-import { kontenbase } from '../lib/kontenbase';
-import { useRouter } from 'vue-router';
+import { kontenbase } from '~~/lib/kontenbase';
 
-export default {
-  setup() {
-    const router = useRouter();
-    const firstName = ref('');
-    const lastName = ref('');
-    const phoneNumber = ref('');
-    const username = ref('');
-    const profileId = ref('');
-    const image = ref('');
-    const company = ref('');
-    const position = ref('');
-    const location = ref('');
-    const website = ref('');
-    const loading = ref(false);
+const router = useRouter();
+const firstName = ref('');
+const lastName = ref('');
+const phoneNumber = ref('');
+const username = ref('');
+const profileId = ref('');
+const image = ref('');
+const company = ref('');
+const position = ref('');
+const location = ref('');
+const website = ref('');
+const loading = ref(false);
 
-    const getProfile = async () => {
-      const { user, error } = await kontenbase.auth.user({
-        lookup: '*',
-      });
+const getProfile = async () => {
+  const { user, error } = await kontenbase.auth.user({
+    lookup: '*',
+  });
 
-      if (error) {
-        console.log(error);
-        return;
-      }
+  if (error) {
+    console.log(error);
+    return;
+  }
 
-      if (user) {
-        const profile = user?.profile?.[0];
+  if (user) {
+    const profile = user?.profile?.[0];
 
-        firstName.value = user.firstName;
-        lastName.value = user.lastName;
-        phoneNumber.value = user.phoneNumber;
-        username.value = user.username;
-        profileId.value = profile._id;
-        image.value = profile.image;
-        company.value = profile.company;
-        location.value = profile.location;
-        position.value = profile.position;
-        website.value = profile.website;
-      }
-    };
+    firstName.value = user.firstName;
+    lastName.value = user.lastName;
+    phoneNumber.value = user.phoneNumber;
+    username.value = user.username;
+    profileId.value = profile._id;
+    image.value = profile.image;
+    company.value = profile.company;
+    location.value = profile.location;
+    position.value = profile.position;
+    website.value = profile.website;
+  }
+};
 
-    const handleChangeImage = async (e) => {
-      loading.value = true;
-      const file = e.target.files[0];
-      const { data, error: uploadError } = await kontenbase.storage.upload(
-        file
-      );
+const handleChangeImage = async (e) => {
+  loading.value = true;
+  const file = e.target.files[0];
+  const { data, error: uploadError } = await kontenbase.storage.upload(file);
 
-      const { error: updateError } = await kontenbase
-        .service('profile')
-        .updateById(profileId.value, {
-          image: data?.url,
-        });
-
-      if (uploadError || updateError) {
-        alert('Failed to change image profile');
-        return;
-      }
-
-      image.value = data?.url;
-      loading.value = false;
-    };
-
-    const handleUpdate = async () => {
-      const { error: userError } = await kontenbase.auth.update({
-        lastName: lastName.value,
-        firstName: firstName.value,
-        phoneNumber: phoneNumber.value,
-      });
-      const { error: profileError } = await kontenbase
-        .service('profile')
-        .updateById(profileId.value, {
-          company: company.value,
-          location: location.value,
-          position: position.value,
-          website: website.value,
-        });
-
-      if (userError || profileError) {
-        alert('Failed to update profile');
-      } else {
-        alert('Profile updated!');
-      }
-    };
-
-    const handleLogout = async () => {
-      const { error } = await kontenbase.auth.logout();
-
-      if (error) {
-        console.log(error);
-        return;
-      }
-
-      router.push('/');
-    };
-
-    onMounted(() => {
-      getProfile();
+  const { error: updateError } = await kontenbase
+    .service('profile')
+    .updateById(profileId.value, {
+      image: data?.url,
     });
 
-    return {
-      firstName,
-      lastName,
-      phoneNumber,
-      username,
-      profileId,
-      image,
-      company,
-      location,
-      position,
-      website,
-      loading,
-      handleChangeImage,
-      handleUpdate,
-      handleLogout,
-    };
-  },
+  if (uploadError || updateError) {
+    alert('Failed to change image profile');
+    return;
+  }
+
+  image.value = data?.url;
+  loading.value = false;
 };
-</script>
-```
 
-Create a route for Edit Profile page.
+const handleUpdate = async () => {
+  const { error: userError } = await kontenbase.auth.update({
+    lastName: lastName.value,
+    firstName: firstName.value,
+    phoneNumber: phoneNumber.value,
+  });
+  const { error: profileError } = await kontenbase
+    .service('profile')
+    .updateById(profileId.value, {
+      company: company.value,
+      location: location.value,
+      position: position.value,
+      website: website.value,
+    });
 
-```js title='/src/router/index.js'
-import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
-// highlight-start
-import EditProfile from '../views/EditProfile.vue';
-// highlight-end
+  if (userError || profileError) {
+    alert('Failed to update profile');
+  } else {
+    alert('Profile updated!');
+  }
+};
 
-const routes = [
-  {
-    path: '/',
-    component: Home,
-  },
-  // highlight-start
-  {
-    path: '/profile',
-    component: EditProfile,
-  },
-  // highlight-end
-];
+const handleLogout = async () => {
+  const { error } = await kontenbase.auth.logout();
 
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
+  if (error) {
+    console.log(error);
+    return;
+  }
+
+  router.push('/');
+};
+
+onMounted(() => {
+  getProfile();
 });
-
-export default router;
+</script>
 ```
 
 If we register or login successfully we should be navigated to `Profile` page. In this page we will able to edit profile and upload a picture.
@@ -703,9 +600,9 @@ If we register or login successfully we should be navigated to `Profile` page. I
 Now we will create a page to show user profile based on the username defined in the URL. Example when user visit: `app_url/johndoe`,
 this page will show user profile with username `johndoe`.
 
-Create `Profile.vue` file inside the `views` folder, Copy the code below:
+Create `[username].vue` file inside the `pages` folder, Copy the code below:
 
-```js title='/src/views/Profile.js'
+```js title='/pages/[username].vue'
 <template>
   <div class="profile-page">
     <div v-if="isOwnProfile" class="button-top">
@@ -759,132 +656,78 @@ Create `Profile.vue` file inside the `views` folder, Copy the code below:
   </div>
 </template>
 
-<script>
+<script setup>
 import { onMounted, ref } from 'vue';
 import { kontenbase } from '../lib/kontenbase';
-import { useRouter, useRoute } from 'vue-router';
-export default {
-  setup() {
-    const router = useRouter();
-    const route = useRoute();
-    const firstName = ref('');
-    const lastName = ref('');
-    const phoneNumber = ref('');
-    const email = ref('');
-    const profileId = ref('');
-    const image = ref('');
-    const company = ref('');
-    const position = ref('');
-    const location = ref('');
-    const website = ref('');
-    const isOwnProfile = ref(false);
 
-    const getProfile = async () => {
-      const { username } = route.params;
+const router = useRouter();
+const route = useRoute();
+const firstName = ref('');
+const lastName = ref('');
+const phoneNumber = ref('');
+const email = ref('');
+const profileId = ref('');
+const image = ref('');
+const company = ref('');
+const position = ref('');
+const location = ref('');
+const website = ref('');
+const isOwnProfile = ref(false);
 
-      if (!username) {
-        return;
-      }
+const getProfile = async () => {
+  const { username } = route.params;
 
-      const { data, error } = await kontenbase.service('Users').find({
-        where: {
-          username,
-        },
-        lookup: '*',
-      });
+  if (!username) {
+    return;
+  }
 
-      if (error) {
-        console.log(error);
-        return;
-      }
+  const { data, error } = await kontenbase.service('Users').find({
+    where: {
+      username,
+    },
+    lookup: '*',
+  });
 
-      if (data) {
-        const user = data?.[0];
-        const profile = user?.profile?.[0];
-        firstName.value = user.firstName;
-        lastName.value = user.lastName;
-        phoneNumber.value = user.phoneNumber;
-        email.value = user.email;
-        profileId.value = profile._id;
-        image.value = profile.image;
-        company.value = profile.company;
-        location.value = profile.location;
-        position.value = profile.position;
-        website.value = profile.website;
+  if (error) {
+    console.log(error);
+    return;
+  }
 
-        const { user: authUser } = await kontenbase.auth.user();
+  if (data) {
+    const user = data?.[0];
+    const profile = user?.profile?.[0];
+    firstName.value = user.firstName;
+    lastName.value = user.lastName;
+    phoneNumber.value = user.phoneNumber;
+    email.value = user.email;
+    profileId.value = profile._id;
+    image.value = profile.image;
+    company.value = profile.company;
+    location.value = profile.location;
+    position.value = profile.position;
+    website.value = profile.website;
 
-        isOwnProfile.value = user.username === authUser?.username;
-      }
-    };
+    const { user: authUser } = await kontenbase.auth.user();
 
-    const handleLogout = async () => {
-      const { error } = await kontenbase.auth.logout();
-
-      if (error) {
-        console.log(error);
-        return;
-      }
-
-      router.push('/');
-    };
-
-    onMounted(() => {
-      getProfile();
-    });
-
-    return {
-      firstName,
-      lastName,
-      phoneNumber,
-      email,
-      profileId,
-      image,
-      company,
-      location,
-      position,
-      website,
-      isOwnProfile,
-      handleLogout,
-    };
-  },
+    isOwnProfile.value = user.username === authUser?.username;
+  }
 };
-</script>
-```
 
-Create a route for Profile page.
+const handleLogout = async () => {
+  const { error } = await kontenbase.auth.logout();
 
-```js title='/src/router/index.js'
-import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
-import EditProfile from '../views/EditProfile.vue';
-// highlight-start
-import Profile from '../views/Profile.vue';
-// highlight-end
+  if (error) {
+    console.log(error);
+    return;
+  }
 
-const routes = [
-  {
-    path: '/',
-    component: Home,
-  },
-  {
-    path: '/profile',
-    component: EditProfile,
-  },
-  // highlight-start
-  {
-    path: '/:username',
-    component: Profile,
-  },
-  // highlight-end
-];
+  router.push('/');
+};
 
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
+onMounted(() => {
+  getProfile();
 });
-
-export default router;
+</script>
 ```
 
 And we're done to complete our App!
