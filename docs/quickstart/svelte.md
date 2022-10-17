@@ -48,14 +48,14 @@ Now we are going to set `profile` and `Users` service.
 2. Fill in the service detail, give a name `profile`, select as private.
 3. Click on `profile` service, select`Customize Fields`, then add some fields following picture below. note, there is a field `Users` with data type `Link To Record`. It means we create a data relation between the service `profile` with the `Users`.
 
-![](./assets/field-profile.png)
+![](./assets/database-profile.png)
 
 We need some configuration in `Users` service to make both autheticated user and public can get or access users data. But don't worry, by default that will not return password, so user still secure.
 
 1. Click on `Authorization` button.
 2. Change service to `Users` and turn on `GET` permission for role autheticated and public.
 
-![](./assets/profile-authorization.png)
+![](./assets/profile-auth.png)
 
 3. Add new field called : `username`, select data type : `username`, then set field as required and unique.
 4. Enable username as user identity when logging in: click `Settings`, then `Configuration` on the sidebar, find `User identity field` and change to username.
