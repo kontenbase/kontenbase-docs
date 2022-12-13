@@ -5,3 +5,68 @@ title: Quick Look
 import YouTube from 'react-youtube'
 
 <YouTube videoId="Ofqw_UH0m8c" />
+
+# Introduction
+
+Hola everyone, we are excited to launch Kontenbase v2!
+
+Kontenbase is no code paltform that can create API from schema table or custom function. In order to login Kontenbase[https://kontenbase.com/] , we need to login our GitHub Account first.
+
+# Project
+
+Let's create an `Online Course App` as study case. 
+
+Enter the project's name and in a few seconds, we will get the auto generated project URL and API Key.
+
+## Database
+Hover cursor to Database Menu to create table, by default the project will have Users table.
+Let’s create `course` table.
+
+### Data Model
+After the table is created, we may see some default field that is showed in rows. We may make change to the field depend to the project's need.
+
+Customize the field by add language field as single select.
+This field is to inform the language of the course. We will just make 2 options, English and Indonesia. We can also set the field to required field
+
+Add another field that is attachment for the course cover.
+
+### Entry Data in Table
+Next, we will create `Tag table`, this is just for adding tags for the course.
+
+Add some records. Let's say: programming, fullstack, backend, and frontend.
+
+### Link to Record (Relational Table)
+Hover back to  `Courses table`, we will add new field that is `link to records` in `tag table` and name it tags because we will allow `linking to multiple records`.
+
+Let’s try add records, HTML Fundamental with tags progamming and fullstack.
+
+### Attachment (Single or Multiple Upload)
+Here we can directly upload the image. So, we dont bother to think where we are going to save the file. Also, we can get the records from tag table.
+
+We will add one more record, Material UI with tag frontend.
+
+## API
+Hover to API menu, here we can access the URL of course and other table in the project.
+The response here as JSON. We can use `filter` to select some fields and the URL will directly adjust the `filter`.
+
+### Hosted API
+We can also paste the URL on browser and get the same records as well when we are in Kontenbase Dashboard.
+
+## Auth
+Next, try to POST course but we get error message as unauthorized because we have not login yet.
+
+### Authorization
+We can customize the auth by Hover to `Auth Menu` and let's say you want to change course to public so, enable the togglees here.
+
+### Authentication
+For now, we will just make it private. So, hover back to `API Menu` and `register a user`. Here, we got the token for the authentication. But, we don't need to copy it because in this Kontenbase Dashboard, once you login to a user inside project. The user active will be detacted.
+
+Okay, fill out the fields and we just add new record.
+
+## Storage
+Then, hover to `storage menu`. This is just like Amazon S3 and other. So you don't need to think again what storage technology you are going to use, Kontenbase has perepared it for you. The file we have uploded before were saved her. Just like drive, we can open the file on browser and if you like to save some asssets you can manage it by grouping with folders.
+
+## Function
+Next, we also have new feature that is custom Function where you can import function form your existing or legacy app that is located in your github or create the new one with any programming languages.
+
+That's all for the Kontenbase v2 Quick Look, thank you!
