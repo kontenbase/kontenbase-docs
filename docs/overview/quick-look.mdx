@@ -7,66 +7,209 @@ import YouTube from 'react-youtube'
 <YouTube videoId="Ofqw_UH0m8c" />
 
 # Introduction
+This is Kontenbase v2, not much different from the v1 but come back with many more simple and easy ways to help developers during website app development!
 
-Hola everyone, we are excited to launch Kontenbase v2!
+Kontenbase is a low code-no code platform that allows you to create:
+- Auto generated Backend API
+- Object storage to organize your files and assets
+- Built in basic authentication like role management without coding
+- Real-time support with battle tested performance
 
-Kontenbase is no code paltform that can create API from schema table or custom function. In order to login Kontenbase[https://kontenbase.com/] , we need to login our GitHub Account first.
+# Kontenbase Account
+To log in to Kontenbase, Kontenbase Users need to log in with GitHub Account. GitHub as code management is used to store the need for custom code in Kontenbase, Function.
+
+![Kontenbase Account](./assets/kontenbase-login.png)
+
+You can also directly connect your existing project to your GitHub and adjust the data model in Kontenbase. So, it is easy to use and does not much time needed to re-create your project in Kontenbase.
+
+# Organization
+Organizations are a way to group your projects. Each organization can be configured with different team members and billing settings.
+
+Here, you can see a list of applications that you and your teams are currently developing or add new projects that you are about to develop.
+
+## Team Members 
+You can invite your team members into your organizations to collaborate on projects.
+
+![Team Members](./assets/team-members.png)
+
+You can also assign roles to your team members with different access levels. The table below shows the corresponding permissions for each available role in the Dashboard.
+
+| Permissions      | Owner  | Editor  | Developer  | Viewer  |
+| ---------------- | -------| --------| -----------| --------|
+| TBD              | [X]    | [X]     |     [X]    | [X]     |
 
 # Project
+The projects are organized based on Organization.
 
-Let's create an `Online Course App` as study case. 
+You are free to name the project and rename it in the project settings, once created.
 
-Enter the project's name and in a few seconds, we will get the auto generated project URL and API Key.
+## Create a project
+Let's create an `Online Course App` as study case.
+
+1. Go to app.kontenbase.com .
+2. Click on "New Project".
+
+![New Project](./assets/new-project.jpeg)
+
+3. Enter your project name and click "Create Project".
+
+![Create Project](./assets/create-project.jpeg)
+
+4. Wait for the project to launch.
+
+![Home Project](./assets/home-project.jpeg)
+
+Home page will show the auto-generated URL and APIKey for the project. Scroll down to see the project examples provided here and you can directly try these examples.
 
 ## Database
-Hover cursor to Database Menu to create table, by default the project will have Users table.
-Let’s create `course` table.
+The Database Menu lets you create and organize the tables, including data modeling and relational table.
+By default, there is Users Table for Authentication where you can also customize the field.
 
-### Data Model
-After the table is created, we may see some default field that is showed in rows. We may make change to the field depend to the project's need.
+1. Hover to "Database" Menu.
+2. Click on "New Table".
 
-Customize the field by add language field as single select.
-This field is to inform the language of the course. We will just make 2 options, English and Indonesia. We can also set the field to required field
+![New Table](./assets/new-table.jpeg)
 
-Add another field that is attachment for the course cover.
+3. Enter your table name and click "Create Table".
 
-### Entry Data in Table
-Next, we will create `Tag table`, this is just for adding tags for the course.
+![Create Table](./assets/create-table.jpeg)
 
-Add some records. Let's say: programming, fullstack, backend, and frontend.
+4. Customize data structure.
+    - Edit field
+      1. Click on the down triangle icon and select "Customize field type".
 
-### Link to Record (Relational Table)
-Hover back to  `Courses table`, we will add new field that is `link to records` in `tag table` and name it tags because we will allow `linking to multiple records`.
+      ![Edit Field](./assets/edit-field.jpeg)
 
-Let’s try add records, HTML Fundamental with tags progamming and fullstack.
+      2. Adjust field type to project need.
+      
+      ![Single Select](./assets/single-select.jpeg)
 
-### Attachment (Single or Multiple Upload)
-Here we can directly upload the image. So, we dont bother to think where we are going to save the file. Also, we can get the records from tag table.
+      In this case, "Single Select" type will let you to fill some
 
-We will add one more record, Material UI with tag frontend.
+      ![Options](./assets/options.jpeg)
+
+      In this case, the "Single Select" type will let you list the name of options. For more "Data Modeling" type explanations, read more [here](https://docs.kontenbase.com/overview/data-types)
+      
+      3. Set field as required or unique.
+      
+      ![Required Unique](./assets/required-unique.jpeg)
+      
+      4. Click on "Save".
+      
+      ![Save Button](./assets/required-save.jpeg)
+      
+      5. Click on "Confirm" from the confirmation dialog to save the change.
+      
+      ![Confirmation Dialog](./assets/confirmation.jpeg)
+
+    - Add field
+      1. Click on "Add Button (+)".
+      
+      ![Add Button](./assets/add-field.jpeg)
+      
+      2. Adjust field type to the project need.
+      
+      ![Attachment](./assets/attachment.jpeg)
+      
+      "Attachment" is used for Single or Multiple Uploads.
+
+      3. Set field as required or unique.
+            
+      4. Click on "Save". 
+      
+      ![Save Button](./assets/required-unique-attachment.jpeg)
+
+    - Relational table
+      1. Add field using Add Button (+).
+
+      ![Relational Table](./assets/relational.jpeg)
+
+      2. Select "Link To Record" type to create a "relational table".
+      
+      ![Link to Record](./assets/link-to-record.jpeg)
+
+      3. Click the "Select table" field and choose the table.
+      
+      ![Select Table](./assets/select-table.jpeg)
+
+      4. Click the "Field name (optional)" field and name the field.
+
+      ![Field Name](./assets/field-name.jpeg)
+
+      You are able to disable "Allow linking to multiple records".
+
+      5. Click "Save" button.
+
+      ![Save Button](./assets/save-button.jpeg)
+
+    - Entry data
+      1. Double-click on the column to fill the row.
+
+        ![Entry Data](./assets/double-click.jpeg)
+
+         Then click enter or hover cursor to any area to save the record.
+
+         ![Entry Data](./assets/success-add-record.jpeg)
+
+      2. Add record by Add Button (+).
+
+        ![Entry Data](./assets/add-button.jpeg)
+
+         Fill in the field then click the "Save" icon.
+
+        ![Entry Data](./assets/get-data-from-relational-table.png)
+
+    - Get data from the Relational table field
+
+      ![Relational Table](./assets/relational-button.png)
+
+      ![Relational Table](./assets/relational-table-record.png)
+
+Here, the data is shown in the form of rows and columns.
+
+![Table](./assets/table.png)
 
 ## API
-Hover to API menu, here we can access the URL of course and other table in the project.
-The response here as JSON. We can use `filter` to select some fields and the URL will directly adjust the `filter`.
+Every single table created will auto-generated a RESTful API.
+    
+- Try to GET record
+  ![API](./assets/send-button.png)
 
-### Hosted API
-We can also paste the URL on browser and get the same records as well when we are in Kontenbase Dashboard.
+  ![API](./assets/json-response.png)
+
+  Hosted URL that can be accessed online or any API Client Platform.
+
+  ![API](./assets/hosted-URL.png)
+
+- Authentication
+    
+  1. Register
+
+  ![Register](./assets/register.png)
+
+  There will be a token for each account registered.
+
+  2. Login
+
+  ![Login](./assets/login.png)
+
+- Try to POST Record
+
+  ![POST](./assets/post.png)
 
 ## Auth
-Next, try to POST course but we get error message as unauthorized because we have not login yet.
+The Auth Menu will give you access to control permission for each role.
 
-### Authorization
-We can customize the auth by Hover to `Auth Menu` and let's say you want to change course to public so, enable the togglees here.
-
-### Authentication
-For now, we will just make it private. So, hover back to `API Menu` and `register a user`. Here, we got the token for the authentication. But, we don't need to copy it because in this Kontenbase Dashboard, once you login to a user inside project. The user active will be detacted.
-
-Okay, fill out the fields and we just add new record.
-
-## Storage
-Then, hover to `storage menu`. This is just like Amazon S3 and other. So you don't need to think again what storage technology you are going to use, Kontenbase has perepared it for you. The file we have uploded before were saved her. Just like drive, we can open the file on browser and if you like to save some asssets you can manage it by grouping with folders.
+![Authorization](./assets/authorization.png)
 
 ## Function
-Next, we also have new feature that is custom Function where you can import function form your existing or legacy app that is located in your github or create the new one with any programming languages.
+Kontenbase provides The Function Menu to create custom code that is stored on your GitHub Account 
+or directly import your existing project on GitHub to Kontenbase.
+You are allowed to use any programming language whether it's frontend or backend.
 
-That's all for the Kontenbase v2 Quick Look, thank you!
+![Function](./assets/function.png)
+
+## Storage
+Easily see your uploaded file in Storage Menu. You can also upload files and assets from here and organize them based on the folder.
+
+![Storage](./assets/storage.png)
